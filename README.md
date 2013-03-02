@@ -48,5 +48,7 @@ Sass Flag | keyword.other.flag.sass
 
 ## 致谢
 [nathos's sass-textmate-bundle](https://github.com/nathos/sass-textmate-bundle)
+
 [Textmate Language Grammars](http://manual.macromates.com/en/language_grammars.html)
+
 [Solarized](http://ethanschoonover.com/solarized)
