@@ -406,7 +406,7 @@
 		<key>operator</key>
 		<dict>
 			<key>match</key>
-			<string>\+|-|\*|/|%|=|\!|&lt;|&gt;</string>
+			<string>\+|\s-\s|\*|/|%|=|\!|&lt;|&gt;</string>
 			<key>name</key>
 			<string>keyword.operator.sass</string>
 		</dict>
