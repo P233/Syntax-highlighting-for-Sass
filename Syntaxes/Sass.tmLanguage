@@ -69,10 +69,6 @@
 			<string>#flag</string>
 		</dict>
 		<dict>
-			<key>include</key>
-			<string>#operator</string>
-		</dict>
-		<dict>
 			<key>match</key>
 			<string>&amp;</string>
 			<key>name</key>
@@ -277,10 +273,6 @@
 					<string>#flag</string>
 				</dict>
 				<dict>
-					<key>include</key>
-					<string>#operator</string>
-				</dict>
-				<dict>
 					<key>begin</key>
 					<string>url(\()</string>
 					<key>beginCaptures</key>
@@ -343,7 +335,15 @@
 					<key>name</key>
 					<string>support.function.buildin.sass</string>
 				</dict>
+				<dict>
+					<key>include</key>
+					<string>#operator</string>
+				</dict>
 			</array>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#operator</string>
 		</dict>
 	</array>
 	<key>repository</key>

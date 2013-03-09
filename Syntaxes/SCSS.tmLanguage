@@ -77,10 +77,6 @@
 			<string>#flag</string>
 		</dict>
 		<dict>
-			<key>include</key>
-			<string>#operator</string>
-		</dict>
-		<dict>
 			<key>match</key>
 			<string>&amp;</string>
 			<key>name</key>
@@ -294,10 +290,6 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#operator</string>
-				</dict>
-				<dict>
-					<key>include</key>
 					<string>#curly-brackets</string>
 				</dict>
 				<dict>
@@ -363,7 +355,15 @@
 					<key>name</key>
 					<string>support.function.buildin.sass</string>
 				</dict>
+				<dict>
+					<key>include</key>
+					<string>#operator</string>
+				</dict>
 			</array>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#operator</string>
 		</dict>
 	</array>
 	<key>repository</key>

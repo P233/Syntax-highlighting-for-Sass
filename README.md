@@ -44,6 +44,7 @@ Sass Directive Shorthand | support.function.directive-shorthand.sass
 Sass Build-in Function | support.function.buildin.sass
 Sass Interpolation | support.function.interpolation.sass
 Sass Flag | keyword.other.flag.sass
+Sass Operator | keyword.operator.sass
 SCSS Semicolon | keyword.other.semicolon.sass
 SCSS Curly Brackets | keyword.other.curly-brackets.sass
 
