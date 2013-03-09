@@ -1,16 +1,15 @@
 # Syntax Highlighting for Sass
-用过几个版本的 Sass 代码高亮插件，效果都不太理想，所以参考 [nathos's sass-textmate-bundle](https://github.com/nathos/sass-textmate-bundle) 自己也写了一个。采用匹配语句结构的方式代替匹配关键词，因此不会出现某些词不能高亮的问题，但有些根据 Scope Selector 的 snippets 可能会失效。添加了 Attribute Selector 高亮，优化了 `@media` 高亮效果，此外，支持 Sass 专有语句，包括 Variable, Directive, Directive Shorthand (`=` `+`), Placeholder Selector, Build-in Function, Interpolation 等等。目前除了运算符与自定义函数，其他部分应该完美显示。
+This is a new syntax highlighting package for Sass (both SCSS and Sass syntaxes) for Sublime Text. Compared with other packages, this will match the structure of `property name` and `property value` instead of matching keywords (actually nothing will match `property name`, it will be treated as basic Sass text), so those two parts will be perfectly highlighted. Also added support for attribute selector, variables, interpolation syntax, directives and directive shorthand (`=` `+`), build-in functions… etc. And also  improved the highlighting rule for `@media`.
 
-Color Scheme 文件夹中附上了针对这个插件修改后的 `Solarized (Light).tmTheme`，大家可以根据其中的 Sass 部分，或者下面的 Scope Selector List 修改自己喜欢的高亮颜色。
+The Preferences and Completions two folders are directly copied from [nathos's sass-textmate-bundle](https://github.com/nathos/sass-textmate-bundle/tree/sublime) with a little bit of modifications. In this package the `property-name.sass` scope selector is only used to fix keyword conflict, so the `Sass - Properties.sublime-completions` file is removed.
 
-Preferences 文件夹提供了 Sublime Text 2 快捷键注释以及符号跳转功能，两个文件拷贝自 [nathos's sass-textmate-bundle](https://github.com/nathos/sass-textmate-bundle)。
+I have shared a custom `Solarized (Light).tmTheme` in Color Scheme folder, so you can see how this highlighting package works. And you can also build your own colour scheme with the following scope selectors. (Learn more about Scope Selectors and Color Scheme, you can have a look at [Textmate Scope Selectors](http://manual.macromates.com/en/scope_selectors) and [Textmate Themes](http://manual.macromates.com/en/themes.html).)
 
-Completions 文件夹直接拷贝自 [nathos's sass-textmate-bundle](https://github.com/nathos/sass-textmate-bundle)，由于匹配方式的变化，`Sass - Properties.sublime-completions` 将会在文件的任意位置提示，因此将其删除。
+As always, if you have any problems with this package or suggestions for improvement, please feel free to [fill an issue](https://github.com/P233/Syntax-highlighting-for-Sass/issues/new), and you are also more than welcome to fork this repo and pull request.
 
-**请注意，这个插件只支持 Sass 语句，不支持 SCSS 语句。任何想法建议欢迎联系我，大家一起交流！**
+## Installation
 
-## 安装
-将下载的文件夹移动到 Sublime Text 2 的 Package 文件夹内。
+Rename the downloaded folder as you like, and then move it into the Packages folder of Sublime Text.
 
 ## Scope Selectors
 Element      | Scope Selector
@@ -45,9 +44,11 @@ Sass Directive Shorthand | support.function.directive-shorthand.sass
 Sass Build-in Function | support.function.buildin.sass
 Sass Interpolation | support.function.interpolation.sass
 Sass Flag | keyword.other.flag.sass
+SCSS Semicolon | keyword.other.semicolon.sass
+SCSS Curly Brackets | keyword.other.curly-brackets.sass
 
-## 致谢
-[nathos's sass-textmate-bundle](https://github.com/nathos/sass-textmate-bundle)
+## Credit
+[nathos's sass-textmate-bundle](https://github.com/nathos/sass-textmate-bundle/tree/sublime)
 
 [Textmate Language Grammars](http://manual.macromates.com/en/language_grammars.html)
 

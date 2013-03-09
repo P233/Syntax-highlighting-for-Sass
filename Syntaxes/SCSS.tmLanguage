@@ -4,14 +4,14 @@
 <dict>
 	<key>fileTypes</key>
 	<array>
-		<string>sass</string>
+		<string>scss</string>
 	</array>
 	<key>foldingStartMarker</key>
 	<string>/\*|^#|^\*|^\b|^\.</string>
 	<key>foldingStopMarker</key>
 	<string>\*/|^\s*$</string>
 	<key>name</key>
-	<string>Sass</string>
+	<string>SCSS</string>
 	<key>patterns</key>
 	<array>
 		<dict>
@@ -30,6 +30,10 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#semicolon</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#double-dash</string>
 		</dict>
 		<dict>
@@ -43,6 +47,10 @@
 		<dict>
 			<key>include</key>
 			<string>#double-quoted</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#curly-brackets</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -142,6 +150,10 @@
 					<key>name</key>
 					<string>support.constant.property-name.sass</string>
 				</dict>
+				<dict>
+					<key>include</key>
+					<string>#curly-brackets</string>
+				</dict>
 			</array>
 		</dict>
 		<dict>
@@ -209,7 +221,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>:\s</string>
+			<string>:</string>
 			<key>beginCaptures</key>
 			<dict>
 				<key>0</key>
@@ -224,6 +236,10 @@
 			<string>support.constant.property-value.sass</string>
 			<key>patterns</key>
 			<array>
+				<dict>
+					<key>include</key>
+					<string>#semicolon</string>
+				</dict>
 				<dict>
 					<key>include</key>
 					<string>#double-dash</string>
@@ -259,6 +275,10 @@
 				<dict>
 					<key>include</key>
 					<string>#flag</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#curly-brackets</string>
 				</dict>
 				<dict>
 					<key>begin</key>
@@ -350,6 +370,13 @@
 			<key>name</key>
 			<string>keyword.other.comma.sass</string>
 		</dict>
+		<key>curly-brackets</key>
+		<dict>
+			<key>match</key>
+			<string>{|}</string>
+			<key>name</key>
+			<string>keyword.other.curly-brackets.sass</string>
+		</dict>
 		<key>double-dash</key>
 		<dict>
 			<key>begin</key>
@@ -396,6 +423,13 @@
 			<key>name</key>
 			<string>keyword.other.round-brackets.sass</string>
 		</dict>
+		<key>semicolon</key>
+		<dict>
+			<key>match</key>
+			<string>;</string>
+			<key>name</key>
+			<string>keyword.other.semicolon.sass</string>
+		</dict>
 		<key>unit</key>
 		<dict>
 			<key>match</key>
@@ -414,6 +448,6 @@
 	<key>scopeName</key>
 	<string>source.sass</string>
 	<key>uuid</key>
-	<string>E8D3BD64-D3C3-4CDC-B721-2120C9F06B68</string>
+	<string>90DAEA60-88AA-11E2-9E96-0800200C9A66</string>
 </dict>
 </plist>

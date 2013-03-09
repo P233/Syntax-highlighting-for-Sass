@@ -538,6 +538,8 @@
 			<string>entity.name.tag.sass, keyword.other.ampersand.sass</string>
 			<key>settings</key>
 			<dict>
+				<key>fontStyle</key>
+				<string></string>
 				<key>foreground</key>
 				<string>#738A13</string>
 			</dict>
@@ -588,9 +590,9 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Sass: Comma</string>
+			<string>Sass: Comma / Semicolon / Curly Brackets</string>
 			<key>scope</key>
-			<string>keyword.other.comma.sass</string>
+			<string>keyword.other.comma.sass, keyword.other.semicolon.sass, keyword.other.curly-brackets.sass</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
