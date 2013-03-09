@@ -29,6 +29,21 @@
 			<string>support.constant.property-name.sass</string>
 		</dict>
 		<dict>
+			<key>begin</key>
+			<string>#{</string>
+			<key>end</key>
+			<string>}</string>
+			<key>name</key>
+			<string>support.function.interpolation.sass</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#variable</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
 			<key>include</key>
 			<string>#semicolon</string>
 		</dict>
