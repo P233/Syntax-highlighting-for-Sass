@@ -623,6 +623,17 @@
 		</dict>
 		<dict>
 			<key>name</key>
+			<string>Sass: Operator</string>
+			<key>scope</key>
+			<string>keyword.operator.sass</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#6C71C4</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
 			<string>JS: Function Name</string>
 			<key>scope</key>
 			<string>meta.function.js, entity.name.function.js, support.function.dom.js</string>
