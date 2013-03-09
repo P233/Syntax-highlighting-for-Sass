@@ -66,11 +66,11 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#operator</string>
+			<string>#flag</string>
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#flag</string>
+			<string>#operator</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -274,11 +274,11 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#operator</string>
+					<string>#flag</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#flag</string>
+					<string>#operator</string>
 				</dict>
 				<dict>
 					<key>begin</key>
