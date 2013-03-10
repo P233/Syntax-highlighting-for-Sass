@@ -12,6 +12,9 @@ As always, if you have any problems with this package or suggestions for improve
 ### Sublime Text
 Rename the downloaded folder as you like, and then move it into the Packages folder of Sublime Text.
 
+### TextMate
+Firstly, move the `Solarized (Light).tmTheme` file into `~/Library/Application Support/TextMate/Themes/`, then add `.tmbundle` extension to the downloaded folder and move it in to `~/Library/Application Support/TextMate/Bundles/`. If the folder doesn't exist, create one.
+
 ## Scope Selectors
 
 I have shared a custom `Solarized (Light).tmTheme` in Color Scheme folder, so that you can see how this highlighting package works. And you can also build/modify your own color scheme with the following scope selectors. (Learn more about Scope Selectors and Color Scheme, take a look at [Textmate Scope Selectors](http://manual.macromates.com/en/scope_selectors) and [Textmate Themes](http://manual.macromates.com/en/themes.html).) If you make a color scheme for this package, please [let me know](mailto:40132147@qq.com). I'd like to add a link here.

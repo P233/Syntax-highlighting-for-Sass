@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Syntax Highlighting for Sass</string>
+	<key>ordering</key>
+	<array>
+		<string>E8D3BD64-D3C3-4CDC-B721-2120C9F06B68</string>
+		<string>90DAEA60-88AA-11E2-9E96-0800200C9A66</string>
+		<string>6486B060-82BB-11E2-9E96-0800200C9A66</string>
+		<string>71B52B90-82BB-11E2-9E96-0800200C9A66</string>
+	</array>
+	<key>uuid</key>
+	<string>63C193BD-C6A1-4C2B-80F8-776C0EA3B966</string>
+</dict>
+</plist>
