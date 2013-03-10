@@ -579,9 +579,9 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Sass: url / Buildin Function / Interpolation</string>
+			<string>Sass: Function Name / Interpolation</string>
 			<key>scope</key>
-			<string>support.function.url.sass, support.function.buildin.sass, support.function.interpolation.sass</string>
+			<string>support.function.name.sass, support.function.interpolation.sass</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>

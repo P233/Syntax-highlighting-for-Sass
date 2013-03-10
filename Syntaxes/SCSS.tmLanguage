@@ -23,34 +23,8 @@
 			<string>comment.block.sass</string>
 		</dict>
 		<dict>
-			<key>match</key>
-			<string>-|select|style</string>
-			<key>name</key>
-			<string>support.constant.property-name.sass</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#semicolon</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#interpolation</string>
-		</dict>
-		<dict>
 			<key>include</key>
 			<string>#double-dash</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#placeholder-selector</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#variable</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#double-quoted</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -62,7 +36,27 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#comma</string>
+			<string>#double-quoted</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#interpolation</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#placeholder-selector</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#variable</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#rgb-value</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#color</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -75,6 +69,14 @@
 		<dict>
 			<key>include</key>
 			<string>#flag</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#comma</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#semicolon</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -174,12 +176,6 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(a|abbr|acronym|address|area|article|aside|audio|b|base|big|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|eventsource|fieldset|figure|figcaption|footer|form|frame|frameset|(h[1-6])|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|map|mark|menu|meta|meter|nav|noframes|noscript|object|ol|optgroup|option|output|p|param|pre|progress|q|samp|script|section|select|small|span|strike|strong|style|sub|summary|sup|table|tbody|td|textarea|tfoot|th|thead|time|title|tr|tt|ul|var|video)\b</string>
-			<key>name</key>
-			<string>entity.name.tag.sass</string>
-		</dict>
-		<dict>
-			<key>match</key>
 			<string>#[a-zA-Z0-9_#{}$-]+</string>
 			<key>name</key>
 			<string>entity.other.attribute-name.id.sass</string>
@@ -242,31 +238,11 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#semicolon</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#interpolation</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#colon</string>
-				</dict>
-				<dict>
-					<key>include</key>
 					<string>#double-dash</string>
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#placeholder-selector</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#variable</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#double-quoted</string>
+					<string>#curly-brackets</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -274,7 +250,27 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#comma</string>
+					<string>#double-quoted</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#placeholder-selector</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#interpolation</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#variable</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#rgb-value</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#color</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -290,50 +286,15 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#curly-brackets</string>
+					<string>#colon</string>
 				</dict>
 				<dict>
-					<key>begin</key>
-					<string>url(\()</string>
-					<key>beginCaptures</key>
-					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>keyword.other.round-brackets.sass</string>
-						</dict>
-					</dict>
-					<key>end</key>
-					<string>\)</string>
-					<key>endCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>keyword.other.round-brackets.sass</string>
-						</dict>
-					</dict>
-					<key>name</key>
-					<string>support.function.url.sass</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>include</key>
-							<string>#double-quoted</string>
-						</dict>
-					</array>
+					<key>include</key>
+					<string>#comma</string>
 				</dict>
 				<dict>
-					<key>match</key>
-					<string>(#)([0-9a-fA-F]{3}|[0-9a-fA-F]{6})\b</string>
-					<key>name</key>
-					<string>constant.other.color.rgb-value.sass</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>\b(aqua|black|blue|fuchsia|gray|green|lime|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow)\b</string>
-					<key>name</key>
-					<string>support.constant.color.sass</string>
+					<key>include</key>
+					<string>#semicolon</string>
 				</dict>
 				<dict>
 					<key>match</key>
@@ -342,18 +303,8 @@
 					<string>support.constant.font-name.sass</string>
 				</dict>
 				<dict>
-					<key>beginCaptures</key>
-					<dict>
-						<key>2</key>
-						<dict>
-							<key>name</key>
-							<string>keyword.other.round-brackets.sass</string>
-						</dict>
-					</dict>
-					<key>match</key>
-					<string>\b(rgba|rgb|red|green|blue|mix|hsla|hsl|hue|saturation|lightness|adjust-hue|lighten|darken|saturate|desaturate|grayscale|complement|invert|alpha|opacity|opacify|fade-in|transparentize|fade-out|adjust-color|scale-color|change-color|ie-hex-str|unquote|quote|percentage|round|ceil|floor|abs|min|max|length|nth|join|append|type-of|unit|unitless|comparable|if|index|zip)(\()</string>
-					<key>name</key>
-					<string>support.function.buildin.sass</string>
+					<key>include</key>
+					<string>#function</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -363,7 +314,17 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#function</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#operator</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?&lt;!\-)\b(a|abbr|acronym|address|area|article|aside|audio|b|base|big|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|eventsource|fieldset|figure|figcaption|footer|form|frame|frameset|(h[1-6])|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|map|mark|menu|meta|meter|nav|noframes|noscript|object|ol|optgroup|option|output|p|param|pre|progress|q|samp|script|section|select|small|span|strike|strong|style|sub|summary|sup|table|tbody|td|textarea|tfoot|th|thead|time|title|tr|tt|ul|var|video)\b(?!\-)</string>
+			<key>name</key>
+			<string>entity.name.tag.sass</string>
 		</dict>
 	</array>
 	<key>repository</key>
@@ -374,6 +335,13 @@
 			<string>:</string>
 			<key>name</key>
 			<string>keyword.other.colon.sass</string>
+		</dict>
+		<key>color</key>
+		<dict>
+			<key>match</key>
+			<string>\b(aqua|black|blue|fuchsia|gray|green|lime|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow)\b</string>
+			<key>name</key>
+			<string>support.constant.color.sass</string>
 		</dict>
 		<key>comma</key>
 		<dict>
@@ -414,6 +382,21 @@
 			<key>name</key>
 			<string>keyword.other.flag.sass</string>
 		</dict>
+		<key>function</key>
+		<dict>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.other.round-brackets.sass</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(?&lt;=[\s|\(])[a-zA-Z0-9_-]+(\()</string>
+			<key>name</key>
+			<string>support.function.name.sass</string>
+		</dict>
 		<key>interpolation</key>
 		<dict>
 			<key>begin</key>
@@ -440,7 +423,7 @@
 		<key>operator</key>
 		<dict>
 			<key>match</key>
-			<string>\+|\s-\s|\*|/|%|=|\!|&lt;|&gt;</string>
+			<string>\+|\s-\s|\*|/|%|=|!|&lt;|&gt;</string>
 			<key>name</key>
 			<string>keyword.operator.sass</string>
 		</dict>
@@ -450,6 +433,13 @@
 			<string>%[a-zA-Z0-9_-]+</string>
 			<key>name</key>
 			<string>entity.other.attribute-name.placeholder-selector.sass</string>
+		</dict>
+		<key>rgb-value</key>
+		<dict>
+			<key>match</key>
+			<string>(#)([0-9a-fA-F]{3}|[0-9a-fA-F]{6})\b</string>
+			<key>name</key>
+			<string>constant.other.color.rgb-value.sass</string>
 		</dict>
 		<key>round-brackets</key>
 		<dict>
