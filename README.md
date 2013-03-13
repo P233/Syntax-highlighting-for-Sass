@@ -1,15 +1,11 @@
 # Syntax Highlighting for Sass
-This is a new syntax highlighting package for Sass (separately support both SCSS and Sass) for Sublime Text / TextMate. Compared with other packages, this will match the structure of `property name` and `property value` instead of matching keywords (actually, nothing will match `property name`, it will be treated as basic Sass text), so these two parts will be perfectly highlighted and no need to add keywords in the future. Other features including: added support for attribute selector, variables, interpolation syntax, directives and directive shorthand (`=` `+`), functions, operators… etc; and also improved the highlighting rule for `@media`.
+This is a new syntax highlighting package for Sass (separately support both SCSS and Sass) for Sublime Text / TextMate. Compared with other packages, this will match the structure of `property name` and `property value` instead of matching keywords (actually, nothing will match `property name`, it will be treated as basic Sass text), so these two parts will be perfectly highlighted and no need to add keywords in the future. Other features including: added support for attribute selector, variables, interpolation syntax, directives and directive shorthand (`=` `+`), functions, operators… etc; improved the highlighting rule for `@media`; and also added `Completion Rules.tmPreferences` file, completions will not be offered when typing in selectors.
 
 Syntax such like `something(…)` will be matched as **function**, this will effect `url()`, `format()`, some CSS property values, Sass build-in functions, Compass/Bourbon functions, and even custom functions. And Sass at-rules (e.g. `@function`) will be matched as **directive**. These two parts still have room for improvement.
 
 The `Preferences` and `Completions` two folders are directly copied from [nathos's sass-textmate-bundle](https://github.com/nathos/sass-textmate-bundle/tree/sublime) with a little bit of modifications. In this package, `property-name.sass` scope selector only works in `@media` directive, then I removed the `Sass - Properties.sublime-completions` file.
 
 As always, if you have any problems with this package or suggestions for improvement, please feel free to [fill an issue](https://github.com/P233/Syntax-highlighting-for-Sass/issues/new), and you are also more than welcome to fork this repo and pull request.
-
-## Changelog
-### 13 March 2013
-Added `Completion Rules.tmPreferences` file, then completions will not be offered when typing in selectors.
 
 ## Installation
 

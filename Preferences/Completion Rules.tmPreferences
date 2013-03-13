@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>scope</key>
-    <string>source.sass entity</string>
+    <string>source.sass entity, source.scss entity</string>
     <key>settings</key>
     <dict>
         <key>cancelCompletion</key>
