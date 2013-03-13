@@ -7,6 +7,10 @@ The `Preferences` and `Completions` two folders are directly copied from [nathos
 
 As always, if you have any problems with this package or suggestions for improvement, please feel free to [fill an issue](https://github.com/P233/Syntax-highlighting-for-Sass/issues/new), and you are also more than welcome to fork this repo and pull request.
 
+## Changelog
+### 13 March 2013
+Added `Completion Rules.tmPreferences` file, then completions will not be offered when typing in selectors.
+
 ## Installation
 
 ### Sublime Text
