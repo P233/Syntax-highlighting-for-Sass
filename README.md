@@ -1,7 +1,9 @@
 # Syntax Highlighting for Sass
 This is a new syntax highlighting package for Sass (separately support both SCSS and Sass) for Sublime Text / TextMate. Compared with other packages, this will match the structure of `property name` and `property value` instead of matching keywords (actually, nothing will match `property name`, it will be treated as basic Sass text), so these two parts will be perfectly highlighted and no need to add keywords in the future. Other features including: added support for attribute selector, variables, interpolation syntax, directives and directive shorthand (`=` `+`), functions, operators… etc; improved the highlighting rule for `@media`; and also added `Completion Rules.tmPreferences` file, completions will not be offered when typing in selectors.
 
-Syntax such like `something(…)` will be matched as **function**, this will effect `url()`, `format()`, some CSS property values, Sass build-in functions, Compass/Bourbon functions, and even custom functions. And Sass at-rules (e.g. `@function`) will be matched as **directive**. These two parts still have room for improvement.
+Syntax such like `something(…)` will be matched as **function**, this will effect some CSS property values, Sass build-in functions, Compass/Bourbon functions, and custom functions.
+
+Sass at-rules (e.g. `@function`) will be matched as **directive**. This part still have room for improvement.
 
 The `Preferences` and `Completions` two folders are directly copied from [nathos's sass-textmate-bundle](https://github.com/nathos/sass-textmate-bundle/tree/sublime) with a little bit of modifications. In this package, `property-name.sass` scope selector only works in `@media` directive, then I removed the `Sass - Properties.sublime-completions` file.
 
@@ -53,6 +55,10 @@ Sass Flag | keyword.other.flag.sass
 Sass Operator | keyword.operator.sass
 SCSS Semicolon | keyword.other.semicolon.sass
 SCSS Curly Brackets | keyword.other.curly-brackets.sass
+
+## Contributors
+
+[mannieschumpert](https://github.com/mannieschumpert)
 
 ## Credit
 [nathos's sass-textmate-bundle](https://github.com/nathos/sass-textmate-bundle/tree/sublime)
