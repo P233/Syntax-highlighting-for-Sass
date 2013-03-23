@@ -12,7 +12,10 @@ As always, if you have any problems with this package or suggestions for improve
 ## Installation
 
 ### Sublime Text
-Rename the downloaded folder as you like, and then move it into the Packages folder of Sublime Text.
+
+Now you can install this package through Package Control.
+
+Or download this package and rename the downloaded folder as you like, then move it into the Packages folder of Sublime Text.
 
 ### TextMate
 Firstly, move the `Solarized (Light).tmTheme` file into `~/Library/Application Support/TextMate/Themes/`, then add `.tmbundle` extension to the downloaded folder and move it in to `~/Library/Application Support/TextMate/Bundles/`. If the folder doesn't exist, create one.
