@@ -231,7 +231,15 @@
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>$\n?</string>
+			<string>;</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.other.semicolon.sass</string>
+				</dict>
+			</dict>
 			<key>name</key>
 			<string>support.constant.property-value.sass</string>
 			<key>patterns</key>
