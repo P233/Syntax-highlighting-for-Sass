@@ -513,7 +513,7 @@
 			<key>name</key>
 			<string>Sass: Property Name</string>
 			<key>scope</key>
-			<string>source.sass, support.constant.property-name.sass</string>
+			<string>source.sass, support.constant.property-name.css.sass</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -524,7 +524,7 @@
 			<key>name</key>
 			<string>Sass: Property Value / Color / Numeric / Unit</string>
 			<key>scope</key>
-			<string>support.constant.property-value.sass, constant.other.color.rgb-value.sass, support.constant.color.sass, constant.numeric.sass, keyword.other.unit.sass</string>
+			<string>support.constant.property-value.css.sass, constant.other.color.rgb-value.css.sass, support.constant.color.css.sass, constant.numeric.css.sass, keyword.other.unit.css.sass</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -535,7 +535,7 @@
 			<key>name</key>
 			<string>Sass: Tag / Ampersand</string>
 			<key>scope</key>
-			<string>entity.name.tag.sass, keyword.other.ampersand.sass</string>
+			<string>entity.name.tag.css.sass, keyword.other.ampersand.sass</string>
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
@@ -548,7 +548,7 @@
 			<key>name</key>
 			<string>Sass: #id / .class / %placeholder</string>
 			<key>scope</key>
-			<string>entity.other.attribute-name.id.sass, entity.other.attribute-name.class.sass, entity.other.attribute-name.placeholder-selector.sass</string>
+			<string>entity.other.attribute-name.id.css.sass, entity.other.attribute-name.class.css.sass, entity.other.attribute-name.placeholder-selector.sass</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -559,7 +559,7 @@
 			<key>name</key>
 			<string>Sass: Variable</string>
 			<key>scope</key>
-			<string>support.variable.sass</string>
+			<string>source.sass variable</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -570,7 +570,7 @@
 			<key>name</key>
 			<string>Sass: At-rule / :pseudo / Directive</string>
 			<key>scope</key>
-			<string>keyword.control.at-rule.sass, entity.other.attribute-name.pseudo-class.sass, entity.other.attribute-name.pseudo-element.sass, support.function.directive.sass, support.function.directive-shorthand.sass</string>
+			<string>keyword.control.at-rule.css.sass, entity.other.attribute-name.pseudo-class.css.sass, entity.other.attribute-name.pseudo-element.css.sass, keyword.control.at-rule.css.directive.sass, keyword.control.at-rule.css.shorthand.sass</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -592,7 +592,7 @@
 			<key>name</key>
 			<string>Sass: Comma / Semicolon / Curly Brackets</string>
 			<key>scope</key>
-			<string>keyword.other.comma.sass, keyword.other.semicolon.sass, keyword.other.curly-brackets.sass</string>
+			<string>comment.punctuation.comma.sass, comment.punctuation.semicolon.sass, comment.punctuation.curly-brackets.sass</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -603,7 +603,7 @@
 			<key>name</key>
 			<string>Sass: Colon / Round Brackets</string>
 			<key>scope</key>
-			<string>keyword.other.colon.sass, keyword.other.round-brackets.sass</string>
+			<string>comment.punctuation.colon.sass, comment.punctuation.round-brackets.sass</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -614,7 +614,7 @@
 			<key>name</key>
 			<string>Sass: Flag / Regex</string>
 			<key>scope</key>
-			<string>keyword.other.flag.sass, keyword.other.regex.sass</string>
+			<string>keyword.other.important.css.sass, keyword.other.regex.sass</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>

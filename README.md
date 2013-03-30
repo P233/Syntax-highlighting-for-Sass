@@ -1,9 +1,9 @@
 # Syntax Highlighting for Sass
-This is a new syntax highlighting package for Sass (separately support both SCSS and Sass) for Sublime Text / TextMate. Compared with other packages, this will match the structure of `property name` and `property value` instead of matching keywords (actually, nothing will match `property name`, it will be treated as basic Sass text), so these two parts will be perfectly highlighted and no need to add keywords in the future. Other features including: added support for attribute selector, variables, interpolation syntax, directives and directive shorthand (`=` `+`), functions, operators… etc; improved the highlighting rule for `@media`; and also added `Completion Rules.tmPreferences` file, completions will not be offered when typing in selectors.
+This is a new syntax highlighting package for Sass (separately support both SCSS and Sass) for Sublime Text / TextMate. Compared with other packages, this will match the structure of `property name` and `property value` instead of matching keywords (`property name` will be matched under `source.sass` scope selector), so these two parts will be perfectly highlighted and no need to add keywords in the future. Other features including: added support for attribute selector, variables, interpolation syntax, directives and directive shorthand (`=` `+`), functions, operators… etc; improved the highlighting rule for `@media`; and also added `Completion Rules.tmPreferences` file, completions will not be offered when typing in selectors.
 
 Syntax such like `something(…)` will be matched as **function**, this will effect some CSS property values, Sass build-in functions, Compass/Bourbon functions, and custom functions.
 
-Sass at-rules (e.g. `@function`) will be matched as **directive**. This part still have room for improvement.
+Sass at-rules (e.g. `@function`) still have room for improvement.
 
 The `Preferences` and `Completions` two folders are directly copied from [nathos's sass-textmate-bundle](https://github.com/nathos/sass-textmate-bundle/tree/sublime) with a little bit of modifications. In this package, `property-name.sass` scope selector only works in `@media` directive, then I removed the `Sass - Properties.sublime-completions` file.
 
@@ -28,36 +28,36 @@ Element      | Scope Selector
 :----------- | :--------------
 Block Comment | comment.block.sass
 Double Dash Comment | comment.line.double-dash.sass
-At-rule | keyword.control.at-rule.sass
-Type Selector | entity.name.tag.sass
-Id Selector | entity.other.attribute-name.id.sass
-Class Selector | entity.other.attribute-name.class.sass
+At-rule | keyword.control.at-rule.css.sass
+Type Selector | entity.name.tag.css.sass
+Id Selector | entity.other.attribute-name.id.css.sass
+Class Selector | entity.other.attribute-name.class.css.sass
 Placeholder Selector | entity.other.attribute-name.placeholder-selector.sass
 Attribute Selector | entity.other.attribute-selector.sass
 Regex | keyword.other.regex.sass
-Pseudo Class | entity.other.attribute-name.pseudo-class.sass
-Pseudo Element | entity.other.attribute-name.pseudo-element.sass
-Property Name | source.sass, support.constant.property-name.sass
-Property Value | support.constant.property-value.sass
-Double Quoted | string.quoted.double.sass
+Pseudo Class | entity.other.attribute-name.pseudo-class.css.sass
+Pseudo Element | entity.other.attribute-name.pseudo-element.css.sass
+Property Name | source.sass, support.constant.property-name.css.sass
+Property Value | support.constant.property-value.css.sass
+Double Quoted | string.quoted.double.css.sass
 Ampersand | keyword.other.ampersand.sass
-Colon | keyword.other.colon.sass
-Comma | keyword.other.comma.sass
-Round Brackets | keyword.other.round-brackets.sass
-Numeric | constant.numeric.sass
-Unit | keyword.other.unit.sass
-Rgb Color | constant.other.color.rgb-value.sass
-Literal Color | support.constant.color.sass
-Font Name | support.constant.font-name.sass
+Colon | comment.punctuation.colon.sass
+Comma | comment.punctuation.comma.sass
+Round Brackets | comment.punctuation.round-brackets.sass
+Numeric | constant.numeric.css.sass
+Unit | keyword.other.unit.css.sass
+Rgb Color | constant.other.color.rgb-value.css.sass
+Literal Color | support.constant.color.css.sass
+Font Name | support.constant.font-name.css.sass
 Function Name | support.function.name.sass
-Sass Variable | support.variable.sass
-Sass Directive | support.function.directive.sass
-Sass Directive Shorthand | support.function.directive-shorthand.sass
+Sass Variable | variable
+Sass Directive | keyword.control.at-rule.css.directive.sass
+Sass Directive Shorthand | keyword.control.at-rule.css.shorthand.sass
 Sass Interpolation | support.function.interpolation.sass
-Sass Flag | keyword.other.flag.sass
+Sass Flag | keyword.other.important.css.sass
 Sass Operator | keyword.operator.sass
-SCSS Semicolon | keyword.other.semicolon.sass
-SCSS Curly Brackets | keyword.other.curly-brackets.sass
+SCSS Semicolon | comment.punctuation.semicolon.sass
+SCSS Curly Brackets | comment.punctuation.curly-brackets.sass
 Sass Semicolon | invalid
 Sass Curly Brackets | invalid
 

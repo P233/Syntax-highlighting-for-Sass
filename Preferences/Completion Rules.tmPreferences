@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>scope</key>
-    <string>entity.other.attribute-name.id.sass, entity.other.attribute-name.class.sass, entity.other.attribute-name.placeholder-selector.sass</string>
+    <string>entity.other.attribute-name.id.css.sass, entity.other.attribute-name.class.css.sass, entity.other.attribute-name.placeholder-selector.sass</string>
     <key>settings</key>
     <dict>
         <key>cancelCompletion</key>

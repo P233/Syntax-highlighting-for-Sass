@@ -1,5 +1,5 @@
 {
-    "scope": "source.sass support.constant.property-value.sass",
+    "scope": "source.sass support.constant.property-value.css.sass",
 
     "completions": [
         "absolute",
