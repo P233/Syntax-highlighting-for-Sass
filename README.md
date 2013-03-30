@@ -58,6 +58,8 @@ Sass Flag | keyword.other.flag.sass
 Sass Operator | keyword.operator.sass
 SCSS Semicolon | keyword.other.semicolon.sass
 SCSS Curly Brackets | keyword.other.curly-brackets.sass
+Sass Semicolon | invalid
+Sass Curly Brackets | invalid
 
 ## Contributors
 

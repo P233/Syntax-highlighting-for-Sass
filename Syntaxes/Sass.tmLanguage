@@ -28,6 +28,10 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#curly-brackets</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#round-brackets</string>
 		</dict>
 		<dict>
@@ -73,6 +77,10 @@
 		<dict>
 			<key>include</key>
 			<string>#comma</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#semicolon</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -151,6 +159,10 @@
 					<string>[a-z-]+</string>
 					<key>name</key>
 					<string>support.constant.property-name.sass</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#curly-brackets</string>
 				</dict>
 			</array>
 		</dict>
@@ -238,6 +250,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#curly-brackets</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#round-brackets</string>
 				</dict>
 				<dict>
@@ -287,6 +303,10 @@
 				<dict>
 					<key>include</key>
 					<string>#comma</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#semicolon</string>
 				</dict>
 				<dict>
 					<key>match</key>
@@ -341,6 +361,13 @@
 			<string>,</string>
 			<key>name</key>
 			<string>keyword.other.comma.sass</string>
+		</dict>
+		<key>curly-brackets</key>
+		<dict>
+			<key>match</key>
+			<string>{|}</string>
+			<key>name</key>
+			<string>invalid</string>
 		</dict>
 		<key>double-dash</key>
 		<dict>
@@ -432,6 +459,13 @@
 			<string>\(|\)</string>
 			<key>name</key>
 			<string>keyword.other.round-brackets.sass</string>
+		</dict>
+		<key>semicolon</key>
+		<dict>
+			<key>match</key>
+			<string>;</string>
+			<key>name</key>
+			<string>invalid</string>
 		</dict>
 		<key>single-quoted</key>
 		<dict>
