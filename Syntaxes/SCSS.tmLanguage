@@ -40,6 +40,10 @@
 		</dict>
 		<dict>
 			<key>include</key>
+			<string>#single-quoted</string>
+		</dict>
+		<dict>
+			<key>include</key>
 			<string>#interpolation</string>
 		</dict>
 		<dict>
@@ -200,6 +204,10 @@
 					<string>#double-quoted</string>
 				</dict>
 				<dict>
+					<key>include</key>
+					<string>#single-quoted</string>
+				</dict>
+				<dict>
 					<key>match</key>
 					<string>\^|\$|\*|~</string>
 					<key>name</key>
@@ -259,6 +267,10 @@
 				<dict>
 					<key>include</key>
 					<string>#double-quoted</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#single-quoted</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -462,6 +474,15 @@
 			<string>;</string>
 			<key>name</key>
 			<string>keyword.other.semicolon.sass</string>
+		</dict>
+		<key>single-quoted</key>
+		<dict>
+			<key>begin</key>
+			<string>'</string>
+			<key>end</key>
+			<string>'</string>
+			<key>name</key>
+			<string>string.quoted.single.sass</string>
 		</dict>
 		<key>unit</key>
 		<dict>
