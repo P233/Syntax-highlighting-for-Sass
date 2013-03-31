@@ -90,7 +90,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;=@include)\s[a-z-]+</string>
+			<string>(?&lt;=@include|@mixin)\s[a-z-]+</string>
 			<key>name</key>
 			<string>support.function.name.sass</string>
 		</dict>

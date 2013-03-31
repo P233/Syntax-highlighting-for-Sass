@@ -90,7 +90,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;=@include)\s[a-z-]+</string>
+			<string>(?&lt;=@include|@mixin)\s[a-z-]+</string>
 			<key>name</key>
 			<string>support.function.name.sass</string>
 		</dict>
@@ -249,7 +249,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>:(visited|valid|root|right|required|read-write|read-only|out-range|optional|only-of-type|only-child|nth-of-type|nth-last-of-type|nth-last-child|nth-child|not|link|left|last-of-type|last-child|lang|invalid|indeterminate|in-range|hover|focus|first-of-type|first-line|first-letter|first-child|first|enabled|empty|disabled|default|checked|before|after|active|(:-webkit-input|-moz|-ms-input)-placeholder)</string>
+			<string>:(visited|valid|root|right|required|read-write|read-only|out-range|optional|only-of-type|only-child|nth-of-type|nth-last-of-type|nth-last-child|nth-child|not|link|left|last-of-type|last-child|lang|invalid|indeterminate|in-range|hover|focus|first-of-type|first-line|first-letter|first-child|first|enabled|empty|disabled|default|checked|before|after|active|(:-webkit-input|-moz|-ms-input)-placeholder)(?!;)</string>
 			<key>name</key>
 			<string>entity.other.attribute-name.pseudo-class.css.sass</string>
 		</dict>
@@ -271,15 +271,7 @@
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>;</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>comment.punctuation.semicolon.sass</string>
-				</dict>
-			</dict>
+			<string>(?=;)|(?={)</string>
 			<key>name</key>
 			<string>meta.property-value.css.sass, support.constant.property-value.css.sass</string>
 			<key>patterns</key>
