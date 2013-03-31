@@ -23,13 +23,15 @@ Firstly, move the `Solarized (Light).tmTheme` file into `~/Library/Application S
 
 ## Modify Color Scheme
 
-I have shared a custom `Solarized (Light).tmTheme` file in Color Scheme folder, so that you can see how this highlighting package works. But, if you'd like to use other color schemes. This package may not work very well, maybe you need to modify the color scheme file. Because this package introduced a few new scope selectors and used some tricky ways to detect syntax.
+I have shared a custom `Solarized (Light).tmTheme` file in Color Scheme folder, so that you can see how this highlighting package works. But, if you'd like to use other color schemes. This package may not work very well, you probably need to modify the color scheme file. 
+
+There is a few examples of how to modify popular color scheme in [Custom Color Scheme.md](https://github.com/P233/Syntax-highlighting-for-Sass/blob/master/Custom%20Color%20Scheme.md). You can just copy and paste the code into the color scheme file. Take the following steps to learn how to modify any color scheme.
 
 I am sorry for the inconvenience, but I haven't found any solution yet.
 
 ### Highlight Property Name
 
-Property name will be treated as basic text, I guess there is very few color schemes can highlight them. We will have to add support for this. Copy and paste the following code anywhere between `<array> </array>` in your favorite color scheme file. And replace `#000000` with the property name color in that file.  You can find the property name entry by searching `property-name` or `support.constant`, that will not be difficult.
+Property name will be treated as basic text, I guess there is very few color schemes can highlight them. We will have to add support for this. Copy and paste the following code anywhere between `<array> </array>` in your favorite color scheme file, and replace `#000000` with the property-name color in that file.  You can find the property-name entry by searching `property-name`, that will not be difficult.
 
 ```
 <dict>
@@ -45,7 +47,7 @@ Property name will be treated as basic text, I guess there is very few color sch
 </dict>
 ```
 
-**Note: if you want to add extra style, you can edit the following code and paste it after `<key>foreground</key>`**
+If you want to add extra style, you can edit the following code and paste it after `<key>foreground</key>`.
 
 ```
 <key>fontStyle</key>
