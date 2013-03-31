@@ -1,5 +1,5 @@
 # Syntax Highlighting for Sass
-This is a new syntax highlighting package for Sass (separately support both SCSS and Sass) for Sublime Text / TextMate. Compared with other packages, this will match the structure of `property name` and `property value` instead of matching keywords (`property name` will be matched under `source.sass` scope selector), so these two parts will be perfectly highlighted and no need to add keywords in the future. Other features including: added support for attribute selector, variables, interpolation syntax, directives and directive shorthand (`=` `+`), functions, operators… etc; improved the highlighting rule for `@media`; and also added `Completion Rules.tmPreferences` file, completions will not be offered when typing in selectors.
+This is a new syntax highlighting package for Sass (separately support both SCSS and Sass) for Sublime Text / TextMate. Compared with other packages, this will match the structure of `property name` and `property value` instead of matching keywords (`property name` will be treated as basic text), so these two parts will be perfectly highlighted and no need to add keywords in the future. Other features including: added support for attribute selector, variables, interpolation syntax, directives and directive shorthand (`=` `+`), functions, operators… etc; improved the highlighting rule for `@media`; and also added `Completion Rules.tmPreferences` file, completions will not be offered when typing in selectors.
 
 Syntax such like `something(…)` will be matched as **function**, this will effect some CSS property values, Sass build-in functions, Compass/Bourbon functions, and custom functions.
 
@@ -18,11 +18,83 @@ Now you can install this package through Package Control.
 Or download this package and rename the downloaded folder as you like, then move it into the Packages folder of Sublime Text.
 
 ### TextMate
+
 Firstly, move the `Solarized (Light).tmTheme` file into `~/Library/Application Support/TextMate/Themes/`, then add `.tmbundle` extension to the downloaded folder and move it in to `~/Library/Application Support/TextMate/Bundles/`. If the folder doesn't exist, create one.
 
-## Scope Selectors
+## Modify Color Scheme
 
-I have shared a custom `Solarized (Light).tmTheme` in Color Scheme folder, so that you can see how this highlighting package works. And you can also build/modify your own color scheme with the following scope selectors. (Learn more about Scope Selectors and Color Scheme, take a look at [Textmate Scope Selectors](http://manual.macromates.com/en/scope_selectors) and [Textmate Themes](http://manual.macromates.com/en/themes.html).) If you make a color scheme for this package, please [let me know](mailto:40132147@qq.com). I'd like to add a link here.
+I have shared a custom `Solarized (Light).tmTheme` file in Color Scheme folder, so that you can see how this highlighting package works. But, if you'd like to use other color schemes. This package may not work very well, maybe you need to modify the color scheme file. Because this package introduced a few new scope selectors and used some tricky ways to detect syntax.
+
+I am sorry for the inconvenience, but I haven't found any solution yet.
+
+### Highlight Property Name
+
+Property name will be treated as basic text, I guess there is very few color schemes can highlight them. We will have to add support for this. Copy and paste the following code anywhere between `<array> </array>` in your favorite color scheme file. And replace `#000000` with the property name color in that file.  You can find the property name entry by searching `property-name` or `support.constant`, that will not be difficult.
+
+```
+<dict>
+	<key>name</key>
+	<string>Sass: Property Name</string>
+	<key>scope</key>
+	<string>source.sass, support.constant.property-name.css.sass</string>
+	<key>settings</key>
+	<dict>
+		<key>foreground</key>
+		<string>#000000</string>
+	</dict>
+</dict>
+```
+
+**Note: if you want to add extra style, you can edit the following code and paste it after `<key>foreground</key>`**
+
+```
+<key>fontStyle</key>
+<string>italic</string>
+<key>background</key>
+<string>#000000</string>
+```
+
+### Highlight Punctuations
+
+Most highlighting packages will ignore punctuations (`:` `;` `( )` and `{ }`)，but in this package some punctuations cannot be ignored. By default, they will be treated as same as comment.  I suggest to use the following code to restyle them. Set the foreground color same as the foreground color in the color scheme file which should appear near the top of the file.
+
+```
+<dict>
+	<key>name</key>
+	<string>Sass: Punctuations</string>
+	<key>scope</key>
+	<string>comment.punctuation</string>
+	<key>settings</key>
+	<dict>
+		<key>foreground</key>
+		<string>#000000</string>
+	</dict>
+</dict>
+```
+
+### Highlight Variable
+
+Some color scheme may not support variables. The following code could solve this problem.
+
+```
+<dict>
+	<key>name</key>
+	<string>Sass: Variable</string>
+	<key>scope</key>
+	<string>source.sass variable</string>
+	<key>settings</key>
+	<dict>
+		<key>foreground</key>
+		<string>#000000</string>
+	</dict>
+</dict>
+```
+
+### Highlight everything
+
+With the following scope selectors, you can modify anything in this package. Learn more about Scope Selectors and Color Scheme, take a look at [Textmate Scope Selectors](http://manual.macromates.com/en/scope_selectors) and [Textmate Themes](http://manual.macromates.com/en/themes.html).
+
+You can even build a new color scheme for this package. If you make one, please [let me know](mailto:40132147@qq.com). I'd like to add a link here.
 
 Element      | Scope Selector
 :----------- | :--------------
