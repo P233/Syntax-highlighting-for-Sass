@@ -372,9 +372,15 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>[a-z-]+</string>
+			<string>[a-z-]+(?=:)|from|through</string>
 			<key>name</key>
 			<string>support.type.property-name.css.sass</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>[a-z-]+</string>
+			<key>name</key>
+			<string>meta.property-value.css.sass, support.constant.property-value.css.sass</string>
 		</dict>
 	</array>
 	<key>repository</key>
