@@ -3,15 +3,15 @@
 Here are some examples of how to modify popular color scheme. You can copy and paste the code anywhere between `<array> </array>` in the file. Feel free to add your favorite setting please.
 
 **Color Scheme List:**
-[Birds of Paradise](#bopa)
-[Solarized (both Light and Dark)](#sola)
-[Tomorrow](#tomo)
-[Tomorrow Night](#toni)
-[Tomorrow Night Blue](#tnbl)
-[Tomorrow Night Bright](#tnbr)
-[Tomorrow Night Eighties](#tnei)
+* [Birds of Paradise](#birds-of-paradise)
+* [Solarized (Light and Dark)](#solarized)
+* [Tomorrow](#tomorrow)
+* [Tomorrow Night](#tomorrow-night)
+* [Tomorrow Night Blue](#tomorrow-night-blue)
+* [Tomorrow Night Bright](#tomorrow-night-bright)
+* [Tomorrow Night Eighties](#tomorrow-night-eighties)
 
-<h2 id="bopa">Birds of Paradise</h2>
+## Birds of Paradise
 
 ```
 <dict>
@@ -40,7 +40,7 @@ Here are some examples of how to modify popular color scheme. You can copy and p
 </dict>
 ```
 
-<h2 id="sola">Solarized</h2>
+## Solarized
 
 ```
 <dict>
@@ -169,7 +169,7 @@ Here are some examples of how to modify popular color scheme. You can copy and p
 ```
 
 
-<h2 id="tomo">Tomorrow</h2>
+## Tomorrow
 
 ```
 <dict>
@@ -196,7 +196,7 @@ Here are some examples of how to modify popular color scheme. You can copy and p
 </dict>
 ```
 
-<h2 id="toni">Tomorrow Night</h2>
+## Tomorrow Night
 
 ```
 <dict>
@@ -223,7 +223,7 @@ Here are some examples of how to modify popular color scheme. You can copy and p
 </dict>
 ```
 
-<h2 id="tnbl">Tomorrow Night Blue</h2>
+## Tomorrow Night Blue
 
 ```
 <dict>
@@ -250,7 +250,7 @@ Here are some examples of how to modify popular color scheme. You can copy and p
 </dict>
 ```
 
-<h2 id="tnbr">Tomorrow Night Bright</h2>
+## Tomorrow Night Bright
 
 ```
 <dict>
@@ -277,7 +277,7 @@ Here are some examples of how to modify popular color scheme. You can copy and p
 </dict>
 ```
 
-<h2 id="tnei">Tomorrow Night Eighties</h2>
+## Tomorrow Night Eighties
 
 ```
 <dict>
