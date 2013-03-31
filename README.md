@@ -1,11 +1,11 @@
 # Syntax Highlighting for Sass
-This is a new syntax highlighting package for Sass (separately support both SCSS and Sass) for Sublime Text / TextMate. Compared with other packages, this will match the structure of `property name` and `property value` instead of matching keywords (`property name` will be treated as basic text), so these two parts will be perfectly highlighted and no need to add keywords in the future. Other features including: added support for attribute selector, variables, interpolation syntax, directives and directive shorthand (`=` `+`), functions, operators… etc; improved the highlighting rule for `@media`; and also added `Completion Rules.tmPreferences` file, completions will not be offered when typing in selectors.
+This is a new syntax highlighting package for Sass (separately support both SCSS and Sass) for Sublime Text / TextMate. Compared with other packages, this will match the structure of `property name` and `property value` instead of matching keywords, so these two parts will be perfectly highlighted and no need to add keywords in the future. Other features including: added support for attribute selector, variables, interpolation syntax, directives and directive shorthand (`=` `+`), functions, operators… etc; improved the highlighting rule for `@media`; and also added `Completion Rules.tmPreferences` file, completions will not be offered when typing in selectors.
 
 Syntax such like `something(…)` will be matched as **function**, this will effect some CSS property values, Sass build-in functions, Compass/Bourbon functions, and custom functions.
 
 Sass at-rules (e.g. `@function`) still have room for improvement.
 
-The `Preferences` and `Completions` two folders are directly copied from [nathos's sass-textmate-bundle](https://github.com/nathos/sass-textmate-bundle/tree/sublime) with a little bit of modifications. In this package, `property-name.sass` scope selector only works in `@media` directive, then I removed the `Sass - Properties.sublime-completions` file.
+The `Preferences` and `Completions` two folders are directly copied from [nathos's sass-textmate-bundle](https://github.com/nathos/sass-textmate-bundle/tree/sublime) with a little bit of modifications. In this package, `property-name` scope selector only works in `@media` directive, then I removed the `Sass - Properties.sublime-completions` file.
 
 As always, if you have any problems with this package or suggestions for improvement, please feel free to [fill an issue](https://github.com/P233/Syntax-highlighting-for-Sass/issues/new), and you are also more than welcome to fork this repo and pull request.
 
@@ -23,22 +23,18 @@ Firstly, move the `Solarized (Light).tmTheme` file into `~/Library/Application S
 
 ## Modify Color Scheme
 
-I have shared a custom `Solarized (Light).tmTheme` file in Color Scheme folder, so that you can see how this highlighting package works. But, if you'd like to use other color schemes. This package may not work very well, you probably need to modify the color scheme file. 
+I have shared a custom `Solarized (Light).tmTheme` file in Color Scheme folder, so that you can see how this highlighting package works. If you'd like to use other color schemes, this package works fine, but not perfect. You can take the following steps to learn how to modify a color scheme.
 
-There is a few examples of how to modify popular color scheme in [Custom Color Scheme.md](https://github.com/P233/Syntax-highlighting-for-Sass/blob/master/Custom%20Color%20Scheme.md). You can just copy and paste the code into the color scheme file. Take the following steps to learn how to modify any color scheme.
+### Highlight Punctuations
 
-I am sorry for the inconvenience, but I haven't found any solution yet.
-
-### Highlight Property Name
-
-Property name will be treated as basic text, I guess there is very few color schemes can highlight them. We will have to add support for this. Copy and paste the following code anywhere between `<array> </array>` in your favorite color scheme file, and replace `#000000` with the property-name color in that file.  You can find the property-name entry by searching `property-name`, that will not be difficult.
+Most highlighting packages will ignore punctuations (`:` `;` `( )` and `{ }`)，but in this package some punctuations cannot be ignored. By default, they will be treated as same as comment.  You can use the following code to restyle them if you want. Copy and paste the code anywhere between `<array> </array>` in your favorite color scheme file, and replace `#000000` with the foreground color which should appear near the top of the file.
 
 ```
 <dict>
 	<key>name</key>
-	<string>Sass: Property Name</string>
+	<string>Sass: Punctuations</string>
 	<key>scope</key>
-	<string>source.sass, support.constant.property-name.css.sass</string>
+	<string>comment.punctuation</string>
 	<key>settings</key>
 	<dict>
 		<key>foreground</key>
@@ -54,24 +50,6 @@ If you want to add extra style, you can edit the following code and paste it aft
 <string>italic</string>
 <key>background</key>
 <string>#000000</string>
-```
-
-### Highlight Punctuations
-
-Most highlighting packages will ignore punctuations (`:` `;` `( )` and `{ }`)，but in this package some punctuations cannot be ignored. By default, they will be treated as same as comment.  I suggest to use the following code to restyle them. Set the foreground color same as the foreground color in the color scheme file which should appear near the top of the file.
-
-```
-<dict>
-	<key>name</key>
-	<string>Sass: Punctuations</string>
-	<key>scope</key>
-	<string>comment.punctuation</string>
-	<key>settings</key>
-	<dict>
-		<key>foreground</key>
-		<string>#000000</string>
-	</dict>
-</dict>
 ```
 
 ### Highlight Variable
@@ -111,8 +89,8 @@ Attribute Selector | entity.other.attribute-selector.sass
 Regex | keyword.other.regex.sass
 Pseudo Class | entity.other.attribute-name.pseudo-class.css.sass
 Pseudo Element | entity.other.attribute-name.pseudo-element.css.sass
-Property Name | source.sass, support.constant.property-name.css.sass
-Property Value | support.constant.property-value.css.sass
+Property Name | support.type.property-name.css.sass
+Property Value | meta.property-value.css.sass, support.constant.property-value.css.sass
 Double Quoted | string.quoted.double.css.sass
 Ampersand | keyword.other.ampersand.sass
 Colon | comment.punctuation.colon.sass

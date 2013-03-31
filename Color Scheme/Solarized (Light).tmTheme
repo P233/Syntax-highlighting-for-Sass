@@ -513,7 +513,7 @@
 			<key>name</key>
 			<string>Sass: Property Name</string>
 			<key>scope</key>
-			<string>source.sass, support.constant.property-name.css.sass</string>
+			<string>support.type.property-name.css.sass</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -524,7 +524,7 @@
 			<key>name</key>
 			<string>Sass: Property Value / Color / Numeric / Unit</string>
 			<key>scope</key>
-			<string>support.constant.property-value.css.sass, constant.other.color.rgb-value.css.sass, support.constant.color.css.sass, constant.numeric.css.sass, keyword.other.unit.css.sass</string>
+			<string>meta.property-value.css.sass, support.constant.property-value.css.sass, constant.other.color.rgb-value.css.sass, support.constant.color.css.sass, constant.numeric.css.sass, keyword.other.unit.css.sass</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
@@ -533,9 +533,9 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Sass: Tag / Ampersand</string>
+			<string>Sass: Tag / Ampersand / Attribute Selector</string>
 			<key>scope</key>
-			<string>entity.name.tag.css.sass, keyword.other.ampersand.sass</string>
+			<string>entity.name.tag.css.sass, keyword.other.ampersand.sass, entity.other.attribute-selector.sass</string>
 			<key>settings</key>
 			<dict>
 				<key>fontStyle</key>
