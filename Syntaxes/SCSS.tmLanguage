@@ -28,10 +28,6 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#curly-brackets</string>
-		</dict>
-		<dict>
-			<key>include</key>
 			<string>#round-brackets</string>
 		</dict>
 		<dict>
@@ -45,6 +41,10 @@
 		<dict>
 			<key>include</key>
 			<string>#interpolation</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#curly-brackets</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -179,16 +179,34 @@
 			<string>keyword.control.at-rule.css.sass</string>
 		</dict>
 		<dict>
-			<key>match</key>
-			<string>#[a-zA-Z0-9_#{}$-]+</string>
+			<key>begin</key>
+			<string>#</string>
+			<key>end</key>
+			<string>(?=,)|(?={)</string>
 			<key>name</key>
 			<string>entity.other.attribute-name.id.css.sass</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#interpolation</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
-			<key>match</key>
-			<string>\.[a-zA-Z0-9_#{}$-]+</string>
+			<key>begin</key>
+			<string>\.</string>
+			<key>end</key>
+			<string>(?=,)|(?={)</string>
 			<key>name</key>
 			<string>entity.other.attribute-name.class.css.sass</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#interpolation</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -223,7 +241,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>::(after|before|choices|first-letter|first-line|repeat-index|repeat-item|selection|value)</string>
+			<string>::(after|before|choices|first-letter|first-line|repeat-index|repeat-item|(-moz-)?selection|value)</string>
 			<key>name</key>
 			<string>entity.other.attribute-name.pseudo-element.css.sass</string>
 		</dict>
@@ -258,10 +276,6 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#curly-brackets</string>
-				</dict>
-				<dict>
-					<key>include</key>
 					<string>#round-brackets</string>
 				</dict>
 				<dict>
@@ -279,6 +293,10 @@
 				<dict>
 					<key>include</key>
 					<string>#interpolation</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#curly-brackets</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -430,6 +448,18 @@
 				<dict>
 					<key>include</key>
 					<string>#variable</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#numeric</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#unit</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#comma</string>
 				</dict>
 			</array>
 		</dict>
