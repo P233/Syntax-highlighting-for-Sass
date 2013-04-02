@@ -548,7 +548,7 @@
 		</dict>
 	</dict>
 	<key>scopeName</key>
-	<string>source.sass</string>
+	<string>source.scss</string>
 	<key>uuid</key>
 	<string>90DAEA60-88AA-11E2-9E96-0800200C9A66</string>
 </dict>
