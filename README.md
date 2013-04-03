@@ -3,8 +3,6 @@ This is a new syntax highlighting package for Sass (separately support both SCSS
 
 Syntax such like `something(…)` will be matched as **function**, this will effect some CSS property values, Sass build-in functions, Compass/Bourbon functions, and custom functions.
 
-Sass at-rules (e.g. `@function`) still have room for improvement.
-
 The `Preferences` and `Completions` two folders are directly copied from [nathos's sass-textmate-bundle](https://github.com/nathos/sass-textmate-bundle/tree/sublime) with a little bit of modifications. In this package, `property-name` scope selector only works in `@media` directive, then I removed the `Sass - Properties.sublime-completions` file.
 
 As always, if you have any problems with this package or suggestions for improvement, please feel free to [fill an issue](https://github.com/P233/Syntax-highlighting-for-Sass/issues/new), and you are also more than welcome to fork this repo and pull request.
@@ -103,8 +101,7 @@ Literal Color | support.constant.color.css.sass
 Font Name | support.constant.font-name.css.sass
 Function Name | support.function.name.sass
 Sass Variable | variable
-Sass Directive | keyword.control.at-rule.css.directive.sass
-Sass Directive Shorthand | keyword.control.at-rule.css.shorthand.sass
+Sass Directive, Directive Shorthand | keyword.control.at-rule.css.sass
 Sass Interpolation | support.function.interpolation.sass
 Sass Flag | keyword.other.important.css.sass
 Sass Operator | keyword.operator.sass

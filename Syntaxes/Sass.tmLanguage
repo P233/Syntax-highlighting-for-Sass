@@ -95,20 +95,18 @@
 			<string>support.function.name.sass</string>
 		</dict>
 		<dict>
-			<key>match</key>
-			<string>@(import|mixin|include|extend|if|(else(\s+if)*)|for|each|while|function|return|debug|warn)\b</string>
-			<key>name</key>
-			<string>keyword.control.at-rule.css.directive.sass</string>
-		</dict>
-		<dict>
 			<key>begin</key>
 			<string>@media</string>
 			<key>end</key>
 			<string>$\n?</string>
 			<key>name</key>
-			<string>keyword.control.at-rule.css.directive.sass</string>
+			<string>keyword.control.at-rule.css.sass</string>
 			<key>patterns</key>
 			<array>
+				<dict>
+					<key>include</key>
+					<string>#interpolation</string>
+				</dict>
 				<dict>
 					<key>match</key>
 					<string>,|and</string>
@@ -170,13 +168,13 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>[=+][a-zA-Z0-9_-]+</string>
+			<string>(@else(\sif)*)|@[a-zA-Z-]+</string>
 			<key>name</key>
-			<string>keyword.control.at-rule.css.shorthand.sass</string>
+			<string>keyword.control.at-rule.css.sass</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>@((\-webkit-|\-moz-|\-ms-|\-o-)?keyframes|charset|page|font-face|namespace|-moz-document)\b</string>
+			<string>[=+][a-zA-Z0-9_-]+</string>
 			<key>name</key>
 			<string>keyword.control.at-rule.css.sass</string>
 		</dict>
