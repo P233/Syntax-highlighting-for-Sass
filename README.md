@@ -23,7 +23,7 @@ Download the [bundle file](https://github.com/P233/Syntax-highlighting-for-Sass/
 
 ### Recommended Color Schemes
 
-I have shared a custom `Solarized (Light).tmTheme` file in Color Scheme folder, so that you can see how this highlighting package works. If you'd like to use other color schemes, this package works fine, may not perfect. Here are some recommended Color Schemes:
+Here are some recommended Color Schemes:
 
 * [Perv Color Schemes](https://github.com/FlavourSys/Perv-ColorScheme) Thanks [Mick](https://github.com/micck) for adding support for this package
 * [Tomorrow Theme](https://github.com/chriskempson/tomorrow-theme)
