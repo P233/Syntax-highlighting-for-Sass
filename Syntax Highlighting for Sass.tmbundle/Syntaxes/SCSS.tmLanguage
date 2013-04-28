@@ -143,7 +143,7 @@
 						</dict>
 					</dict>
 					<key>name</key>
-					<string>meta.property-value.css.sass, support.constant.property-value.css.sass</string>
+					<string>support.constant.property-value.css.sass</string>
 					<key>patterns</key>
 					<array>
 						<dict>
@@ -271,7 +271,7 @@
 			<key>end</key>
 			<string>(?=;)|(?={)</string>
 			<key>name</key>
-			<string>meta.property-value.css.sass, support.constant.property-value.css.sass</string>
+			<string>support.constant.property-value.css.sass</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -378,7 +378,7 @@
 			<key>match</key>
 			<string>[a-zA-Z0-9_-]+</string>
 			<key>name</key>
-			<string>meta.property-value.css.sass, support.constant.property-value.css.sass</string>
+			<string>support.constant.property-value.css.sass</string>
 		</dict>
 	</array>
 	<key>repository</key>
