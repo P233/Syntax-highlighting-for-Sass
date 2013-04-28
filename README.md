@@ -5,23 +5,30 @@ Syntax such like `something(…)` will be matched as **function**, this will eff
 
 The `Preferences` and `Completions` two folders are directly copied from [nathos's sass-textmate-bundle](https://github.com/nathos/sass-textmate-bundle/tree/sublime) with a little bit of modifications. In this package, `property-name` scope selector only works in `@media` directive, then I removed the `Sass - Properties.sublime-completions` file.
 
+**Currently, not support [BracketHighlighter](https://github.com/facelessuser/BracketHighlighter).**
+
 As always, if you have any problems with this package or suggestions for improvement, please feel free to [fill an issue](https://github.com/P233/Syntax-highlighting-for-Sass/issues/new), and you are also more than welcome to fork this repo and pull request.
 
 ## Installation
 
 ### Sublime Text
 
-Now you can install this package through Package Control.
-
-Or download this package and rename the downloaded folder as you like, then move it into the Packages folder of Sublime Text.
+Recommend to install this package through **Package Control** (use the keyword `SHS` to find this plugin). Or download this package and rename it as you like, then move it into the Packages folder of Sublime Text.
 
 ### TextMate
 
-Firstly, move the `Solarized (Light).tmTheme` file into `~/Library/Application Support/TextMate/Themes/`, then add `.tmbundle` extension to the downloaded folder and move it in to `~/Library/Application Support/TextMate/Bundles/`. If the folder doesn't exist, create one.
+Download the [bundle file](https://github.com/P233/Syntax-highlighting-for-Sass/tree/textmate) and then move it in to `~/Library/Application Support/TextMate/Bundles/`. If the folder doesn't exist, create one.
 
-## Modify Color Scheme
+## Color Scheme
 
-I have shared a custom `Solarized (Light).tmTheme` file in Color Scheme folder, so that you can see how this highlighting package works. If you'd like to use other color schemes, this package works fine, but not perfect. You can take the following steps to learn how to modify a color scheme.
+### Recommended Color Schemes
+
+I have shared a custom `Solarized (Light).tmTheme` file in Color Scheme folder, so that you can see how this highlighting package works. If you'd like to use other color schemes, this package works fine, may not perfect. Here are some recommended Color Schemes:
+
+* [Perv Color Schemes](https://github.com/FlavourSys/Perv-ColorScheme) Thanks [Mick](https://github.com/micck) for adding support for this package
+* [Tomorrow Theme](https://github.com/chriskempson/tomorrow-theme)
+
+You can also take the following steps to learn how to modify a color scheme:
 
 ### Highlight Punctuations
 

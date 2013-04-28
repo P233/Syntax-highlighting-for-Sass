@@ -559,7 +559,7 @@
 			<key>name</key>
 			<string>Sass: Variable</string>
 			<key>scope</key>
-			<string>source.sass variable</string>
+			<string>source.sass variable, source.scss variable</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
