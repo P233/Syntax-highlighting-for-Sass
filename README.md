@@ -96,9 +96,7 @@ Property Name | support.type.property-name.css.sass
 Property Value | meta.property-value.css.sass, support.constant.property-value.css.sass
 Double Quoted | string.quoted.double.css.sass
 Ampersand | keyword.other.ampersand.sass
-Colon | comment.punctuation.colon.sass
 Comma | comment.punctuation.comma.sass
-Round Brackets | comment.punctuation.round-brackets.sass
 Numeric | constant.numeric.css.sass
 Unit | keyword.other.unit.css.sass
 Rgb Color | constant.other.color.rgb-value.css.sass
