@@ -5,8 +5,6 @@ Syntax such like `something(…)` will be matched as **function**, this will eff
 
 The `Preferences` and `Completions` two folders are directly copied from [nathos's sass-textmate-bundle](https://github.com/nathos/sass-textmate-bundle/tree/sublime) with a little bit of modifications. In this package, `property-name` scope selector only works in `@media` directive, then I removed the `Sass - Properties.sublime-completions` file.
 
-**Currently, not support [BracketHighlighter](https://github.com/facelessuser/BracketHighlighter).**
-
 As always, if you have any problems with this package or suggestions for improvement, please feel free to [fill an issue](https://github.com/P233/Syntax-highlighting-for-Sass/issues/new), and you are also more than welcome to fork this repo and pull request.
 
 ## Installation
@@ -113,7 +111,6 @@ Sass Interpolation | support.function.interpolation.sass
 Sass Flag | keyword.other.important.css.sass
 Sass Operator | keyword.operator.sass
 SCSS Semicolon | comment.punctuation.semicolon.sass
-SCSS Curly Brackets | comment.punctuation.curly-brackets.sass
 Sass Semicolon | invalid
 Sass Curly Brackets | invalid
 
