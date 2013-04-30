@@ -28,10 +28,6 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#round-brackets</string>
-		</dict>
-		<dict>
-			<key>include</key>
 			<string>#double-quoted</string>
 		</dict>
 		<dict>
@@ -95,80 +91,8 @@
 			<string>support.function.name.sass</string>
 		</dict>
 		<dict>
-			<key>begin</key>
-			<string>@media</string>
-			<key>end</key>
-			<string>$\n?</string>
-			<key>name</key>
-			<string>keyword.control.at-rule.css.sass</string>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>include</key>
-					<string>#interpolation</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>,|and</string>
-					<key>name</key>
-					<string>comment.punctuation.comma.sass</string>
-				</dict>
-				<dict>
-					<key>begin</key>
-					<string>:</string>
-					<key>beginCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>comment.punctuation.colon.sass</string>
-						</dict>
-					</dict>
-					<key>end</key>
-					<string>\)</string>
-					<key>endCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>comment.punctuation.round-brackets.sass</string>
-						</dict>
-					</dict>
-					<key>name</key>
-					<string>support.constant.property-value.css.sass</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>include</key>
-							<string>#numeric</string>
-						</dict>
-						<dict>
-							<key>include</key>
-							<string>#unit</string>
-						</dict>
-					</array>
-				</dict>
-				<dict>
-					<key>begin</key>
-					<string>\(</string>
-					<key>beginCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>comment.punctuation.round-brackets.sass</string>
-						</dict>
-					</dict>
-					<key>end</key>
-					<string>[a-z-]+</string>
-					<key>name</key>
-					<string>support.type.property-name.css.sass</string>
-				</dict>
-			</array>
-		</dict>
-		<dict>
 			<key>match</key>
-			<string>(@else(\sif)*)|@[a-zA-Z-]+</string>
+			<string>(@media\s(all|aural|braille|embossed|handheld|print|projection|screen|tty|tv)*)|(@else\s(if)*)|@[a-zA-Z-]+</string>
 			<key>name</key>
 			<string>keyword.control.at-rule.css.sass</string>
 		</dict>
@@ -247,28 +171,16 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>:\s</string>
-			<key>beginCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>comment.punctuation.colon.sass</string>
-				</dict>
-			</dict>
+			<string>(?&lt;=:)\s</string>
 			<key>end</key>
-			<string>$\n?</string>
+			<string>$\n?|(?:\))</string>
 			<key>name</key>
-			<string>support.constant.property-value.css.sass</string>
+			<string>meta.property-list.css.sass</string>
 			<key>patterns</key>
 			<array>
 				<dict>
 					<key>include</key>
 					<string>#double-dash</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#round-brackets</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -316,10 +228,6 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#colon</string>
-				</dict>
-				<dict>
-					<key>include</key>
 					<string>#comma</string>
 				</dict>
 				<dict>
@@ -340,6 +248,12 @@
 					<key>include</key>
 					<string>#operator</string>
 				</dict>
+				<dict>
+					<key>match</key>
+					<string>[a-zA-Z0-9_-]+</string>
+					<key>name</key>
+					<string>support.constant.property-value.css.sass</string>
+				</dict>
 			</array>
 		</dict>
 		<dict>
@@ -358,7 +272,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>[a-z-]+(?=:)|from|through|to|in</string>
+			<string>[a-z-]+(?=:)|\b(from|through|to|in)\b</string>
 			<key>name</key>
 			<string>support.type.property-name.css.sass</string>
 		</dict>
@@ -371,13 +285,6 @@
 	</array>
 	<key>repository</key>
 	<dict>
-		<key>colon</key>
-		<dict>
-			<key>match</key>
-			<string>:</string>
-			<key>name</key>
-			<string>comment.punctuation.colon.sass</string>
-		</dict>
 		<key>color</key>
 		<dict>
 			<key>match</key>
@@ -388,7 +295,7 @@
 		<key>comma</key>
 		<dict>
 			<key>match</key>
-			<string>,</string>
+			<string>\band\b|,</string>
 			<key>name</key>
 			<string>comment.punctuation.comma.sass</string>
 		</dict>
@@ -426,14 +333,6 @@
 		</dict>
 		<key>function</key>
 		<dict>
-			<key>beginCaptures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>comment.punctuation.round-brackets.sass</string>
-				</dict>
-			</dict>
 			<key>match</key>
 			<string>(?&lt;=[\s|\(])(?!url|format|attr)[a-zA-Z0-9_-][\w-]*(?=\()</string>
 			<key>name</key>
@@ -494,13 +393,6 @@
 			<string>(#)([0-9a-fA-F]{3}|[0-9a-fA-F]{6})\b</string>
 			<key>name</key>
 			<string>constant.other.color.rgb-value.css.sass</string>
-		</dict>
-		<key>round-brackets</key>
-		<dict>
-			<key>match</key>
-			<string>\(|\)</string>
-			<key>name</key>
-			<string>comment.punctuation.round-brackets.sass</string>
 		</dict>
 		<key>semicolon</key>
 		<dict>

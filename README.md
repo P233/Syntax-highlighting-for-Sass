@@ -21,43 +21,14 @@ Download the [bundle file](https://github.com/P233/Syntax-highlighting-for-Sass/
 
 ### Recommended Color Schemes
 
-Here are some recommended Color Schemes:
+I have shared a custom `Solarized (Light).tmTheme` file in Color Scheme folder, so that you can see how this highlighting package works. If you'd like to use other color schemes, this package works fine, may not perfect. Here are some recommended Color Schemes:
 
 * [Perv Color Schemes](https://github.com/FlavourSys/Perv-ColorScheme) Thanks [Mick](https://github.com/micck) for adding support for this package
 * [Tomorrow Theme](https://github.com/chriskempson/tomorrow-theme)
 
-You can also take the following steps to learn how to modify a color scheme:
+### Modify Color Scheme
 
-### Highlight Punctuations
-
-Most highlighting packages will ignore punctuations (`:` `;` `( )` and `{ }`)，but in this package some punctuations cannot be ignored. By default, they will be treated as same as comment.  You can use the following code to restyle them if you want. Copy and paste the code anywhere between `<array> </array>` in your favorite color scheme file, and replace `#000000` with the foreground color which should appear near the top of the file.
-
-```
-<dict>
-	<key>name</key>
-	<string>Sass: Punctuations</string>
-	<key>scope</key>
-	<string>comment.punctuation</string>
-	<key>settings</key>
-	<dict>
-		<key>foreground</key>
-		<string>#000000</string>
-	</dict>
-</dict>
-```
-
-If you want to add extra style, you can edit the following code and paste it after `<key>foreground</key>`.
-
-```
-<key>fontStyle</key>
-<string>italic</string>
-<key>background</key>
-<string>#000000</string>
-```
-
-### Highlight Variable
-
-Some color scheme may not support variables. The following code could solve this problem.
+With the following scope selectors, you can change the color for everything in this package. For example, if a color scheme doesn't support variables, copy and paste the following code anywhere between `<array> </array>` in the file could solve this problem.
 
 ```
 <dict>
@@ -73,9 +44,7 @@ Some color scheme may not support variables. The following code could solve this
 </dict>
 ```
 
-### Highlight everything
-
-With the following scope selectors, you can modify anything in this package. Learn more about Scope Selectors and Color Scheme, take a look at [Textmate Scope Selectors](http://manual.macromates.com/en/scope_selectors) and [Textmate Themes](http://manual.macromates.com/en/themes.html).
+Learn more about Scope Selectors and Color Scheme, take a look at [Textmate Scope Selectors](http://manual.macromates.com/en/scope_selectors) and [Textmate Themes](http://manual.macromates.com/en/themes.html).
 
 You can even build a new color scheme for this package. If you make one, please [let me know](mailto:40132147@qq.com). I'd like to add a link here.
 
@@ -96,9 +65,7 @@ Property Name | support.type.property-name.css.sass
 Property Value | meta.property-value.css.sass, support.constant.property-value.css.sass
 Double Quoted | string.quoted.double.css.sass
 Ampersand | keyword.other.ampersand.sass
-Colon | comment.punctuation.colon.sass
 Comma | comment.punctuation.comma.sass
-Round Brackets | comment.punctuation.round-brackets.sass
 Numeric | constant.numeric.css.sass
 Unit | keyword.other.unit.css.sass
 Rgb Color | constant.other.color.rgb-value.css.sass
