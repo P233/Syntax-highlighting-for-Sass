@@ -44,10 +44,6 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#curly-brackets</string>
-		</dict>
-		<dict>
-			<key>include</key>
 			<string>#placeholder-selector</string>
 		</dict>
 		<dict>
@@ -98,15 +94,7 @@
 			<key>begin</key>
 			<string>@media</string>
 			<key>end</key>
-			<string>{</string>
-			<key>endCaptures</key>
-			<dict>
-				<key>0</key>
-				<dict>
-					<key>name</key>
-					<string>comment.punctuation.curly-brackets.sass</string>
-				</dict>
-			</dict>
+			<string>(?={)</string>
 			<key>name</key>
 			<string>keyword.control.at-rule.css.sass</string>
 			<key>patterns</key>
@@ -171,10 +159,6 @@
 					<string>[a-z-]+</string>
 					<key>name</key>
 					<string>support.type.property-name.css.sass</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#curly-brackets</string>
 				</dict>
 			</array>
 		</dict>
@@ -300,10 +284,6 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#curly-brackets</string>
-				</dict>
-				<dict>
-					<key>include</key>
 					<string>#variable</string>
 				</dict>
 				<dict>
@@ -403,13 +383,6 @@
 			<string>,</string>
 			<key>name</key>
 			<string>comment.punctuation.comma.sass</string>
-		</dict>
-		<key>curly-brackets</key>
-		<dict>
-			<key>match</key>
-			<string>{|}</string>
-			<key>name</key>
-			<string>comment.punctuation.curly-brackets.sass</string>
 		</dict>
 		<key>double-dash</key>
 		<dict>
