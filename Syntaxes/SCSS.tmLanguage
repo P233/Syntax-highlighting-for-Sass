@@ -253,7 +253,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>::(after|before|choices|first-letter|first-line|repeat-index|repeat-item|(-moz-)?selection|value)</string>
+			<string>::[a-z-]+</string>
 			<key>name</key>
 			<string>entity.other.attribute-name.pseudo-element.css.sass</string>
 		</dict>
@@ -269,7 +269,7 @@
 				</dict>
 			</dict>
 			<key>end</key>
-			<string>(?=;)|(?={)</string>
+			<string>(?=;)|(?={)|(?=})</string>
 			<key>name</key>
 			<string>meta.property-value.css.sass, support.constant.property-value.css.sass</string>
 			<key>patterns</key>
