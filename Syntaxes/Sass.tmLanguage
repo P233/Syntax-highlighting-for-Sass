@@ -106,7 +106,7 @@
 			<key>begin</key>
 			<string>#</string>
 			<key>end</key>
-			<string>\s|(?=,)|(?=:)|$\n?</string>
+			<string>\s|(?=,)|(?=:)|(?=\))|$\n?</string>
 			<key>name</key>
 			<string>entity.other.attribute-name.id.css.sass</string>
 			<key>patterns</key>
@@ -121,7 +121,7 @@
 			<key>begin</key>
 			<string>\.</string>
 			<key>end</key>
-			<string>\s|(?=,)|(?=:)|$\n?</string>
+			<string>\s|(?=,)|(?=:)|(?=\))|$\n?</string>
 			<key>name</key>
 			<string>entity.other.attribute-name.class.css.sass</string>
 			<key>patterns</key>
