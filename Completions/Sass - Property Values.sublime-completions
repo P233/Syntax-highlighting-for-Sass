@@ -1,5 +1,5 @@
 {
-    "scope": "source.sass meta.property-value.css.sass, source.sass support.constant.property-value.css.sass, source.scss meta.property-value.css.sass, source.scss support.constant.property-value.css.sass",
+    "scope": "source.sass meta.property-list.css.sass, source.scss meta.property-list.css.sass",
 
     "completions": [
         "absolute",
