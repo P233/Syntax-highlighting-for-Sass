@@ -52,10 +52,6 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#color</string>
-		</dict>
-		<dict>
-			<key>include</key>
 			<string>#numeric</string>
 		</dict>
 		<dict>
@@ -69,12 +65,6 @@
 		<dict>
 			<key>include</key>
 			<string>#comma</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>&amp;</string>
-			<key>name</key>
-			<string>keyword.other.ampersand.sass</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -98,7 +88,7 @@
 			<key>begin</key>
 			<string>#</string>
 			<key>end</key>
-			<string>\s|(?=,)|(?=:)|(?=;)|(?=\))|(?={)</string>
+			<string>\s|(?=,)|(?=:)|(?=;)|(?=\))|(?=\.)|(?={)</string>
 			<key>name</key>
 			<string>entity.other.attribute-name.id.css.sass</string>
 			<key>patterns</key>
@@ -150,22 +140,10 @@
 			</array>
 		</dict>
 		<dict>
-			<key>match</key>
-			<string>:(visited|valid|root|right|required|read-write|read-only|out-range|optional|only-of-type|only-child|nth-of-type|nth-last-of-type|nth-last-child|nth-child|not|link|left|last-of-type|last-child|lang|invalid|indeterminate|in-range|hover|focus|first-of-type|first-line|first-letter|first-child|first|enabled|empty|disabled|default|checked|before|after|active|(:-webkit-input|-moz|-ms-input)-placeholder)(?!;)</string>
-			<key>name</key>
-			<string>entity.other.attribute-name.pseudo-class.css.sass</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>::[a-z-]+</string>
-			<key>name</key>
-			<string>entity.other.attribute-name.pseudo-element.css.sass</string>
-		</dict>
-		<dict>
 			<key>begin</key>
 			<string>(?&lt;=:)</string>
 			<key>end</key>
-			<string>(?=;)|(?:\))|(?={)|(?=})</string>
+			<string>(?=;)|(?=\))|(?={)|(?=})</string>
 			<key>name</key>
 			<string>meta.property-list.css.sass</string>
 			<key>patterns</key>
@@ -200,10 +178,6 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#color</string>
-				</dict>
-				<dict>
-					<key>include</key>
 					<string>#numeric</string>
 				</dict>
 				<dict>
@@ -217,12 +191,6 @@
 				<dict>
 					<key>include</key>
 					<string>#comma</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>(\b(?i:arial|century|comic|courier|garamond|georgia|helvetica|impact|lucida|symbol|system|tahoma|times|trebuchet|utopia|verdana|webdings|sans-serif|serif|monospace)\b)</string>
-					<key>name</key>
-					<string>support.constant.font-name.css.sass</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -258,9 +226,15 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;!\-|\()\b(a|abbr|acronym|address|area|article|aside|audio|b|base|big|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|eventsource|fieldset|figure|figcaption|footer|form|frame|frameset|(h[1-6])|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|map|mark|menu|meta|meter|nav|noframes|noscript|object|ol|optgroup|option|output|p|param|pre|progress|q|samp|script|section|select|small|span|strike|strong|style|sub|summary|sup|table|tbody|td|textarea|tfoot|th|thead|time|title|tr|tt|ul|var|video)\b(?!\-|\))</string>
+			<string>(?&lt;!\-|\()\b(a|abbr|acronym|address|area|article|aside|audio|b|base|big|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|eventsource|fieldset|figure|figcaption|footer|form|frame|frameset|(h[1-6])|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|map|mark|menu|meta|meter|nav|noframes|noscript|object|ol|optgroup|option|output|p|param|pre|progress|q|samp|script|section|select|small|span|strike|strong|style|sub|summary|sup|table|tbody|td|textarea|tfoot|th|thead|time|title|tr|tt|ul|var|video)\b(?!\-|\))|&amp;</string>
 			<key>name</key>
 			<string>entity.name.tag.css.sass</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>:[a-z:-]+</string>
+			<key>name</key>
+			<string>entity.other.attribute-name.pseudo-class.css.sass</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -277,13 +251,6 @@
 	</array>
 	<key>repository</key>
 	<dict>
-		<key>color</key>
-		<dict>
-			<key>match</key>
-			<string>(?&lt;!\-)\b(aqua|black|blue|fuchsia|gray|green|lime|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow)\b(?!\-)</string>
-			<key>name</key>
-			<string>support.constant.color.css.sass</string>
-		</dict>
 		<key>comma</key>
 		<dict>
 			<key>match</key>
