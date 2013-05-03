@@ -68,7 +68,6 @@ Numeric | constant.numeric.css.sass
 Unit | keyword.other.unit.css.sass
 Rgb Color | constant.other.color.rgb-value.css.sass
 Literal Color | support.constant.color.css.sass
-Font Name | support.constant.font-name.css.sass
 Function Name | support.function.name.sass
 Sass Variable | variable
 Sass Directive, Directive Shorthand | keyword.control.at-rule.css.sass
