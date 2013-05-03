@@ -56,10 +56,6 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#color</string>
-		</dict>
-		<dict>
-			<key>include</key>
 			<string>#numeric</string>
 		</dict>
 		<dict>
@@ -194,10 +190,6 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#color</string>
-				</dict>
-				<dict>
-					<key>include</key>
 					<string>#numeric</string>
 				</dict>
 				<dict>
@@ -275,13 +267,6 @@
 	</array>
 	<key>repository</key>
 	<dict>
-		<key>color</key>
-		<dict>
-			<key>match</key>
-			<string>(?&lt;!\-)\b(aqua|black|blue|fuchsia|gray|green|lime|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow)\b(?!\-)</string>
-			<key>name</key>
-			<string>support.constant.color.css.sass</string>
-		</dict>
 		<key>comma</key>
 		<dict>
 			<key>match</key>
