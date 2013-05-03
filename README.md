@@ -53,18 +53,16 @@ Element      | Scope Selector
 Block Comment | comment.block.sass
 Double Dash Comment | comment.line.double-dash.sass
 At-rule | keyword.control.at-rule.css.sass
-Type Selector | entity.name.tag.css.sass
+Type Selector, Ampersand | entity.name.tag.css.sass
 Id Selector | entity.other.attribute-name.id.css.sass
 Class Selector | entity.other.attribute-name.class.css.sass
 Placeholder Selector | entity.other.attribute-name.placeholder-selector.sass
 Attribute Selector | entity.other.attribute-selector.sass
 Regex | keyword.other.regex.sass
-Pseudo Class | entity.other.attribute-name.pseudo-class.css.sass
-Pseudo Element | entity.other.attribute-name.pseudo-element.css.sass
+Pseudo Class, Pseudo Element | entity.other.attribute-name.pseudo-class.css.sass
 Property Name | support.type.property-name.css.sass
 Property Value | meta.property-value.css.sass, support.constant.property-value.css.sass
 Double Quoted | string.quoted.double.css.sass
-Ampersand | keyword.other.ampersand.sass
 Comma | comment.punctuation.comma.sass
 Numeric | constant.numeric.css.sass
 Unit | keyword.other.unit.css.sass
