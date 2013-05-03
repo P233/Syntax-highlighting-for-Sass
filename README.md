@@ -1,9 +1,12 @@
 # Syntax Highlighting for Sass
-This is a new syntax highlighting package for Sass (separately support both SCSS and Sass) for Sublime Text / TextMate. Compared with other packages, this will match the structure of `property name` and `property value` instead of matching keywords, so these two parts will be perfectly highlighted and no need to add keywords in the future. Other features including: added support for attribute selector, variables, interpolation syntax, directives and directive shorthand (`=` `+`), functions, operators… etc; improved the highlighting rule for `@media`; and also added `Completion Rules.tmPreferences` file, completions will not be offered when typing in selectors.
+This is a new Sass syntax highlighting package (separately support both SCSS and Sass) for Sublime Text / TextMate. Compared with other packages, *this will match syntax structure instead of matching keywords, so everything will be perfectly highlighted!*
 
-Syntax such like `something(…)` will be matched as **function**, this will effect some CSS property values, Sass build-in functions, Compass/Bourbon functions, and custom functions.
+## Features:
+* Highlight Sass variables, functions, interpolation syntax, directives and directive shorthand (`=` `+`), operators, attribute selector… etc;
+* Better highlighting result for Media Queries;
+* Completions will not be offered when typing in selectors.
 
-The `Preferences` and `Completions` two folders are directly copied from [nathos's sass-textmate-bundle](https://github.com/nathos/sass-textmate-bundle/tree/sublime) with a little bit of modifications. In this package, `property-name` scope selector only works in `@media` directive, then I removed the `Sass - Properties.sublime-completions` file.
+The `Preferences` and `Completions` two folders are directly copied from [nathos's sass-textmate-bundle](https://github.com/nathos/sass-textmate-bundle/tree/sublime) with a little bit of modifications. `Sass - Properties.sublime-completions` will not work with this package, so I removed it.
 
 As always, if you have any problems with this package or suggestions for improvement, please feel free to [fill an issue](https://github.com/P233/Syntax-highlighting-for-Sass/issues/new), and you are also more than welcome to fork this repo and pull request.
 
