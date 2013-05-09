@@ -18,7 +18,7 @@
 			<key>begin</key>
 			<string>/\*|//</string>
 			<key>end</key>
-			<string>\*/|//|(?=^[A-Za-z0-9#.%\[-]+)</string>
+			<string>\*/|//|(?=^[a-zA-Z0-9#.%\[-])</string>
 			<key>name</key>
 			<string>comment.block.sass</string>
 		</dict>
