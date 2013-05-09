@@ -16,15 +16,11 @@
 	<array>
 		<dict>
 			<key>begin</key>
-			<string>/\*</string>
+			<string>/\*|//</string>
 			<key>end</key>
-			<string>\*/</string>
+			<string>\*/|//|(?=^[A-Za-z0-9#.%\[-]+)</string>
 			<key>name</key>
 			<string>comment.block.sass</string>
-		</dict>
-		<dict>
-			<key>include</key>
-			<string>#double-dash</string>
 		</dict>
 		<dict>
 			<key>include</key>
