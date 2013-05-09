@@ -96,7 +96,7 @@
 			<key>begin</key>
 			<string>#</string>
 			<key>end</key>
-			<string>\s|(?=,)|(?=\()|(?=\))|(?=\.)|$\n?</string>
+			<string>\s|(?=,)|(?=\()|(?=\))|(?=\.)|(?=\[)|$\n?</string>
 			<key>name</key>
 			<string>entity.other.attribute-name.id.css.sass</string>
 			<key>patterns</key>
@@ -115,7 +115,7 @@
 			<key>begin</key>
 			<string>\.</string>
 			<key>end</key>
-			<string>\s|(?=,)|(?=\()|(?=\))|$\n?</string>
+			<string>\s|(?=,)|(?=\()|(?=\))|(?=\[)|$\n?</string>
 			<key>name</key>
 			<string>entity.other.attribute-name.class.css.sass</string>
 			<key>patterns</key>
@@ -258,7 +258,7 @@
 			<key>begin</key>
 			<string>(?&lt;!\-|\()\b(a|abbr|acronym|address|area|article|aside|audio|b|base|big|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|eventsource|fieldset|figure|figcaption|footer|form|frame|frameset|(h[1-6])|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|map|mark|menu|meta|meter|nav|noframes|noscript|object|ol|optgroup|option|output|p|param|pre|progress|q|samp|script|section|select|small|span|strike|strong|style|sub|summary|sup|table|tbody|td|textarea|tfoot|th|thead|time|title|tr|tt|ul|var|video|x)\b(?!\-|\)|:\s)|&amp;</string>
 			<key>end</key>
-			<string>\s|(?=,)|(?=\()|(?=\))|(?=\.)|$\n?</string>
+			<string>\s|(?=,)|(?=\()|(?=\))|(?=\.)|(?=\[)|$\n?</string>
 			<key>name</key>
 			<string>entity.name.tag.css.sass</string>
 			<key>patterns</key>
@@ -268,6 +268,12 @@
 					<string>#pseudo-class</string>
 				</dict>
 			</array>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?&lt;=\]):[a-z:-]+</string>
+			<key>name</key>
+			<string>entity.other.attribute-name.pseudo-class.css.sass</string>
 		</dict>
 		<dict>
 			<key>match</key>
