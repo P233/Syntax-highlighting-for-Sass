@@ -165,7 +165,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>(?&lt;=:)</string>
+			<string>:</string>
 			<key>end</key>
 			<string>$\n?|(?=\))</string>
 			<key>name</key>
@@ -347,9 +347,9 @@
 		<key>function-content</key>
 		<dict>
 			<key>begin</key>
-			<string>(?&lt;=url\(|format\(|attr\()</string>
+			<string>(?&lt;=[url|format|attr]\()</string>
 			<key>end</key>
-			<string>(?=\))</string>
+			<string>.(?=\))</string>
 			<key>name</key>
 			<string>string.quoted.double.css.sass</string>
 		</dict>
