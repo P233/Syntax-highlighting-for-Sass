@@ -164,6 +164,12 @@
 			</array>
 		</dict>
 		<dict>
+			<key>match</key>
+			<string>(?&lt;=\]|\)):[a-z:-]+</string>
+			<key>name</key>
+			<string>entity.other.attribute-name.pseudo-class.css.sass</string>
+		</dict>
+		<dict>
 			<key>begin</key>
 			<string>:</string>
 			<key>end</key>
@@ -276,12 +282,6 @@
 					<string>#pseudo-class</string>
 				</dict>
 			</array>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>(?&lt;=\]|\)):[a-z:-]+</string>
-			<key>name</key>
-			<string>entity.other.attribute-name.pseudo-class.css.sass</string>
 		</dict>
 		<dict>
 			<key>match</key>
