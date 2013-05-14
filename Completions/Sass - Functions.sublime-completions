@@ -1,0 +1,69 @@
+{
+	"scope": "source.sass meta.property-list.css.sass, source.scss meta.property-list.css.sass",
+
+	"completions":
+	[
+		// RGB Functions
+		{ "trigger": "red\tsass_funcation", "contents": "red(${1:\\$color})" },
+		{ "trigger": "green\tsass_funcation", "contents": "green(${1:\\$color})" },
+		{ "trigger": "blue\tsass_funcation", "contents": "blue(${1:\\$color})" },
+		{ "trigger": "mix\tsass_funcation", "contents": "mix(${1:\\$color-1}, ${2:\\$color-2}, ${3:weight})" },
+
+		// HSL Functions
+		{ "trigger": "hue\tsass_funcation", "contents": "hue(${1:color})" },
+		{ "trigger": "saturation\tsass_funcation", "contents": "saturation(${1:\\$color})" },
+		{ "trigger": "lightness\tsass_funcation", "contents": "lightness(${1:\\$color})" },
+		{ "trigger": "adjust-hue\tsass_funcation", "contents": "adjust-hue(${1:\\$color}, ${2:\\$degrees})" },
+		{ "trigger": "lighten\tsass_funcation", "contents": "lighten(${1:\\$color}, ${2:\\$amount})" },
+		{ "trigger": "darken\tsass_funcation", "contents": "darken(${1:\\$color}, ${2:\\$amount})" },
+		{ "trigger": "saturate\tsass_funcation", "contents": "saturate(${1:\\$color}, ${2:\\$amount})" },
+		{ "trigger": "desaturate\tsass_funcation", "contents": "desaturate(${1:\\$color}, ${2:\\$amount})" },
+		{ "trigger": "grayscale\tsass_funcation", "contents": "grayscale(${1:\\$color})" },
+		{ "trigger": "complement\tsass_funcation", "contents": "complement(${1:\\$color})" },
+		{ "trigger": "invert\tsass_funcation", "contents": "invert(${1:\\$color})" },
+
+		// Opacity Functions
+		{ "trigger": "alpha\tsass_funcation", "contents": "alpha(${1:\\$color})" },
+		{ "trigger": "opacity\tsass_funcation", "contents": "opacity(${1:\\$color})" },
+		{ "trigger": "opacify\tsass_funcation", "contents": "opacify(${1:\\$color}, ${2:\\$amount})" },
+		{ "trigger": "fade-in\tsass_funcation", "contents": "fade-in(${1:\\$color}, ${2:\\$amount})" },
+		{ "trigger": "transparentize\tsass_funcation", "contents": "transparentize(${1:\\$color}, ${2:\\$amount})" },
+		{ "trigger": "fade-out\tsass_funcation", "contents": "fade-out(${1:\\$color}, ${2:\\$amount})" },
+
+		// Other Color Functions
+		{ "trigger": "adjust-color\tsass_funcation", "contents": "adjust-color(${1:\\$color}, ${2:kwargs})" },
+		{ "trigger": "scale-color\tsass_funcation", "contents": "scale-color(${1:\\$color}, ${2:kwargs})" },
+		{ "trigger": "change-color\tsass_funcation", "contents": "change-color(${1:\\$color}, ${2:kwargs})" },
+		{ "trigger": "ie-hex-str\tsass_funcation", "contents": "ie-hex-str(${1:\\$color})" },
+
+		// String Functions
+		{ "trigger": "unquote\tsass_funcation", "contents": "unquote(${1:\\$string})" },
+		{ "trigger": "quote\tsass_funcation", "contents": "quote(${1:\\$string})" },
+
+		// Number Functions
+		{ "trigger": "percentage\tsass_funcation", "contents": "percentage(${1:\\$value})" },
+		{ "trigger": "round\tsass_funcation", "contents": "round(${1:\\$value})" },
+		{ "trigger": "ceil\tsass_funcation", "contents": "ceil(${1:\\$value})" },
+		{ "trigger": "floor\tsass_funcation", "contents": "floor(${1:\\$value})" },
+		{ "trigger": "abs\tsass_funcation", "contents": "abs(${1:\\$value})" },
+		{ "trigger": "min\tsass_funcation", "contents": "min(${1:\\$x1}, ${2:\\$x2})" },
+		{ "trigger": "max\tsass_funcation", "contents": "max(${1:\\$x1}, ${2:\\$x2})" },
+
+		// List Functions
+		{ "trigger": "length\tsass_funcation", "contents": "length(${1:\\$list})" },
+		{ "trigger": "nth\tsass_funcation", "contents": "nth(${1:\\$list}, ${2:\\$n})" },
+		{ "trigger": "join\tsass_funcation", "contents": "join(${1:\\$list1}, ${2:\\$list2}, ${3:separator})" },
+		{ "trigger": "append\tsass_funcation", "contents": "append(${1:\\$list1}, ${2:\\$val}, ${3:separator})" },
+
+		// Introspection Functions
+		{ "trigger": "type-of\tsass_funcation", "contents": "type-of(${1:\\$value})" },
+		{ "trigger": "unit\tsass_funcation", "contents": "unit(${1:\\$number})" },
+		{ "trigger": "unitless\tsass_funcation", "contents": "unitless(${1:\\$number})" },
+		{ "trigger": "comparable\tsass_funcation", "contents": "comparable(${1:\\$number-1}, ${2:\\$number-2})" },
+
+		// Miscellaneous Functions
+		{ "trigger": "if\tsass_funcation", "contents": "if(${1:\\$condition}, ${2:\\$if-true}, ${3:\\$if-false}" },
+		{ "trigger": "index\tsass_funcation", "contents": "index(${1:\\$list}, ${2:\\$value})" },
+		{ "trigger": "zip\tsass_funcation", "contents": "zip(${1:\\$lists})" }
+	]
+}
