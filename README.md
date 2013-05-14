@@ -5,6 +5,7 @@ This is a new Sass syntax highlighting package (separately support both SCSS and
 * Highlight Sass variables, functions, interpolation syntax, directives and directive shorthand (`=` `+`), operators, attribute selector… etc;
 * Better highlighting result for Media Queries;
 * Completions will not be offered when typing in selectors.
+* Added Sass build-in functions and Compass CSS3 completions (still under working progress)
 
 The `Preferences` and `Completions` two folders are directly copied from [nathos's sass-textmate-bundle](https://github.com/nathos/sass-textmate-bundle/tree/sublime) with a little bit of modifications. `Sass - Properties.sublime-completions` will not work with this package, so I removed it.
 
