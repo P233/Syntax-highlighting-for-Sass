@@ -310,7 +310,7 @@
 		<key>function-content</key>
 		<dict>
 			<key>begin</key>
-			<string>(?&lt;=[url|format|attr]\()</string>
+			<string>(?&lt;=url\(|format\(|attr\()</string>
 			<key>end</key>
 			<string>.(?=\))</string>
 			<key>name</key>
