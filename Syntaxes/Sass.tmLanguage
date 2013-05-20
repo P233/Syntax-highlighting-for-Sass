@@ -165,7 +165,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;=\]|\)):[a-z:-]+</string>
+			<string>(?&lt;=\]|\)):[a-z:-]+|::[a-z:-]+</string>
 			<key>name</key>
 			<string>entity.other.attribute-name.pseudo-class.css.sass</string>
 		</dict>
@@ -444,14 +444,14 @@
 			<key>match</key>
 			<string>\$[a-zA-Z0-9_-]+</string>
 			<key>name</key>
-			<string>variable.compass</string>
+			<string>variable.other.compass</string>
 		</dict>
 		<key>variable</key>
 		<dict>
 			<key>match</key>
 			<string>\$[a-zA-Z0-9_-]+</string>
 			<key>name</key>
-			<string>variable</string>
+			<string>variable.other</string>
 		</dict>
 	</dict>
 	<key>scopeName</key>
