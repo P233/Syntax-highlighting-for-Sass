@@ -90,6 +90,12 @@
 		</dict>
 		<dict>
 			<key>match</key>
+			<string>(?&lt;=@import)\s[a-zA-Z0-9_/.*-]+</string>
+			<key>name</key>
+			<string>string.quoted.double.css.sass</string>
+		</dict>
+		<dict>
+			<key>match</key>
 			<string>(@media\s(all|aural|braille|embossed|handheld|print|projection|screen|tty|tv)*)|(@else\s(if)*)|@[a-zA-Z-]+</string>
 			<key>name</key>
 			<string>keyword.control.at-rule.css.sass</string>
