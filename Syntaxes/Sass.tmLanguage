@@ -16,19 +16,19 @@
 	<array>
 		<dict>
 			<key>begin</key>
-			<string>^(/\*|//)</string>
+			<string>/\*</string>
 			<key>end</key>
-			<string>\*/|(?=^[a-zA-Z0-9#.%$@\[])</string>
+			<string>\*/</string>
 			<key>name</key>
 			<string>comment.block.sass</string>
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>\s/\*</string>
+			<string>//</string>
 			<key>end</key>
-			<string>\*/</string>
+			<string>$\n?</string>
 			<key>name</key>
-			<string>comment.block.sass</string>
+			<string>comment.line.double-slash.sass</string>
 		</dict>
 		<dict>
 			<key>include</key>
