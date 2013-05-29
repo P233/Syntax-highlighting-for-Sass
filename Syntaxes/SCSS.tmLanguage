@@ -7,9 +7,9 @@
 		<string>scss</string>
 	</array>
 	<key>foldingStartMarker</key>
-	<string>/\*|^#|^\*|^\b|^\.</string>
+	<string>/\*\*(?!\*)|\{\s*($|/\*(?!.*?\*/.*\S))|\/\*\s*@group\s*.*\s*\*\/</string>
 	<key>foldingStopMarker</key>
-	<string>\*/|^\s*$</string>
+	<string>(?<!\*)\*\*/|^\s*\}|\/*\s*@end\s*\*\/</string>
 	<key>name</key>
 	<string>SCSS</string>
 	<key>patterns</key>
