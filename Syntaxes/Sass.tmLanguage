@@ -60,10 +60,6 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#rgb-value</string>
-		</dict>
-		<dict>
-			<key>include</key>
 			<string>#numeric</string>
 		</dict>
 		<dict>
@@ -261,6 +257,10 @@
 					<string>meta.property-value.css.sass, support.constant.property-value.css.sass</string>
 				</dict>
 			</array>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#rgb-value</string>
 		</dict>
 		<dict>
 			<key>include</key>
