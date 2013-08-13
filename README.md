@@ -1,11 +1,13 @@
 # Syntax Highlighting for Sass
-This is a new Sass syntax highlighting package (separately support both SCSS and Sass) for Sublime Text / TextMate. Compared with other packages, *this will match syntax structure instead of matching keywords, so everything will be perfectly highlighted!*
+This is a new Sass syntax highlighting package (separately support both SCSS and Sass) for Sublime Text / TextMate. *Compared with other packages, this will match syntax structure instead of matching keywords, so everything will be perfectly highlighted!*
 
 ## Features:
-* Highlight Sass variables, functions, interpolation syntax, directives and directive shorthand (`=` `+`), operators, attribute selector… etc;
+* Auto match property name, property value and pseudo-class etc. (only HTML tags are matched by keyword);
+* Support Sass variables, functions, interpolation syntax, directives and directive shorthand (`=` `+`), operators, attribute selector… etc;
 * Better highlighting result for Media Queries;
-* Completions will not be offered when typing in selectors.
-* Added Sass build-in functions and Compass CSS3 completions (still under working progress)
+* Completions will not be offered when typing in selectors. (see [ST3 Build 3019 change log](http://www.sublimetext.com/3));
+* Including Sass build-in function completions and Compass CSS3 completions (under working progress);
+* You may also use the SCSS part for perfect syntax highlighting for CSS;
 
 The `Preferences` and `Completions` two folders are directly copied from [nathos's sass-textmate-bundle](https://github.com/nathos/sass-textmate-bundle/tree/sublime) with a little bit of modifications. `Sass - Properties.sublime-completions` will not work with this package, so I removed it.
 
@@ -14,24 +16,18 @@ As always, if you have any problems with this package or suggestions for improve
 ## Installation
 
 ### Sublime Text
-
 Recommend to install this package through **Package Control** (use the keyword `SHS` to find this plugin). Or download this package and rename it as you like, then move it into the Packages folder of Sublime Text.
 
 ### TextMate
-
 Download the [bundle file](https://github.com/P233/Syntax-highlighting-for-Sass/tree/textmate) and then move it in to `~/Library/Application Support/TextMate/Bundles/`. If the folder doesn't exist, create one.
 
 ## Color Scheme
 
 ### Recommended Color Schemes
-
-I have shared a custom `Solarized (Light).tmTheme` file in Color Scheme folder, so that you can see how this highlighting package works. If you'd like to use other color schemes, this package works fine, may not perfect. Here are some recommended Color Schemes:
-
 * [Perv Color Schemes](https://github.com/FlavourSys/Perv-ColorScheme) Thanks [Mick](https://github.com/micck) for adding support for this package
 * [Tomorrow Theme](https://github.com/chriskempson/tomorrow-theme)
 
-### Modify Color Scheme
-
+### Modify Color Scheme 
 With the following scope selectors, you can change the color for everything in this package. For example, if a color scheme doesn't support variables, copy and paste the following code anywhere between `<array> </array>` in the file could solve this problem.
 
 ```
@@ -82,12 +78,9 @@ Sass Semicolon | invalid
 Sass Curly Brackets | invalid
 
 ## Contributors
-
 [mannieschumpert](https://github.com/mannieschumpert)
 
-## Credit
+## Credits
 [nathos's sass-textmate-bundle](https://github.com/nathos/sass-textmate-bundle/tree/sublime)
 
 [Textmate Language Grammars](http://manual.macromates.com/en/language_grammars.html)
-
-[Solarized](http://ethanschoonover.com/solarized)
