@@ -24,6 +24,7 @@ Download the [bundle file](https://github.com/P233/Syntax-highlighting-for-Sass/
 ## Color Scheme
 
 ### Recommended Color Schemes
+* [Neon Color Scheme](https://sublime.wbond.net/packages/Neon%20Color%20Scheme) Thanks [Matt](https://github.com/MattDMo) for adding support for this package
 * [Perv Color Schemes](https://github.com/FlavourSys/Perv-ColorScheme) Thanks [Mick](https://github.com/micck) for adding support for this package
 * [Tomorrow Theme](https://github.com/chriskempson/tomorrow-theme)
 
