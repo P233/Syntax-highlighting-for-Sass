@@ -44,7 +44,7 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#variable-compass</string>
+			<string>#variable-library</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -66,7 +66,7 @@
 			<key>match</key>
 			<string>(?&lt;=@include|@mixin)\s[a-zA-Z0-9_-]+</string>
 			<key>name</key>
-			<string>support.function.name.sass.compass</string>
+			<string>support.function.name.sass.library</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -84,7 +84,7 @@
 			<key>match</key>
 			<string>[=+][a-zA-Z0-9_-]+</string>
 			<key>name</key>
-			<string>keyword.control.at-rule.css.sass.compass</string>
+			<string>keyword.control.at-rule.css.sass.library</string>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -401,12 +401,12 @@
 			<key>name</key>
 			<string>keyword.other.unit.css.sass</string>
 		</dict>
-		<key>variable-compass</key>
+		<key>variable-library</key>
 		<dict>
 			<key>match</key>
 			<string>\$[a-zA-Z0-9_-]+</string>
 			<key>name</key>
-			<string>variable.other.compass</string>
+			<string>variable.other.library</string>
 		</dict>
 		<key>variable</key>
 		<dict>

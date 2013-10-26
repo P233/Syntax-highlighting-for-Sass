@@ -1,5 +1,5 @@
 {
-	"scope": "source.sass variable.compass, source.scss variable.compass",
+	"scope": "source.sass variable.library, source.scss variable.library",
 
 	"completions": [
 		// CSS3

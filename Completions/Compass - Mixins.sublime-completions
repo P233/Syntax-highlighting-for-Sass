@@ -1,5 +1,5 @@
 {
-	"scope": "source.sass support.function.name.sass.compass, source.sass keyword.control.at-rule.css.sass.compass, source.scss support.function.name.sass.compass, source.scss keyword.control.at-rule.css.sass.compass",
+	"scope": "source.sass support.function.name.sass.library, source.sass keyword.control.at-rule.css.sass.library, source.scss support.function.name.sass.library, source.scss keyword.control.at-rule.css.sass.library",
 
 	"completions":
 	[
