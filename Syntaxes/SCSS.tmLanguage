@@ -71,9 +71,21 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;=@include|@mixin)\s[a-zA-Z0-9_-]+</string>
+			<string>(?&lt;=@include)\s[a-zA-Z0-9_-]+</string>
 			<key>name</key>
 			<string>support.function.name.sass.library</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?&lt;=@mixin)\s[a-zA-Z0-9_-]+</string>
+			<key>name</key>
+			<string>support.function.name.sass.library, mixin.in.project</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>(?&lt;=@function)\s[a-zA-Z0-9_-]+</string>
+			<key>name</key>
+			<string>support.function.name.sass.library, function.in.project</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -89,7 +101,13 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>[=+][a-zA-Z0-9_-]+</string>
+			<string>[=][a-zA-Z0-9_-]+</string>
+			<key>name</key>
+			<string>keyword.control.at-rule.css.sass.library, mixin.in.project</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>[+][a-zA-Z0-9_-]+</string>
 			<key>name</key>
 			<string>keyword.control.at-rule.css.sass.library</string>
 		</dict>

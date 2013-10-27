@@ -3,17 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>name</key>
-	<string>Symbol List: Selectors</string>
+	<string>Comment Tag</string>
 	<key>scope</key>
-	<string>entity.name.tag.css.sass, entity.other.attribute-name.id.css.sass, entity.other.attribute-name.class.css.sass, comment.tag.sass</string>
+	<string>comment.tag.sass</string>
 	<key>settings</key>
 	<dict>
 		<key>showInSymbolList</key>
 		<integer>1</integer>
 		<key>symbolTransformation</key>
-		<string>s/(.*?)/$1/</string>
+		<string>s/^//</string>
+		<key>showInIndexedSymbolList</key>
+		<integer>1</integer>
+		<key>symbolIndexTransformation</key>
+		<string>s/^//</string>
 	</dict>
 	<key>uuid</key>
-	<string>71B52B90-82BB-11E2-9E96-0800200C9A66</string>
+	<string>41411120-3F00-11E3-AA6E-0800200C9A66</string>
 </dict>
 </plist>

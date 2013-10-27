@@ -2,7 +2,8 @@
 This is a new Sass syntax highlighting package (separately support both SCSS and Sass) for Sublime Text / TextMate. *Compared with other packages, this will match syntax structure instead of matching keywords, so everything will be perfectly highlighted!*
 
 ## Features:
-* NEW FEATURE: By using `{{` and `}}` to wrap a keyword in any comment, you can create a Comment Tag and it can be indexed by the 'Goto Symbol' function. For better CSS organisation.
+* NEW FEATURE: By using `{{` and `}}` to wrap a keyword in any comment, you can create a Comment Tag and it can be indexed by 'Goto Symbol' and 'Goto Symbol in Project'. For better CSS organisation;
+* NEW FEATURE: Added support for Sublime Text 3 'Goto Symbol in Project'. Now 'Goto Symbol' will list all HTML tags, ID selectors, Class selectors, and Comment Tags in current file, and 'Goto Symbol in Project' will list all `@mixin`, `@function`, and Comment Tags in current project. (NOTE: If you have installed Emmet you need to override keyboard shortcuts for <kbd>Super+Shift+R</kbd>, see [https://github.com/sergeche/emmet-sublime/issues/266](https://github.com/sergeche/emmet-sublime/issues/266)). Unfortunately, not support 'Goto Definition';
 * Auto match property name, property value and pseudo-class etc. (only HTML tags are matched by keyword);
 * Support Sass variables, functions, interpolation syntax, directives and directive shorthand (`=` `+`), operators, attribute selector… etc;
 * Better highlighting result for Media Queries;
