@@ -2,6 +2,7 @@
 This is a new Sass syntax highlighting package (separately support both SCSS and Sass) for Sublime Text / TextMate. *Compared with other packages, this will match syntax structure instead of matching keywords, so everything will be perfectly highlighted!*
 
 ## Features:
+* NEW FEATURE: By using `{{` and `}}` to wrap a keyword in any comment, you can create a Comment Tag and it can be indexed by the 'Goto Symbol' function. For better CSS organisation.
 * Auto match property name, property value and pseudo-class etc. (only HTML tags are matched by keyword);
 * Support Sass variables, functions, interpolation syntax, directives and directive shorthand (`=` `+`), operators, attribute selector… etc;
 * Better highlighting result for Media Queries;
@@ -53,6 +54,7 @@ Element      | Scope Selector
 :----------- | :--------------
 Block Comment | comment.block.sass
 Double Dash Comment | comment.line.double-dash.sass
+Comment Tag | comment.tag.sass
 At-rule | keyword.control.at-rule.css.sass
 Type Selector, Ampersand | entity.name.tag.css.sass
 Id Selector | entity.other.attribute-name.id.css.sass

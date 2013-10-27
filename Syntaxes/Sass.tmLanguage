@@ -21,6 +21,13 @@
 			<string>\*/|(?=^[a-zA-Z0-9#.%$@\[=*+])</string>
 			<key>name</key>
 			<string>comment.block.sass</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#comment-tag</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -29,6 +36,13 @@
 			<string>\*/</string>
 			<key>name</key>
 			<string>comment.block.sass</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#comment-tag</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -311,6 +325,15 @@
 			<key>name</key>
 			<string>comment.punctuation.comma.sass</string>
 		</dict>
+		<key>comment-tag</key>
+		<dict>
+			<key>begin</key>
+			<string>{{</string>
+			<key>end</key>
+			<string>}}</string>
+			<key>name</key>
+			<string>comment.tag.sass</string>
+		</dict>
 		<key>curly-brackets</key>
 		<dict>
 			<key>match</key>
@@ -326,6 +349,13 @@
 			<string>$\n?</string>
 			<key>name</key>
 			<string>comment.line.double-dash.sass</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#comment-tag</string>
+				</dict>
+			</array>
 		</dict>
 		<key>double-quoted</key>
 		<dict>
