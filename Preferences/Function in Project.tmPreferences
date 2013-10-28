@@ -11,7 +11,7 @@
 		<key>showInIndexedSymbolList</key>
 		<integer>1</integer>
 		<key>symbolIndexTransformation</key>
-		<string>s/^/@function/</string>
+		<string>s/^//</string>
 	</dict>
 	<key>uuid</key>
 	<string>14955050-3EFB-11E3-AA6E-0800200C9A66</string>
