@@ -1,9 +1,19 @@
 # Syntax Highlighting for Sass
 This is a new Sass syntax highlighting package (separately support both SCSS and Sass) for Sublime Text / TextMate. *Compared with other packages, this will match syntax structure instead of matching keywords, so everything will be perfectly highlighted!*
 
+## Changelog:
+
+### 29 Oct 2013
+
+* Comment Tag now support 'Goto Definition', but `{{` and `}}` will not show in 'Goto Symbol in Project' list. Will add them back when ST team [improved Goto Definition function](http://www.sublimetext.com/forum/viewtopic.php?f=4&t=14515). Typing `{{` and `}}` in Sublime Text 2 may lead to crash!
+
+### 27 Oct 2013
+
+* By using `{{` and `}}` to wrap a keyword in any comment, you can create a Comment Tag and it can be indexed by 'Goto Symbol' and 'Goto Symbol in Project'. For better CSS organisation;
+
+* Added support for Sublime Text 3 'Goto Symbol in Project' and 'Goto Definition' features. All HTML tags, ID/Class/Placeholder selectors, `@mixin`, `@function` and Comment Tags can be indexed. Limitation see [http://www.sublimetext.com/forum/viewtopic.php?f=4&t=14515](http://www.sublimetext.com/forum/viewtopic.php?f=4&t=14515), if you got other problem please feel free to [fill an issue](https://github.com/P233/Syntax-highlighting-for-Sass/issues/new). (NOTE: If you have installed Emmet you need to override keyboard shortcuts, see [https://github.com/sergeche/emmet-sublime/issues/266](https://github.com/sergeche/emmet-sublime/issues/266));
+
 ## Features:
-* NEW FEATURE: By using `{{` and `}}` to wrap a keyword in any comment, you can create a Comment Tag and it can be indexed by 'Goto Symbol' and 'Goto Symbol in Project'. For better CSS organisation;
-* NEW FEATURE: Added support for Sublime Text 3 'Goto Symbol in Project'. Now 'Goto Symbol' will list all HTML tags, ID selectors, Class selectors, and Comment Tags in current file, and 'Goto Symbol in Project' will list all `@mixin`, `@function`, and Comment Tags in current project. (NOTE: If you have installed Emmet you need to override keyboard shortcuts for <kbd>Super+Shift+R</kbd>, see [https://github.com/sergeche/emmet-sublime/issues/266](https://github.com/sergeche/emmet-sublime/issues/266)). Unfortunately, not support 'Goto Definition';
 * Auto match property name, property value and pseudo-class etc. (only HTML tags are matched by keyword);
 * Support Sass variables, functions, interpolation syntax, directives and directive shorthand (`=` `+`), operators, attribute selector… etc;
 * Better highlighting result for Media Queries;
