@@ -387,7 +387,7 @@
 		<key>flag</key>
 		<dict>
 			<key>match</key>
-			<string>!(important|default|optional)</string>
+			<string>!(important|default|optional|global)</string>
 			<key>name</key>
 			<string>keyword.other.important.css.sass</string>
 		</dict>

@@ -3,6 +3,13 @@ This is a new Sass syntax highlighting package (separately support both SCSS and
 
 ## Changelog:
 
+### 24 Feb 2014
+
+Added support for Sass 3.3 new features:
+
+1. Highlight `!global`, `...` (Variable Keyword Arguments)
+
+
 ### 29 Oct 2013
 
 * Comment Tag now support 'Goto Definition', but `{{` and `}}` will not show in 'Goto Symbol in Project' list. Will add them back when ST team [improved Goto Definition function](http://www.sublimetext.com/forum/viewtopic.php?f=4&t=14515). Typing `{{` and `}}` in Sublime Text 2 may lead to crash!
