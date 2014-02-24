@@ -71,6 +71,12 @@
 		</dict>
 		<dict>
 			<key>match</key>
+			<string>\.\.\.</string>
+			<key>name</key>
+			<string>variable.other</string>
+		</dict>
+		<dict>
+			<key>match</key>
 			<string>(?&lt;=@include)\s[a-zA-Z0-9_-]+</string>
 			<key>name</key>
 			<string>support.function.name.sass.library</string>
