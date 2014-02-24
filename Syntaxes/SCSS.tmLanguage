@@ -282,6 +282,10 @@
 			<array>
 				<dict>
 					<key>include</key>
+					<string>#interpolation</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#pseudo-class</string>
 				</dict>
 			</array>
