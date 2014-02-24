@@ -8,8 +8,8 @@ This is a new Sass syntax highlighting package (separately support both SCSS and
 Added support for Sass 3.3 new features:
 
 1. Highlight `!global`, `...` (Variable Keyword Arguments)
-
-
+2. Highlight interpolation when it is used behind a parent selector
+3. Highlight complex selector such as: `#{$argu}_selector_#{$argu}:#{$after} {}`
 ### 29 Oct 2013
 
 * Comment Tag now support 'Goto Definition', but `{{` and `}}` will not show in 'Goto Symbol in Project' list. Will add them back when ST team [improved Goto Definition function](http://www.sublimetext.com/forum/viewtopic.php?f=4&t=14515). Typing `{{` and `}}` in Sublime Text 2 may lead to crash!
