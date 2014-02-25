@@ -62,8 +62,19 @@
 		{ "trigger": "comparable\tsass_function", "contents": "comparable(${1:\\$number-1}, ${2:\\$number-2})" },
 
 		// Miscellaneous Functions
-		{ "trigger": "if\tsass_function", "contents": "if(${1:\\$condition}, ${2:\\$if-true}, ${3:\\$if-false}" },
+		{ "trigger": "if\tsass_function", "contents": "if(${1:\\$condition}, ${2:\\$if-true}, ${3:\\$if-false})" },
 		{ "trigger": "index\tsass_function", "contents": "index(${1:\\$list}, ${2:\\$value})" },
 		{ "trigger": "zip\tsass_function", "contents": "zip(${1:\\$lists})" }
+
+
+		// Sass 3.3
+		{ "trigger": "map-get\tsass_function", "contents": "map-get(${1:\\$map}, ${2:\\$key})" },
+		{ "trigger": "map-merge\tsass_function", "contents": "map-merge(${1:\\$map1}, ${2:\\$map2})" },
+		{ "trigger": "map-remove\tsass_function", "contents": "map-remove(${1:\\$map}, ${2:\\$key})" },
+		{ "trigger": "map-keys\tsass_function", "contents": "map-keys(${1:\\$map})" },
+		{ "trigger": "map-values\tsass_function", "contents": "map-values(${1:\\$map})" },
+		{ "trigger": "map-has-key\tsass_function", "contents": "map-has-key(${1:\\$map}, ${2:\\$key})" },
+
+		{ "trigger": "keywords\tsass_function", "contents": "keywords(${1:\\$args})" }
 	]
 }
