@@ -418,6 +418,14 @@
 					<key>include</key>
 					<string>#comma</string>
 				</dict>
+				<dict>
+					<key>include</key>
+					<string>#double-quoted</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#single-quoted</string>
+				</dict>
 			</array>
 		</dict>
 		<key>numeric</key>
