@@ -53,7 +53,7 @@
 			<key>begin</key>
 			<string>\$[a-zA-Z0-9_-]+(?=:)</string>
 			<key>end</key>
-			<string>(?=;)|(?=\))(?=\n\))|(?=\)\{)</string>
+			<string>(?=;)|(?=\))(?=\n\))|(?=\)\s*\{)</string>
 			<key>name</key>
 			<string>sass-script-maps</string>
 			<key>captures</key>
