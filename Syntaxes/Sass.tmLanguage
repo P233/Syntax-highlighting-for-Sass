@@ -72,9 +72,9 @@
 			<key>begin</key>
 			<string>\$[a-zA-Z0-9_-]+(?=:)</string>
 			<key>end</key>
-			<string>$\n?|(?=\)\s)|(?=\)\n)</string>
+			<string>$\n?|(?=\))(?=\s\))|(?=\)\n)</string>
 			<key>name</key>
-			<string>source.sass</string>
+			<string>sass-script-maps</string>
 			<key>captures</key>
 			<dict>
 				<key>0</key>
