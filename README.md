@@ -3,6 +3,10 @@ This is a new Sass syntax highlighting package (separately support both SCSS and
 
 ## Changelog:
 
+### 09 Mar 2014
+
+Added support for SassScript Maps
+
 ### 24 Feb 2014
 
 Added support for Sass 3.3 new features:

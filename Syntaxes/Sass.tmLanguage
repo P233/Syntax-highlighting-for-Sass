@@ -69,6 +69,87 @@
 			<string>#placeholder-selector</string>
 		</dict>
 		<dict>
+			<key>begin</key>
+			<string>\$[a-zA-Z0-9_-]+(?=:)</string>
+			<key>end</key>
+			<string>$\n?|(?=\)\s)|(?=\)\n)</string>
+			<key>name</key>
+			<string>source.sass</string>
+			<key>captures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>variable</string>
+				</dict>
+			</dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#double-dash</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#double-quoted</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#single-quoted</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#placeholder-selector</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#interpolation</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#variable</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#rgb-value</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#numeric</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#unit</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#flag</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#comma</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#function</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#function-content</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#operator</string>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>[a-zA-Z0-9_-]+</string>
+					<key>name</key>
+					<string>meta.property-value.css.sass, support.constant.property-value.css.sass</string>
+				</dict>
+			</array>
+		</dict>
+		<dict>
 			<key>include</key>
 			<string>#variable-library</string>
 		</dict>
