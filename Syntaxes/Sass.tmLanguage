@@ -80,7 +80,7 @@
 				<key>0</key>
 				<dict>
 					<key>name</key>
-					<string>variable</string>
+					<string>variable.other</string>
 				</dict>
 			</dict>
 			<key>patterns</key>
@@ -142,10 +142,8 @@
 					<string>#operator</string>
 				</dict>
 				<dict>
-					<key>match</key>
-					<string>[a-zA-Z0-9_-]+</string>
-					<key>name</key>
-					<string>meta.property-value.css.sass, support.constant.property-value.css.sass</string>
+					<key>include</key>
+					<string>#property-value</string>
 				</dict>
 			</array>
 		</dict>
@@ -438,10 +436,8 @@
 			<string>support.type.property-name.css.sass</string>
 		</dict>
 		<dict>
-			<key>match</key>
-			<string>[a-zA-Z0-9_-]+</string>
-			<key>name</key>
-			<string>meta.property-value.css.sass, support.constant.property-value.css.sass</string>
+			<key>include</key>
+			<string>#property-value</string>
 		</dict>
 	</array>
 	<key>repository</key>
@@ -573,6 +569,13 @@
 			<string>%[a-zA-Z0-9_-]+</string>
 			<key>name</key>
 			<string>entity.other.attribute-name.placeholder-selector.sass</string>
+		</dict>
+		<key>property-value</key>
+		<dict>
+			<key>match</key>
+			<string>[a-zA-Z0-9_-]+</string>
+			<key>name</key>
+			<string>meta.property-value.css.sass, support.constant.property-value.css.sass</string>
 		</dict>
 		<key>pseudo-class</key>
 		<dict>
