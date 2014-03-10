@@ -394,7 +394,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>[a-z-]+(?=:)|\b(from|through|to|in)\b</string>
+			<string>[a-z-]+((?=:)|(?=#{))|\b(from|through|to|in)\b</string>
 			<key>name</key>
 			<string>support.type.property-name.css.sass</string>
 		</dict>
