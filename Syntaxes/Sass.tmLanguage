@@ -566,7 +566,7 @@
 		<key>placeholder-selector</key>
 		<dict>
 			<key>match</key>
-			<string>%[a-zA-Z0-9_-]+</string>
+			<string>%[a-zA-Z]{1}[a-zA-Z0-9_-]+</string>
 			<key>name</key>
 			<string>entity.other.attribute-name.placeholder-selector.sass</string>
 		</dict>
