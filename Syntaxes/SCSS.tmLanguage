@@ -126,6 +126,10 @@
 					<key>include</key>
 					<string>#property-value</string>
 				</dict>
+				<dict>
+					<key>include</key>
+					<string>#dotdotdot</string>
+				</dict>
 			</array>
 		</dict>
 		<dict>
@@ -149,10 +153,8 @@
 			<string>#comma</string>
 		</dict>
 		<dict>
-			<key>match</key>
-			<string>\.\.\.</string>
-			<key>name</key>
-			<string>variable.other</string>
+			<key>include</key>
+			<string>#dotdotdot</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -420,6 +422,13 @@
 			<string>(?=}})</string>
 			<key>name</key>
 			<string>comment.tag.sass</string>
+		</dict>
+		<key>dotdotdot</key>
+		<dict>
+			<key>match</key>
+			<string>\.\.\.</string>
+			<key>name</key>
+			<string>variable.other</string>
 		</dict>
 		<key>double-dash</key>
 		<dict>
