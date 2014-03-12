@@ -524,7 +524,7 @@
 		<key>operator</key>
 		<dict>
 			<key>match</key>
-			<string>\+|\s-\s|\s-(?=\$)|\*|/|%|=|!|&lt;|&gt;|~</string>
+			<string>\+|\s-\s|\s-(?=\$)|(?&lt;=\()-(?=\$)|\*|/|%|=|!|&lt;|&gt;|~</string>
 			<key>name</key>
 			<string>keyword.operator.sass</string>
 		</dict>
