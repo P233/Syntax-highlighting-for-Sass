@@ -205,7 +205,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(@media\s(all|aural|braille|embossed|handheld|print|projection|screen|(only\sscreen)|tty|tv)*)|(@else\s(if)*)|@[a-zA-Z-]+</string>
+			<string>(@media\s(all|aural|braille|embossed|handheld|print|projection|screen|(only\sscreen)|tty|tv)*)|(@else\s(if)*)|@[a-zA-Z-]+|only\sscreen\s(?=and)|screen\s(?=and)</string>
 			<key>name</key>
 			<string>keyword.control.at-rule.css.sass</string>
 		</dict>
