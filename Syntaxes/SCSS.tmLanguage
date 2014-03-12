@@ -263,7 +263,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;=\]|\)|not\():[a-z:-]+|::[a-z:-]+</string>
+			<string>(?&lt;=\]|\)|not\(|\*):[a-z:-]+|::[a-z:-]+</string>
 			<key>name</key>
 			<string>entity.other.attribute-name.pseudo-class.css.sass</string>
 		</dict>
