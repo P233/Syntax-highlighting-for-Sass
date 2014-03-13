@@ -124,6 +124,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#reserved-words</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#property-value</string>
 				</dict>
 				<dict>
@@ -151,6 +155,10 @@
 		<dict>
 			<key>include</key>
 			<string>#comma</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#reserved-words</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -396,7 +404,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>[a-z-]+((?=:|#{))|\b(from|through|to|in)\b</string>
+			<string>[a-z-]+((?=:|#{))</string>
 			<key>name</key>
 			<string>support.type.property-name.css.sass</string>
 		</dict>
@@ -548,6 +556,13 @@
 			<string>:[a-z:-]+</string>
 			<key>name</key>
 			<string>entity.other.attribute-name.pseudo-class.css.sass</string>
+		</dict>
+		<key>reserved-words</key>
+		<dict>
+			<key>match</key>
+			<string>\b(false|from|in|not|null|through|to|true)\b</string>
+			<key>name</key>
+			<string>support.type.property-name.css.sass</string>
 		</dict>
 		<key>rgb-value</key>
 		<dict>
