@@ -181,10 +181,6 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#reserved-words</string>
-		</dict>
-		<dict>
-			<key>include</key>
 			<string>#dotdotdot</string>
 		</dict>
 		<dict>
@@ -444,6 +440,10 @@
 			<string>[a-z-]+((?=:|#{))</string>
 			<key>name</key>
 			<string>support.type.property-name.css.sass</string>
+		</dict>
+		<dict>
+			<key>include</key>
+			<string>#reserved-words</string>
 		</dict>
 		<dict>
 			<key>include</key>
