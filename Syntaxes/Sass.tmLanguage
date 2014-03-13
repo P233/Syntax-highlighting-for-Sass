@@ -46,7 +46,7 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#double-dash</string>
+			<string>#double-slash</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -87,7 +87,7 @@
 			<array>
 				<dict>
 					<key>include</key>
-					<string>#double-dash</string>
+					<string>#double-slash</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -311,7 +311,7 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#double-dash</string>
+					<string>#double-slash</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -482,14 +482,14 @@
 			<key>name</key>
 			<string>variable.other</string>
 		</dict>
-		<key>double-dash</key>
+		<key>double-slash</key>
 		<dict>
 			<key>begin</key>
 			<string>//</string>
 			<key>end</key>
 			<string>$\n?</string>
 			<key>name</key>
-			<string>comment.line.double-dash.sass</string>
+			<string>comment.line.double-slash.sass</string>
 			<key>patterns</key>
 			<array>
 				<dict>
