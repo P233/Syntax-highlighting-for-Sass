@@ -410,7 +410,7 @@
 		<key>comma</key>
 		<dict>
 			<key>match</key>
-			<string>\band\b|,</string>
+			<string>\band\b|\bor\b|,</string>
 			<key>name</key>
 			<string>comment.punctuation.comma.sass</string>
 		</dict>
