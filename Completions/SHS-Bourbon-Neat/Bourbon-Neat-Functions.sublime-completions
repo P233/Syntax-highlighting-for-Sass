@@ -1,0 +1,8 @@
+{
+	"scope": "source.sass , source.scss",
+
+	"completions":
+	[
+		{ "trigger": "new-breakpoint\tBourbon-Neat", "contents": "new-breakpoint(${1})" }
+	]
+}
