@@ -374,10 +374,8 @@
 					<string>#operator</string>
 				</dict>
 				<dict>
-					<key>match</key>
-					<string>[a-zA-Z0-9_-]+</string>
-					<key>name</key>
-					<string>meta.property-value.css.sass, support.constant.property-value.css.sass</string>
+					<key>include</key>
+					<string>#property-value</string>
 				</dict>
 			</array>
 		</dict>
