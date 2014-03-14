@@ -80,10 +80,6 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#placeholder-selector</string>
-				</dict>
-				<dict>
-					<key>include</key>
 					<string>#interpolation</string>
 				</dict>
 				<dict>
@@ -291,10 +287,6 @@
 				<dict>
 					<key>include</key>
 					<string>#single-quoted</string>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#placeholder-selector</string>
 				</dict>
 				<dict>
 					<key>include</key>
