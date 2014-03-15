@@ -452,6 +452,13 @@
 			<string>"</string>
 			<key>name</key>
 			<string>string.quoted.double.css.sass</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#quoted-interpolation</string>
+				</dict>
+			</array>
 		</dict>
 		<key>flag</key>
 		<dict>
@@ -547,6 +554,34 @@
 			<key>name</key>
 			<string>entity.other.attribute-name.pseudo-class.css.sass</string>
 		</dict>
+		<key>quoted-interpolation</key>
+		<dict>
+			<key>begin</key>
+			<string>#{</string>
+			<key>end</key>
+			<string>}</string>
+			<key>name</key>
+			<string>support.function.interpolation.sass</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#variable</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#numeric</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#unit</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#comma</string>
+				</dict>
+			</array>
+		</dict>
 		<key>reserved-words</key>
 		<dict>
 			<key>match</key>
@@ -569,6 +604,13 @@
 			<string>'</string>
 			<key>name</key>
 			<string>string.quoted.single.css.sass</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>include</key>
+					<string>#quoted-interpolation</string>
+				</dict>
+			</array>
 		</dict>
 		<key>unit</key>
 		<dict>
