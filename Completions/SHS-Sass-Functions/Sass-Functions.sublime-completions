@@ -1,5 +1,5 @@
 {
-	"scope": "source.sass meta.property-list.css.sass, source.scss meta.property-list.css.sass",
+	"scope": "source.sass , source.scss",
 
 	"completions":
 	[
@@ -39,6 +39,12 @@
 		// String Functions
 		{ "trigger": "unquote\tSass-function", "contents": "unquote(${1:\\$string})" },
 		{ "trigger": "quote\tSass-function", "contents": "quote(${1:\\$string})" },
+		{ "trigger": "str-length\tSass-function", "contents": "str-length(${1:\\$string})" },
+		{ "trigger": "str-insert\tSass-function", "contents": "str-insert(${1:\\$string}, ${2:\\$insert}, ${3:\\$index})" },
+		{ "trigger": "str-index\tSass-function", "contents": "str-index(${1:\\$string}, ${2:$substring})" },
+		{ "trigger": "str-slice\tSass-function", "contents": "str-slice(${1:\\$string}, ${2:\\$start-at}, ${3:\\$end-at})" },
+		{ "trigger": "to-upper-case\tSass-function", "contents": "to-upper-case(${1:\\$string})" },
+		{ "trigger": "to-lower-case\tSass-function", "contents": "to-lower-case(${1:\\$string})" },
 
 		// Number Functions
 		{ "trigger": "percentage\tSass-function", "contents": "percentage(${1:\\$value})" },
@@ -48,32 +54,41 @@
 		{ "trigger": "abs\tSass-function", "contents": "abs(${1:\\$value})" },
 		{ "trigger": "min\tSass-function", "contents": "min(${1:\\$x1}, ${2:\\$x2})" },
 		{ "trigger": "max\tSass-function", "contents": "max(${1:\\$x1}, ${2:\\$x2})" },
+		{ "trigger": "random\tSass-function", "contents": "random(${1:\\$limit})" },
 
 		// List Functions
 		{ "trigger": "length\tSass-function", "contents": "length(${1:\\$list})" },
 		{ "trigger": "nth\tSass-function", "contents": "nth(${1:\\$list}, ${2:\\$n})" },
 		{ "trigger": "join\tSass-function", "contents": "join(${1:\\$list1}, ${2:\\$list2}, ${3:separator})" },
 		{ "trigger": "append\tSass-function", "contents": "append(${1:\\$list1}, ${2:\\$val}, ${3:separator})" },
-
-		// Introspection Functions
-		{ "trigger": "type-of\tSass-function", "contents": "type-of(${1:\\$value})" },
-		{ "trigger": "unit\tSass-function", "contents": "unit(${1:\\$number})" },
-		{ "trigger": "unitless\tSass-function", "contents": "unitless(${1:\\$number})" },
-		{ "trigger": "comparable\tSass-function", "contents": "comparable(${1:\\$number-1}, ${2:\\$number-2})" },
-
-		// Miscellaneous Functions
-		{ "trigger": "if\tSass-function", "contents": "if(${1:\\$condition}, ${2:\\$if-true}, ${3:\\$if-false})" },
-		{ "trigger": "index\tSass-function", "contents": "index(${1:\\$list}, ${2:\\$value})" },
 		{ "trigger": "zip\tSass-function", "contents": "zip(${1:\\$lists})" },
+		{ "trigger": "index\tSass-function", "contents": "index(${1:\\$list}, ${2:\\$value})" },
+		{ "trigger": "list-separator\tSass-function", "contents": "list-separator(${1:\\$list})" },
 
-		// Sass 3.3
+		// Map Functions
 		{ "trigger": "map-get\tSass-function", "contents": "map-get(${1:\\$map}, ${2:\\$key})" },
 		{ "trigger": "map-merge\tSass-function", "contents": "map-merge(${1:\\$map1}, ${2:\\$map2})" },
 		{ "trigger": "map-remove\tSass-function", "contents": "map-remove(${1:\\$map}, ${2:\\$key})" },
 		{ "trigger": "map-keys\tSass-function", "contents": "map-keys(${1:\\$map})" },
 		{ "trigger": "map-values\tSass-function", "contents": "map-values(${1:\\$map})" },
 		{ "trigger": "map-has-key\tSass-function", "contents": "map-has-key(${1:\\$map}, ${2:\\$key})" },
+		{ "trigger": "keywords\tSass-function", "contents": "keywords(${1:\\$args})" },
 
-		{ "trigger": "keywords\tSass-function", "contents": "keywords(${1:\\$args})" }
+		// Introspection Functions
+		{ "trigger": "feature-exists\tSass-function", "contents": "feature-exists(${1:\\$feature})" },
+		{ "trigger": "variable-exists\tSass-function", "contents": "variable-exists(${1:\\$name})" },
+		{ "trigger": "global-variable-exists\tSass-function", "contents": "global-variable-exists(${1:\\$name})" },
+		{ "trigger": "function-exists\tSass-function", "contents": "function-exists(${1:\\$name})" },
+		{ "trigger": "mixin-exists\tSass-function", "contents": "mixin-exists(${1:\\$name})" },
+		{ "trigger": "inspect\tSass-function", "contents": "inspect(${1:\\$value})" },
+		{ "trigger": "type-of\tSass-function", "contents": "type-of(${1:\\$value})" },
+		{ "trigger": "unit\tSass-function", "contents": "unit(${1:\\$number})" },
+		{ "trigger": "unitless\tSass-function", "contents": "unitless(${1:\\$number})" },
+		{ "trigger": "comparable\tSass-function", "contents": "comparable(${1:\\$number-1}, ${2:\\$number-2})" },
+		{ "trigger": "call\tSass-function", "contents": "call(${1:\\$name}, ${2:\\$args})" },
+
+		// Miscellaneous Functions
+		{ "trigger": "if\tSass-function", "contents": "if(${1:\\$condition}, ${2:\\$if-true}, ${3:\\$if-false})" },
+		{ "trigger": "unique-id\tSass-function", "contents": "unique-id($1)" }
 	]
 }
