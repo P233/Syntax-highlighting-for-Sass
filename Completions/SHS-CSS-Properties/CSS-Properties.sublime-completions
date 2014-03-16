@@ -1,5 +1,5 @@
 {
-    "scope": "source.sass , source.scss",
+    "scope": "source.sass - meta.property-list, source.scss - meta.property-list",
 
     "completions": [
         "color: ",
