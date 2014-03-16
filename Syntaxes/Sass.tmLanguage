@@ -189,13 +189,13 @@
 			<key>match</key>
 			<string>(?&lt;=@mixin)\s[a-zA-Z0-9_-]+</string>
 			<key>name</key>
-			<string>support.function.name.sass.library, mixin.in.project</string>
+			<string>support.function.name.sass.no-completions, mixin.in.project</string>
 		</dict>
 		<dict>
 			<key>match</key>
 			<string>(?&lt;=@function)\s[a-zA-Z0-9_-]+</string>
 			<key>name</key>
-			<string>support.function.name.sass.library, function.in.project</string>
+			<string>support.function.name.sass.no-completions, function.in.project</string>
 		</dict>
 		<dict>
 			<key>match</key>
