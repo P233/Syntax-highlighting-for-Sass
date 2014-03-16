@@ -1,5 +1,5 @@
 {
-	"scope": "source.sass - variable.other, source.scss - variable.other",
+	"scope": "source.sass - variable.other - support.function.name.sass.library, source.scss - variable.other - support.function.name.sass.library",
 
 	"completions":
 	[
