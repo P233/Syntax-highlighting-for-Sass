@@ -404,9 +404,9 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>(?&lt;=})(?!\(|\))</string>
+			<string>(?&lt;=})(?!\n|\(|\)|[a-zA-Z0-9_-]+:)</string>
 			<key>end</key>
-			<string>\s|(?=,|\.|\[|\)|[a-zA-Z0-9_-]+:|\n)</string>
+			<string>\s|(?=,|\.|\[|\)|\n)</string>
 			<key>name</key>
 			<string>entity.name.tag.css.sass</string>
 			<key>patterns</key>
