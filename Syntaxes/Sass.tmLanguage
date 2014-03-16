@@ -72,7 +72,7 @@
 			<key>begin</key>
 			<string>\$[a-zA-Z0-9_-]+(?=:)</string>
 			<key>end</key>
-			<string>$\n?|(?=\)\s\)|\)\n)</string>
+			<string>(?=\)\s\)|\)\n|\n)</string>
 			<key>name</key>
 			<string>sass-script-maps</string>
 			<key>captures</key>
@@ -225,7 +225,7 @@
 			<key>begin</key>
 			<string>#</string>
 			<key>end</key>
-			<string>\s|(?=,|\(|\)|\.|\[|>)|$\n?</string>
+			<string>\s|(?=,|\(|\)|\.|\[|>|\n)</string>
 			<key>name</key>
 			<string>entity.other.attribute-name.id.css.sass</string>
 			<key>patterns</key>
@@ -244,7 +244,7 @@
 			<key>begin</key>
 			<string>\.</string>
 			<key>end</key>
-			<string>\s|(?=,|\(|\)|\[|>)|$\n?</string>
+			<string>\s|(?=,|\(|\)|\[|>|\n)</string>
 			<key>name</key>
 			<string>entity.other.attribute-name.class.css.sass</string>
 			<key>patterns</key>
@@ -294,7 +294,7 @@
 			<key>begin</key>
 			<string>:</string>
 			<key>end</key>
-			<string>$\n?|(?=\s\(|and\(|\),)</string>
+			<string>(?=\s\(|and\(|\),|\n)</string>
 			<key>name</key>
 			<string>meta.property-list.css.sass</string>
 			<key>patterns</key>
@@ -387,7 +387,7 @@
 			<key>begin</key>
 			<string>(?&lt;!\-|\()\b(a|abbr|acronym|address|area|article|aside|audio|b|base|big|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|eventsource|fieldset|figure|figcaption|footer|form|frame|frameset|(h[1-6])|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|map|mark|menu|meta|meter|nav|noframes|noscript|object|ol|optgroup|option|output|p|param|pre|progress|q|samp|script|section|select|small|span|strike|strong|style|sub|summary|sup|table|tbody|td|textarea|tfoot|th|thead|time|title|tr|tt|ul|var|video|main|svg|rect|circle|ellipse|line|polyline|polygon|path|text|x)\b(?!\-|\)|:\s)|&amp;</string>
 			<key>end</key>
-			<string>\s|(?=,|\(|\)|\.|\[|>)|$\n?</string>
+			<string>\s|(?=,|\(|\)|\.|\[|>|\n)</string>
 			<key>name</key>
 			<string>entity.name.tag.css.sass</string>
 			<key>patterns</key>
@@ -406,7 +406,7 @@
 			<key>begin</key>
 			<string>(?&lt;=})(?!\(|\))</string>
 			<key>end</key>
-			<string>\s|(?=,|\.|\[|\)|[a-zA-Z0-9_-]+:)|$\n?</string>
+			<string>\s|(?=,|\.|\[|\)|[a-zA-Z0-9_-]+:|\n)</string>
 			<key>name</key>
 			<string>entity.name.tag.css.sass</string>
 			<key>patterns</key>
