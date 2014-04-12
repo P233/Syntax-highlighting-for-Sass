@@ -3,6 +3,6 @@
 
 	"completions":
 	[
-		{ "trigger": "new-breakpoint\tBourbon-Neat", "contents": "new-breakpoint(${1})" }
+		{ "trigger": "new-breakpoint\tBourbon-Neat", "contents": "new-breakpoint($1)" }
 	]
 }

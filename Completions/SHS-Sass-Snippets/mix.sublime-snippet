@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+@mixin 
+]]></content>
+	<tabTrigger>mix</tabTrigger>
+	<scope>source.scss, source.sass</scope>
+	<description>@mixin</description>
+</snippet>
