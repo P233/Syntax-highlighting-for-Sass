@@ -181,8 +181,10 @@
 			<string>string.quoted.double.css.sass</string>
 		</dict>
 		<dict>
-			<key>match</key>
-			<string>(@media\s(all|aural|braille|embossed|handheld|print|projection|screen|(only\sscreen)|tty|tv)*)|(@else\s(if)*)|@[a-zA-Z-]+|only\sscreen\s(?=and)|screen\s(?=and)</string>
+			<key>begin</key>
+			<string>@</string>
+			<key>end</key>
+			<string>\s(?!(all|braille|embossed|handheld|print|projection|screen|speech|tty|tv|if|only|not)(\s|,))|(?=;|\n)</string>
 			<key>name</key>
 			<string>keyword.control.at-rule.css.sass</string>
 		</dict>
