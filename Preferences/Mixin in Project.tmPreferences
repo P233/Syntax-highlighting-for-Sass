@@ -5,7 +5,7 @@
 	<key>name</key>
 	<string>Mixin in Project</string>
 	<key>scope</key>
-	<string>mixin.in.project</string>
+	<string>support.function.name.sass.no-completions.mixin</string>
 	<key>settings</key>
 	<dict>
 		<key>showInIndexedSymbolList</key>

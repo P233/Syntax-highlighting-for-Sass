@@ -157,22 +157,52 @@
 			<string>#dotdotdot</string>
 		</dict>
 		<dict>
-			<key>match</key>
-			<string>(?&lt;=@include)\s[a-zA-Z0-9_-]+</string>
+			<key>begin</key>
+			<string>@include</string>
+			<key>end</key>
+			<string>\n|(?=\(|{|;)</string>
 			<key>name</key>
 			<string>support.function.name.sass.library</string>
+			<key>captures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.at-rule.css.sass</string>
+				</dict>
+			</dict>
 		</dict>
 		<dict>
-			<key>match</key>
-			<string>(?&lt;=@mixin)\s[a-zA-Z0-9_-]+</string>
+			<key>begin</key>
+			<string>@mixin</string>
+			<key>end</key>
+			<string>\n|(?=\(|{)</string>
 			<key>name</key>
-			<string>support.function.name.sass.no-completions, mixin.in.project</string>
+			<string>support.function.name.sass.no-completions.mixin</string>
+			<key>captures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.at-rule.css.sass</string>
+				</dict>
+			</dict>
 		</dict>
 		<dict>
-			<key>match</key>
-			<string>(?&lt;=@function)\s[a-zA-Z0-9_-]+</string>
+			<key>begin</key>
+			<string>@function</string>
+			<key>end</key>
+			<string>\n|(?=\(|{)</string>
 			<key>name</key>
-			<string>support.function.name.sass.no-completions, function.in.project</string>
+			<string>support.function.name.sass.no-completions.function</string>
+			<key>captures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.at-rule.css.sass</string>
+				</dict>
+			</dict>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -187,18 +217,6 @@
 			<string>\s(?!(all|braille|embossed|handheld|print|projection|screen|speech|tty|tv|if|only|not)(\s|,))|(?=;|\n)</string>
 			<key>name</key>
 			<string>keyword.control.at-rule.css.sass</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>[=][a-zA-Z0-9_-]+</string>
-			<key>name</key>
-			<string>keyword.control.at-rule.css.sass.library, mixin.in.project</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>[+][a-zA-Z0-9_-]+</string>
-			<key>name</key>
-			<string>keyword.control.at-rule.css.sass.library</string>
 		</dict>
 		<dict>
 			<key>begin</key>
