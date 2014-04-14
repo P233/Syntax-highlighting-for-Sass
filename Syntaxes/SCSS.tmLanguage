@@ -214,7 +214,7 @@
 			<key>begin</key>
 			<string>@</string>
 			<key>end</key>
-			<string>\s(?!(all|braille|embossed|handheld|print|projection|screen|speech|tty|tv|if|only|not)(\s|,))|(?=;|\n)</string>
+			<string>\n|\s(?!(all|braille|embossed|handheld|print|projection|screen|speech|tty|tv|if|only|not)(\s|,))|(?=;)</string>
 			<key>name</key>
 			<string>keyword.control.at-rule.css.sass</string>
 		</dict>
@@ -291,7 +291,7 @@
 			<key>begin</key>
 			<string>:</string>
 			<key>end</key>
-			<string>;|(?=\s\(|and\(|{|}|\),|\n)</string>
+			<string>\n|;|(?=\s\(|and\(|{|}|\),)</string>
 			<key>name</key>
 			<string>meta.property-list.css.sass</string>
 			<key>patterns</key>
@@ -389,7 +389,7 @@
 			<key>begin</key>
 			<string>(?&lt;=})(?!;|\(|\)|[a-zA-Z0-9_-]+:)</string>
 			<key>end</key>
-			<string>\s|(?=,|\.|\[|\)|\n)</string>
+			<string>\n|\s|(?=,|\.|\[|\))</string>
 			<key>name</key>
 			<string>entity.name.tag.css.sass</string>
 			<key>patterns</key>
