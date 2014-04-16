@@ -237,7 +237,7 @@
 			<key>begin</key>
 			<string>@</string>
 			<key>end</key>
-			<string>\s(?!(all|braille|embossed|handheld|print|projection|screen|speech|tty|tv|if|only|not)(\s|,))|(?=\n)</string>
+			<string>\s(?!(all|braille|embossed|handheld|print|projection|screen|speech|tty|tv|if|only|not)(\s|,))|$\n?</string>
 			<key>name</key>
 			<string>keyword.control.at-rule.css.sass</string>
 		</dict>
