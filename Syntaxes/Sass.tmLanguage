@@ -599,8 +599,10 @@
 		</dict>
 		<key>placeholder-selector</key>
 		<dict>
-			<key>match</key>
-			<string>%[a-zA-Z]{1}[a-zA-Z0-9_-]+</string>
+			<key>begin</key>
+			<string>%(?!\d)</string>
+			<key>end</key>
+			<string>$\n?|\s</string>
 			<key>name</key>
 			<string>entity.other.attribute-name.placeholder-selector.sass</string>
 		</dict>
