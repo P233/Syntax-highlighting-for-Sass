@@ -5,7 +5,7 @@
 	<key>name</key>
 	<string>Goto Symbol</string>
 	<key>scope</key>
-	<string>entity.name.tag.css.sass.symbol, entity.other.attribute-name</string>
+	<string>entity.name.tag.css.sass.symbol, entity.other.attribute-name, symbol.in.project, comment.tag.sass</string>
 	<key>settings</key>
 	<dict>
 		<key>showInSymbolList</key>
