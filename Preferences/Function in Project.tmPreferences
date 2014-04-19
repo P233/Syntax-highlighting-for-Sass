@@ -5,7 +5,7 @@
 	<key>name</key>
 	<string>Function in Project</string>
 	<key>scope</key>
-	<string>support.function.name.sass.no-completions.function</string>
+	<string>function.in.project</string>
 	<key>settings</key>
 	<dict>
 		<key>showInIndexedSymbolList</key>

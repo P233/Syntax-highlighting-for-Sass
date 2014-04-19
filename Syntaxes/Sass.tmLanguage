@@ -201,7 +201,7 @@
 			<key>end</key>
 			<string>$\n?|(?=\()</string>
 			<key>name</key>
-			<string>support.function.name.sass.no-completions.mixin</string>
+			<string>support.function.name.sass.no-completions</string>
 			<key>captures</key>
 			<dict>
 				<key>0</key>
@@ -210,6 +210,15 @@
 					<string>keyword.control.at-rule.css.sass</string>
 				</dict>
 			</dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>[a-zA-Z0-9_-]+</string>
+					<key>name</key>
+					<string>mixin.in.project</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -217,7 +226,7 @@
 			<key>end</key>
 			<string>$\n?|(?=\()</string>
 			<key>name</key>
-			<string>support.function.name.sass.no-completions.function</string>
+			<string>support.function.name.sass.no-completions</string>
 			<key>captures</key>
 			<dict>
 				<key>0</key>
@@ -226,6 +235,15 @@
 					<string>keyword.control.at-rule.css.sass</string>
 				</dict>
 			</dict>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>match</key>
+					<string>[a-zA-Z0-9_-]+</string>
+					<key>name</key>
+					<string>function.in.project</string>
+				</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>match</key>
