@@ -3,15 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>name</key>
-	<string>Mixin in Project</string>
+	<string>Comment Tag</string>
 	<key>scope</key>
-	<string>mixin.in.project</string>
+	<string>comment.tag.sass</string>
 	<key>settings</key>
 	<dict>
+		<key>showInSymbolList</key>
+		<integer>1</integer>
+		<key>symbolTransformation</key>
+		<string>s/^/Comment Tag: /</string>
 		<key>showInIndexedSymbolList</key>
 		<integer>1</integer>
 		<key>symbolIndexTransformation</key>
-		<string>s/^/@mixin /</string>
+		<string>s/^/Comment Tag: /</string>
 	</dict>
 	<key>uuid</key>
 	<string>D266DB80-3EF6-11E3-AA6E-0800200C9A66</string>

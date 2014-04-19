@@ -427,7 +427,7 @@
 			<key>end</key>
 			<string>$\n?|(?=\s|,|\(|\)|\.|\[|>|-|_)</string>
 			<key>name</key>
-			<string>entity.name.tag.css.sass</string>
+			<string>entity.name.tag.css.sass.symbol</string>
 			<key>patterns</key>
 			<array>
 				<dict>
