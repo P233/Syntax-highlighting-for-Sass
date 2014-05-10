@@ -3,12 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>name</key>
-	<string>Goto Symbol</string>
+	<string>Goto Symbol in Project</string>
 	<key>scope</key>
-	<string>support.function.name.sass.no-completions</string>
+	<string>entity.name.tag.css.sass.symbol, entity.other.attribute-name, comment.tag.sass</string>
 	<key>settings</key>
 	<dict>
 		<key>showInSymbolList</key>
+		<integer>1</integer>
+		<key>showInIndexedSymbolList</key>
 		<integer>1</integer>
 	</dict>
 	<key>uuid</key>
