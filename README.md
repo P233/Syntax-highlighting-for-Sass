@@ -1,70 +1,194 @@
 # Syntax Highlighting for Sass
-This is a new Sass syntax highlighting package (separately support both SCSS and Sass) for Sublime Text / TextMate. *Compared with other packages, this will match syntax structure instead of matching keywords, so everything will be perfectly highlighted!*
 
-## Changelog:
+Syntax highlighting package for both SCSS and Sass on Sublime Text. Also available for [TextMate](https://github.com/P233/Syntax-highlighting-for-Sass/tree/textmate) and [Atom](https://github.com/P233/Atom-Syntax-highlighting-for-Sass).
 
-### 29 Oct 2013
+Install via [Package Control](https://sublime.wbond.net/packages/Syntax%20Highlighting%20for%20Sass).
 
-* Comment Tag now support 'Goto Definition', but `{{` and `}}` will not show in 'Goto Symbol in Project' list. Will add them back when ST team [improved Goto Definition function](http://www.sublimetext.com/forum/viewtopic.php?f=4&t=14515). Typing `{{` and `}}` in Sublime Text 2 may lead to crash!
-
-### 27 Oct 2013
-
-* By using `{{` and `}}` to wrap a keyword in any comment, you can create a Comment Tag and it can be indexed by 'Goto Symbol' and 'Goto Symbol in Project'. For better CSS organisation;
-
-* Added support for Sublime Text 3 'Goto Symbol in Project' and 'Goto Definition' features. All HTML tags, ID/Class/Placeholder selectors, `@mixin`, `@function` and Comment Tags can be indexed. Limitation see [http://www.sublimetext.com/forum/viewtopic.php?f=4&t=14515](http://www.sublimetext.com/forum/viewtopic.php?f=4&t=14515), if you got other problem please feel free to [fill an issue](https://github.com/P233/Syntax-highlighting-for-Sass/issues/new). (NOTE: If you have installed Emmet you need to override keyboard shortcuts, see [https://github.com/sergeche/emmet-sublime/issues/266](https://github.com/sergeche/emmet-sublime/issues/266));
 
 ## Features:
-* Auto match property name, property value and pseudo-class etc. (only HTML tags are matched by keyword);
-* Support Sass variables, functions, interpolation syntax, directives and directive shorthand (`=` `+`), operators, attribute selector… etc;
-* Better highlighting result for Media Queries;
-* Completions will not be offered when typing in selectors. (see [ST3 Build 3019 change log](http://www.sublimetext.com/3));
-* Including Sass build-in function completions and Compass CSS3 completions (under working progress);
-* You may also use the SCSS part for perfect syntax highlighting for CSS;
 
-The `Preferences` and `Completions` two folders are directly copied from [nathos's sass-textmate-bundle](https://github.com/nathos/sass-textmate-bundle/tree/sublime) with a little bit of modifications. `Sass - Properties.sublime-completions` will not work with this package, so I removed it.
+* Fully support Sass 3.3 syntax
+* Match syntax structure instead of keywords, that means support CSS properties which even haven't been published
+* Highlight reserved words `and, false, from, in, not, null, or, through, to, true`
+* Better support for media queries
+* Better support for interpolations
+* Eight built-in completion packages
+* Smart completion rule
+* Support Goto Symbol and Goto Definition
+* Comment Tag
+* Support old indented Sass syntax `:property-name property-value`
+* Can be used for CSS syntax highlighting
 
-As always, if you have any problems with this package or suggestions for improvement, please feel free to [fill an issue](https://github.com/P233/Syntax-highlighting-for-Sass/issues/new), and you are also more than welcome to fork this repo and pull request.
+### Built-in Completion Packages
 
-## Installation
+Pick up the package name which you are not intend to use, then add it/them into the `ignored_packages` list of your settings file. (If you know a better way to do this please please let me know.)
 
-### Sublime Text
-Recommend to install this package through **Package Control** (use the keyword `SHS` to find this plugin). Or download this package and rename it as you like, then move it into the Packages folder of Sublime Text.
+* SHS-At-Rule
+* SHS-Bourbon
+* SHS-Bourbon-Neat
+* SHS-Compass-Mixins
+* SHS-Compass-Variables
+* SHS-CSS-Properties
+* SHS-CSS-Property-Values
+* SHS-Sass-Functions
 
-### TextMate
-Download the [bundle file](https://github.com/P233/Syntax-highlighting-for-Sass/tree/textmate) and then move it in to `~/Library/Application Support/TextMate/Bundles/`. If the folder doesn't exist, create one.
+### Smart Completion Rule
+
+#### Cancel Completion
+
+Typing @-rule, ID, class, placeholder-selector, mixin name, function name, comment, and quoted content will never popup any completions.
+
+![](https://p233.github.com/Syntax-highlighting-for-Sass/01.gif)
+
+#### Property-value Completion
+
+When typing property values, property name and other completions will no longer popup.
+
+![](https://p233.github.com/Syntax-highlighting-for-Sass/02.gif)
+
+**Sass Scope**
+
+```
+source.sass meta.property-list.css.sass - variable.other.value
+```
+
+**SCSS Scope**
+
+```
+source.scss meta.property-list.css.sass - variable.other.value
+```
+
+#### Mixin Completion
+
+Built-in mixin name completions will only popup directly behind `@include` or `+`
+
+![](https://p233.github.com/Syntax-highlighting-for-Sass/03.gif)
+
+**Sass Scope**
+
+```
+source.sass support.function.name.sass.library
+```
+
+**SCSS Scope**
+
+```
+source.scss support.function.name.sass.library
+```
+
+#### Variable Completion
+
+There are three types of variable compltions: Root-variable, Value-variable, and Variable (contains the previous two).
+
+##### Root-variable
+
+![](https://p233.github.com/Syntax-highlighting-for-Sass/04.gif)
+
+**Sass Scope**
+
+```
+source.sass variable.other.root
+```
+
+**SCSS Scope**
+
+```
+source.scss variable.other.root
+```
+
+##### Value-variable
+
+![](https://p233.github.com/Syntax-highlighting-for-Sass/05.gif)
+
+**Sass Scope**
+
+```
+source.sass variable.other.value
+```
+
+**SCSS Scope**
+
+```
+source.scss variable.other.value
+```
+
+##### Variable
+
+**Sass Scope**
+
+```
+source.sass variable.other
+```
+
+**SCSS Scope**
+
+```
+source.scss variable.other
+```
+
+#### Function Completion
+
+**Sass Scope**
+
+```
+source.sass - variable.other - support.function.name.sass.library
+```
+
+**SCSS Scope**
+
+```
+source.scss - variable.other - support.function.name.sass.library
+```
+
+#### Property-name Completion
+
+The latest version of [Emmet CSS Snippets](https://sublime.wbond.net/packages/Emmet%20Css%20Snippets) now fully supports this feature. I recommend to use it instead of the built-in properties completion package.
+
+**Sass Scope**
+
+```
+source.sass - meta.property-list - support.function.name.sass.library - variable.other.root
+```
+
+**SCSS Scope**
+
+```
+source.scss - meta.property-list - support.function.name.sass.library - variable.other.root
+```
+
+### Goto Symbol and Goto Definition
+
+#### Goto Symbol or Goto Symbol in Project
+
+![](https://p233.github.com/Syntax-highlighting-for-Sass/06.gif)
+
+#### Goto Definition
+
+![](https://p233.github.com/Syntax-highlighting-for-Sass/07.gif)
+
+### Comment Tag
+
+Use `{{` and `}}` to wrap a keyword inside comment, then this keyword (comment tag) will be indexed by the Goto Symbol and Goto Definition features.
+
+![](https://p233.github.com/Syntax-highlighting-for-Sass/08.gif)
 
 ## Color Scheme
 
 ### Recommended Color Schemes
+
 * [Neon Color Scheme](https://sublime.wbond.net/packages/Neon%20Color%20Scheme) Thanks [Matt](https://github.com/MattDMo) for adding support for this package
 * [Perv Color Schemes](https://github.com/FlavourSys/Perv-ColorScheme) Thanks [Mick](https://github.com/micck) for adding support for this package
+* [Birds of Paradise](http://joebergantine.com/projects/color-schemes/birds-of-paradise/)
 * [Tomorrow Theme](https://github.com/chriskempson/tomorrow-theme)
 
-### Modify Color Scheme 
-With the following scope selectors, you can change the color for everything in this package. For example, if a color scheme doesn't support variables, copy and paste the following code anywhere between `<array> </array>` in the file could solve this problem.
+[Add new one?](https://github.com/P233/Syntax-highlighting-for-Sass/issues/new)
 
-```
-<dict>
-	<key>name</key>
-	<string>Sass: Variable</string>
-	<key>scope</key>
-	<string>source.sass variable</string>
-	<key>settings</key>
-	<dict>
-		<key>foreground</key>
-		<string>#000000</string>
-	</dict>
-</dict>
-```
-
-Learn more about Scope Selectors and Color Scheme, take a look at [Textmate Scope Selectors](http://manual.macromates.com/en/scope_selectors) and [Textmate Themes](http://manual.macromates.com/en/themes.html).
-
-You can even build a new color scheme for this package. If you make one, please [let me know](mailto:40132147@qq.com). I'd like to add a link here.
+### Scopes List
 
 Element      | Scope Selector
 :----------- | :--------------
 Block Comment | comment.block.sass
-Double Dash Comment | comment.line.double-dash.sass
+Inline Comment | comment.line.sass
 Comment Tag | comment.tag.sass
 At-rule | keyword.control.at-rule.css.sass
 Type Selector, Ampersand | entity.name.tag.css.sass
@@ -91,10 +215,18 @@ SCSS Semicolon | comment.punctuation.semicolon.sass
 Sass Semicolon | invalid
 Sass Curly Brackets | invalid
 
+### Customise Color Scheme
+
+More information about Scope Selectors and Color Scheme, see [Textmate Scope Selectors](http://manual.macromates.com/en/scope_selectors) and [Textmate Themes](http://manual.macromates.com/en/themes.html).
+
+
 ## Contributors
+
 [mannieschumpert](https://github.com/mannieschumpert)
 
+
 ## Credits
+
 [nathos's sass-textmate-bundle](https://github.com/nathos/sass-textmate-bundle/tree/sublime)
 
 [Textmate Language Grammars](http://manual.macromates.com/en/language_grammars.html)

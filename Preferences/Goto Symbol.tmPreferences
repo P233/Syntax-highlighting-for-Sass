@@ -5,17 +5,11 @@
 	<key>name</key>
 	<string>Goto Symbol</string>
 	<key>scope</key>
-	<string>entity.name.tag.css.sass, entity.other.attribute-name.id.css.sass, entity.other.attribute-name.class.css.sass, entity.other.attribute-name.placeholder-selector.sass, comment.tag.sass</string>
+	<string>support.function.name.sass.no-completions</string>
 	<key>settings</key>
 	<dict>
 		<key>showInSymbolList</key>
 		<integer>1</integer>
-		<key>symbolTransformation</key>
-		<string>s/^//</string>
-		<key>showInIndexedSymbolList</key>
-		<integer>1</integer>
-		<key>symbolIndexTransformation</key>
-		<string>s/\.([A-Za-z0-9_~]+)/$1/;</string>
 	</dict>
 	<key>uuid</key>
 	<string>71B52B90-82BB-11E2-9E96-0800200C9A66</string>

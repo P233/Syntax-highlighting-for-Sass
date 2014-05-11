@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>name</key>
-	<string>Function in Project</string>
+	<string>Goto Symbol in Project</string>
 	<key>scope</key>
-	<string>function.in.project</string>
+	<string>entity.name.tag.css.sass.symbol, entity.other.attribute-name, comment.tag.sass</string>
 	<key>settings</key>
 	<dict>
+		<key>showInSymbolList</key>
+		<integer>1</integer>
 		<key>showInIndexedSymbolList</key>
 		<integer>1</integer>
-		<key>symbolIndexTransformation</key>
-		<string>s/^//</string>
 	</dict>
 	<key>uuid</key>
-	<string>14955050-3EFB-11E3-AA6E-0800200C9A66</string>
+	<string>71B52B90-82BB-11E2-9E96-0800200C9A66</string>
 </dict>
 </plist>
