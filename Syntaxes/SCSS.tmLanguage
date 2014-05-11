@@ -134,7 +134,7 @@
 		</dict>
 		<dict>
 			<key>include</key>
-			<string>#variable-library</string>
+			<string>#variable-root</string>
 		</dict>
 		<dict>
 			<key>include</key>
@@ -442,7 +442,7 @@
 			<key>end</key>
 			<string>$\n?</string>
 			<key>name</key>
-			<string>comment.line.double-slash.sass</string>
+			<string>comment.line.sass</string>
 			<key>patterns</key>
 			<array>
 				<dict>
@@ -628,19 +628,19 @@
 			<key>name</key>
 			<string>keyword.other.unit.css.sass</string>
 		</dict>
-		<key>variable-library</key>
+		<key>variable-root</key>
 		<dict>
 			<key>match</key>
 			<string>\$[a-zA-Z0-9_-]+</string>
 			<key>name</key>
-			<string>variable.other.library</string>
+			<string>variable.other.root</string>
 		</dict>
 		<key>variable</key>
 		<dict>
 			<key>match</key>
 			<string>\$[a-zA-Z0-9_-]+</string>
 			<key>name</key>
-			<string>variable.other.normal</string>
+			<string>variable.other.value</string>
 		</dict>
 	</dict>
 	<key>scopeName</key>

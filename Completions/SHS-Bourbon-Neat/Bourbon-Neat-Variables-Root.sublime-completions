@@ -1,5 +1,5 @@
 {
-	"scope": "source.sass variable.other.library , source.scss variable.other.library",
+	"scope": "source.sass variable.other.root , source.scss variable.other.root",
 
 	"completions": [
 		"border-box-sizing: ",

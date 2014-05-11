@@ -1,5 +1,5 @@
 {
-	"scope": "source.sass variable.other.normal , source.scss variable.other.normal",
+	"scope": "source.sass variable.other.value , source.scss variable.other.value",
 
 	"completions": [
 
