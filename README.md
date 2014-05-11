@@ -50,7 +50,6 @@ When typing property values, property name and other completions will no longer 
 
 ```
 source.sass meta.property-list.css.sass - variable.other.value
-
 ```
 
 **SCSS Scope**
