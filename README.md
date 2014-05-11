@@ -2,7 +2,7 @@
 
 Syntax highlighting package for both SCSS and Sass on Sublime Text. Also available for [TextMate](https://github.com/P233/Syntax-highlighting-for-Sass/tree/textmate) and [Atom](https://github.com/P233/Atom-Syntax-highlighting-for-Sass).
 
-Install via **Package Control**.
+Install via [Package Control](https://sublime.wbond.net/packages/Syntax%20Highlighting%20for%20Sass).
 
 
 ## Features:
@@ -19,7 +19,7 @@ Install via **Package Control**.
 * Support old indented Sass syntax `:property-name property-value`
 * Can be used for CSS syntax highlighting
 
-### Built-in Completions Packages
+### Built-in Completion Packages
 
 Pick up the package name which you are not intend to use, then add it/them into the `ignored_packages` list of your settings file. (If you know a better way to do this please please let me know.)
 
@@ -60,7 +60,7 @@ source.scss meta.property-list.css.sass - variable.other.value
 
 #### Mixin Completion
 
-Mixin name completions will only popup directly behind `@include` or `+`
+Built-in mixin name completions will only popup directly behind `@include` or `+`
 
 ![](https://p233.github.com/Syntax-highlighting-for-Sass/03.gif)
 
@@ -141,6 +141,8 @@ source.scss - variable.other - support.function.name.sass.library
 ```
 
 #### Property-name Completion
+
+The latest version of [Emmet CSS Snippets](https://sublime.wbond.net/packages/Emmet%20Css%20Snippets) now fully supports this feature. I recommend to use it instead of the built-in properties completion package.
 
 **Sass Scope**
 
