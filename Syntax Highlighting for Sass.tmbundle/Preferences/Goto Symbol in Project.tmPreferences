@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>name</key>
-	<string>Symbol List: Selectors</string>
+	<string>Goto Symbol in Project</string>
 	<key>scope</key>
-	<string>entity.name.tag.css.sass, entity.other.attribute-name.id.css.sass, entity.other.attribute-name.class.css.sass</string>
+	<string>entity.name.tag.css.sass.symbol, entity.other.attribute-name, comment.tag.sass</string>
 	<key>settings</key>
 	<dict>
 		<key>showInSymbolList</key>
 		<integer>1</integer>
-		<key>symbolTransformation</key>
-		<string>s/(.*?)/$1/</string>
+		<key>showInIndexedSymbolList</key>
+		<integer>1</integer>
 	</dict>
 	<key>uuid</key>
 	<string>71B52B90-82BB-11E2-9E96-0800200C9A66</string>
