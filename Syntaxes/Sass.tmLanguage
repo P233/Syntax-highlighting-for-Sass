@@ -419,7 +419,7 @@
 			<key>begin</key>
 			<string>(?&lt;=})(?!\n|\(|\)|[a-zA-Z0-9_-]+:)</string>
 			<key>end</key>
-			<string>$\n?|\s|(?=,|\.|\[|\))</string>
+			<string>\s|(?=,|\.|\[|\)|\n)</string>
 			<key>name</key>
 			<string>entity.name.tag.css.sass</string>
 			<key>patterns</key>
