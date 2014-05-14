@@ -173,23 +173,29 @@
 			</dict>
 		</dict>
 		<dict>
-			<key>match</key>
-			<string>(@mixin|@function)\s+([a-zA-Z0-9_-]+)</string>
+			<key>begin</key>
+			<string>@mixin|@function</string>
+			<key>end</key>
+			<string>$\n?|(?=\(|{)</string>
 			<key>name</key>
 			<string>support.function.name.sass.no-completions</string>
 			<key>captures</key>
 			<dict>
-				<key>1</key>
+				<key>0</key>
 				<dict>
 					<key>name</key>
 					<string>keyword.control.at-rule.css.sass</string>
 				</dict>
-				<key>2</key>
+			</dict>
+			<key>patterns</key>
+			<array>
 				<dict>
+					<key>match</key>
+					<string>[a-zA-Z0-9_-]+</string>
 					<key>name</key>
 					<string>entity.name.function</string>
 				</dict>
-			</dict>
+			</array>
 		</dict>
 		<dict>
 			<key>match</key>
