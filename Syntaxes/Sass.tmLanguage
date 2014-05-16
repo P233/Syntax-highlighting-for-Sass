@@ -593,7 +593,7 @@
 		<key>placeholder-selector</key>
 		<dict>
 			<key>begin</key>
-			<string>%(?!\d)</string>
+			<string>(?&lt;!\d)%(?!\d)</string>
 			<key>end</key>
 			<string>$\n?|\s</string>
 			<key>name</key>
