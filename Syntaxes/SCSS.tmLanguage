@@ -516,6 +516,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#operator</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#unit</string>
 				</dict>
 				<dict>
@@ -586,6 +590,10 @@
 				<dict>
 					<key>include</key>
 					<string>#numeric</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#operator</string>
 				</dict>
 				<dict>
 					<key>include</key>
