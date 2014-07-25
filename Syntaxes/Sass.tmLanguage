@@ -143,6 +143,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#parent-selector</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#property-value</string>
 				</dict>
 				<dict>
@@ -380,6 +384,10 @@
 				</dict>
 				<dict>
 					<key>include</key>
+					<string>#parent-selector</string>
+				</dict>
+				<dict>
+					<key>include</key>
 					<string>#property-value</string>
 				</dict>
 			</array>
@@ -593,6 +601,13 @@
 			<string>\+|\s-\s|\s-(?=\$)|(?&lt;=\()-(?=\$)|\s-(?=\()|\*|/|%|=|!|&lt;|&gt;|~</string>
 			<key>name</key>
 			<string>keyword.operator.sass</string>
+		</dict>
+		<key>parent-selector</key>
+		<dict>
+			<key>match</key>
+			<string>&amp;</string>
+			<key>name</key>
+			<string>entity.name.tag.css.sass</string>
 		</dict>
 		<key>placeholder-selector</key>
 		<dict>
