@@ -222,7 +222,7 @@ More information about Scope Selectors and Color Scheme, see [Textmate Scope Sel
 
 ## Contributors
 
-[mannieschumpert](https://github.com/mannieschumpert)
+[mannieschumpert](https://github.com/mannieschumpert), [pepelsbey](https://github.com/pepelsbey)
 
 
 ## Credits
