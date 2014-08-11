@@ -491,7 +491,7 @@
 		<key>function</key>
 		<dict>
 			<key>match</key>
-			<string>(?&lt;=[\s|\(|,])(?!url|format|attr)[a-zA-Z0-9_-][\w-]*(?=\()</string>
+			<string>(?&lt;=[\s|\(|,|:])(?!url|format|attr)[a-zA-Z0-9_-][\w-]*(?=\()</string>
 			<key>name</key>
 			<string>support.function.name.sass</string>
 		</dict>
