@@ -4,6 +4,7 @@
 <dict>
 	<key>fileTypes</key>
 	<array>
+		<string>css.scss</string>
 		<string>scss</string>
 	</array>
 	<key>foldingStartMarker</key>
