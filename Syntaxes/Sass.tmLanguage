@@ -4,6 +4,7 @@
 <dict>
 	<key>fileTypes</key>
 	<array>
+		<string>css.sass</string>
 		<string>sass</string>
 	</array>
 	<key>foldingStartMarker</key>
