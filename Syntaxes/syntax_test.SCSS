@@ -31,11 +31,11 @@
 
 #id-#{$variable}-selector, #another-id-selector {}
 
-#id:haver::before {}
+#id:hover::before {}
 
 #id:not(body)::before {} // body should be highlighted as type selector not value
 
-#id:not(body):not(#id):not(.class).not(:first-child) {}
+#id:not(body):not(#id):not(.class):not(:first-child) {}
 
 #id:not(#{$variable})::before {}
 
@@ -55,7 +55,7 @@
 
 .class:not(body)::before {}
 
-.class:not(body):not(#id):not(.class).not(:first-child) {}
+.class:not(body):not(#id):not(.class):not(:first-child) {}
 
 .class:not(#{$variable})::before {}
 
@@ -103,6 +103,8 @@ a[data~=""] {}
 %placeholder {}
 
 @extend %placeholder-a1o_321;
+
+%#{$variable}-placeholder {} // Interpoluation in placeholder selector
 
 
 ::-webkit-selection {}
@@ -190,4 +192,9 @@ body {
 
 // TODO
 
-%#{$variable} {} // Interpoluation in placeholder selector
+$map: (
+  key-1: '',
+  key-2: (
+    key-3: ''
+  )
+);

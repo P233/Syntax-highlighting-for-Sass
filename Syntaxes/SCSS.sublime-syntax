@@ -46,12 +46,10 @@ contexts:
         1: keyword.control.at-rule
         2: entity.name.function
 
-    # placeholder selector
-    # capture the text and set it as defination
-    - match: '%([\w-]+)'
-      captures:
-        0: entity.other.attribute-name.placeholder
-        1: entity.name.function
+    # push onto the placeholder selector stack
+    - match: \%
+      push: class_selector
+
 
     # include pattens
     - include: pseudo_class_element
@@ -71,13 +69,13 @@ contexts:
     - match: \#(?!{)
       push: id_selector
 
-    # push onto the class selector stack
-    - match: \.
-      push: class_selector
-
     # push onto the property value list stack
     - match: ':'
       push: value_list
+
+    # push onto the class selector stack
+    - match: \.
+      push: class_selector
 
     # push onto the quoted string stack
     - match: (\"|\')(?=.*\1)
@@ -120,7 +118,7 @@ contexts:
       scope: meta.property-value.css.sass, support.constant.property-value.css.sass
 
   numeric:
-    - match: (?<!\w)(-\.?\d+)?\d*(\.\d+)?|\s-(?=#{)
+    - match: (?<!\w|-)(-\.?\d+)?\d*(\.\d+)?|\s-(?=#{)
       scope: constant.numeric
 
   unit:
@@ -210,14 +208,14 @@ contexts:
     - meta_scope: entity.other.attribute-name.id
     - match: '{{interpoluation_start}}'
       push: interpoluation
-    - match: $|(?=\s|,|;|\.|\(|\)|\[|{|>|\+|~)
+    - match: $|(?=\s|,|:|;|\.|\(|\)|\[|{|>|\+|~)
       pop: true
 
   class_selector:
     - meta_scope: entity.other.attribute-name.class
     - match: '{{interpoluation_start}}'
       push: interpoluation
-    - match: $|(?=\s|,|;|#|\(|\)|\[|{|>|\+|~)
+    - match: $|(?=\s|,|:|;|#|\(|\)|\[|{|>|\+|~)
       pop: true
 
   quoted_string:
