@@ -63,6 +63,7 @@
 #id.class:nth-of-type(2n) {}
 
 .class#id:nth-child(2n-1) {}
+.class#id:nth-child(2n+1) {}
 .class#id:nth-child(2n - 1) {}
 
 
@@ -75,11 +76,6 @@
 *,
 *::before,
 *::after {}
-
-body {
-  body-body: none;
-  from: none;
-}
 
 
 #{$variable}::before {}
@@ -144,6 +140,13 @@ $map: (
 );
 
 
+$map: (
+  key-1: #000,
+  key-2: (
+    key-3: 123px
+  )
+);
+
 body {
   content: "double quoted string";
   content: 'single quoted string';
@@ -165,11 +168,16 @@ body {
   width: -#{$number}px;
   width: auto;
 
-  background: url(../../assets/image.pn;
+  background: url(../../assets/image.pn
   background: url(../../assets/image.png);
 
-  content: attr(data-att;
+  content: attr(data-att
   content: attr(data-attr);
+}
+
+
+a {
+  text-align: center; display: block; line-height: 1.5; background: red;
 }
 
 
@@ -192,9 +200,7 @@ body {
 
 // TODO
 
-$map: (
-  key-1: '',
-  key-2: (
-    key-3: ''
-  )
-);
+body:before {
+  body: float;
+  body-body:none;
+}

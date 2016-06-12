@@ -47,7 +47,7 @@ contexts:
         2: entity.name.function
 
     # push onto the placeholder selector stack
-    - match: \%
+    - match: (?<!\d)%
       push: class_selector
 
 
@@ -118,7 +118,8 @@ contexts:
       scope: meta.property-value.css.sass, support.constant.property-value.css.sass
 
   numeric:
-    - match: (?<!\w|-)(-\.?\d+)?\d*(\.\d+)?|\s-(?=#{)
+    # prevent highlighting key-123 but highlight 2n-1
+    - match: (?<!\w|[^n]-)-?\d*\.?\d+|\s-(?=#{)
       scope: constant.numeric
 
   unit:
@@ -142,7 +143,7 @@ contexts:
       scope: keyword.other.important
 
   type_selector:
-    - match: \b(a|abbr|acronym|address|applet|area|article|aside|audio|b|base|big|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|eventsource|fieldset|figure|figcaption|footer|form|frame|frameset|(h[1-6])|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|map|mark|menu|meta|meter|nav|noframes|noscript|object|ol|optgroup|option|output|p|param|picture|pre|progress|q|samp|script|section|select|small|source|span|strike|strong|style|sub|summary|sup|table|tbody|td|textarea|template|tfoot|th|thead|time|title|tr|tt|ul|var|video|main|svg|rect|ruby|center|circle|ellipse|line|polyline|polygon|path|text|u|x)\b(?!\s*(-|:))
+    - match: \b(a|abbr|acronym|address|applet|area|article|aside|audio|b|base|big|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|eventsource|fieldset|figure|figcaption|footer|form|frame|frameset|(h[1-6])|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|label|legend|li|link|map|mark|menu|meta|meter|nav|noframes|noscript|object|ol|optgroup|option|output|p|param|picture|pre|progress|q|samp|script|section|select|small|source|span|strike|strong|style|sub|summary|sup|table|tbody|td|textarea|template|tfoot|th|thead|time|title|tr|tt|ul|var|video|main|svg|rect|ruby|center|circle|ellipse|line|polyline|polygon|path|text|u|x)\b(?!\s*-|:\s)
       scope: entity.name.tag
 
   at_rule:
@@ -169,7 +170,7 @@ contexts:
     - include: operator
     - include: reserved_word
     - include: property_value
-    - match: ;|\)\s*$
+    - match: ;|\)\s*$|\n
       pop: true
 
   value_list:
@@ -234,6 +235,7 @@ contexts:
     - include: operator
     - include: numeric
     - include: unit
+    - include: property_value
     - match: (\"|\')(?=.*\1)
       push: quoted_string
     - match: '{{interpoluation_end}}'
