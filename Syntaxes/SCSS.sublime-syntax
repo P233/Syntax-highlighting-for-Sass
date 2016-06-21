@@ -12,10 +12,10 @@ variables:
 
 contexts:
   main:
-    # push onto the map stack
+    # match the first ( of a variable and push the rest contents onto the map stack
     - match: (\$[\w-]+)(?=:\s*\()|(?<=(\s|,)\($)
       captures:
-        1: variable.other
+        1: variable
       push: map
 
     # push onto the block comment stack
@@ -30,23 +30,25 @@ contexts:
     - match: \[([\w-]+)(\^|\$|\*|~)*(=)?([\w"'-]+)?\]
       captures:
         1: meta.attribute-selector.css.sass
-        2: keyword.other
-        # 3:
-        4: string.quoted
+        2: keyword.other.regex.sass
+        # 3: # match =
+        4: string.quoted.css.sass
 
+    # highlight included mixin name as function
     - match: (@include)\s+([\w-]+)
       captures:
-        1: keyword.control.at-rule
-        2: support.function
+        1: keyword.control.at-rule.css.sass
+        2: support.function.css.sass
 
     # mixin and function
-    # capture the text and set it as defination
+    # capture the text and set it as defination (entity.name.function)
     - match: (@mixin|@function)\s+([\w-]+)
       captures:
-        1: keyword.control.at-rule
+        1: keyword.control.at-rule.css.sass
         2: entity.name.function
 
-    # push onto the placeholder selector stack
+    # highlight placeholder selector as class selector
+    # highlight placeholder selector before highlighting unit
     - match: (?<!\d)%
       push: class_selector
 
@@ -81,7 +83,6 @@ contexts:
     - match: (\"|\')(?=.*\1)
       push: quoted_string
 
-    # interpoluation selectors
     # push on to the interpoluation stack
     - match: '{{interpoluation_start}}'
       push: interpoluation
@@ -91,7 +92,7 @@ contexts:
 
   variable:
     - match: \$[\w-]*|\.{3}
-      scope: variable.other
+      scope: variable
 
   function:
     - match: '[\w-]+(?=\()'
@@ -101,7 +102,7 @@ contexts:
     - match: \b(url|format|attr)\((.+?)\)
       captures:
         1: meta.property-value.css.sass, support.constant.property-value.css.sass
-        2: string.quoted
+        2: string.quoted.css.sass
 
   parent_selector:
     - match: '(&)([\w-]*)'
@@ -111,7 +112,7 @@ contexts:
 
   pseudo_class_element:
     - match: :{1,2}[\w-]+
-      scope: entity.other.pseudo-class.css.sass
+      scope: entity.other.attribute-name.pseudo-class.css.sass
 
   property_value:
     - match: '[\w-]*\w+\b(?!\s*:|-)'
@@ -148,7 +149,7 @@ contexts:
 
   at_rule:
     - match: '@[\w-]*(\s*if)?'
-      scope: keyword.control.at-rule
+      scope: keyword.control.at-rule.css.sass
 
 
   # stacks
@@ -220,7 +221,7 @@ contexts:
       pop: true
 
   quoted_string:
-    - meta_scope: string.quoted.double.css.sass
+    - meta_scope: string.quoted.css.sass.double.css.sass
     - match: \\.
       scope: constant.character.escape
     - match: '{{interpoluation_start}}'
