@@ -121,6 +121,15 @@ a[data~=""] {}
 }
 
 
+:root {
+  --css-variable_123: 20px;
+}
+
+body {
+  padding: var(--css-variable_123);
+}
+
+
 $variable: 123px;
 $variable123: #fff;
 $va1ri2ab3le-321a: #ABCDEF !default;

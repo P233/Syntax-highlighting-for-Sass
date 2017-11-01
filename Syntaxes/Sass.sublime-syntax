@@ -59,6 +59,7 @@ contexts:
     # include pattens
     - include: pseudo_class_element
     - include: function
+    - include: css_variable
     - include: variable
     - include: operator
     - include: numeric
@@ -92,6 +93,10 @@ contexts:
 
 
   # pattens
+
+  css_variable:
+    - match: --[\w-]*
+      scope: variable
 
   variable:
     - match: \$[\w-]*|\.{3}
@@ -172,6 +177,7 @@ contexts:
     - include: hex_color
     - include: pseudo_function
     - include: function
+    - include: css_variable
     - include: variable
     - include: numeric
     - include: unit
@@ -190,6 +196,7 @@ contexts:
     - include: hex_color
     - include: pseudo_function
     - include: function
+    - include: css_variable
     - include: variable
     - include: numeric
     - include: unit
@@ -239,6 +246,7 @@ contexts:
   interpoluation:
     - meta_scope: support.function.interpolation.sass
     - include: function
+    - include: css_variable
     - include: variable
     - include: operator
     - include: numeric

@@ -21,6 +21,7 @@ Numeric | constant.numeric.css.sass
 Unit | keyword.other.unit.css.sass
 Rgb Color | constant.other.color.rgb-value.css.sass
 Function Name | support.function.css.sass
+CSS4 Variable | variable
 Sass Variable | variable
 Sass Directive, Directive Shorthand | keyword.control.at-rule.css.sass
 Sass Interpolation | support.function.interpolation.sass
@@ -28,4 +29,3 @@ Sass Flag | keyword.other.important.css.sass
 Sass Operator | keyword.operator.css.sass
 Sass Semicolon | invalid
 Sass Curly Brackets | invalid
-
