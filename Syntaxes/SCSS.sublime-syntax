@@ -45,7 +45,7 @@ contexts:
     - match: (@mixin|@function)\s+([\w-]+)
       captures:
         1: keyword.control.at-rule.css.sass
-        2: entity.name.function
+        2: entity.name.type, entity.name.function
 
     # highlight placeholder selector as class selector
     # highlight placeholder selector before highlighting unit
