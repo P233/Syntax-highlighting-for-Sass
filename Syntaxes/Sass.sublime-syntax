@@ -18,7 +18,7 @@ contexts:
     # match the first ( of a variable and push the rest contents onto the map stack
     - match: (\$[\w-]+)(?=:\s*\()|(?<=(\s|,)\($)
       captures:
-        1: variable
+        1: variable.sass
       push: map
 
     # push onto the block comment stack
