@@ -6,8 +6,8 @@ scope: source.sass
 
 
 variables:
-  interpoluation_start: \#{(?=.*})
-  interpoluation_end: \}
+  interpolation_start: \#{(?=.*})
+  interpolation_end: \}
 
 
 contexts:
@@ -86,9 +86,9 @@ contexts:
     - match: (\"|\')(?=.*\1)
       push: quoted_string
 
-    # push on to the interpoluation stack
-    - match: '{{interpoluation_start}}'
-      push: interpoluation
+    # push on to the interpolation stack
+    - match: '{{interpolation_start}}'
+      push: interpolation
 
 
   # pattens
@@ -174,8 +174,8 @@ contexts:
       push: line_comment
     - match: (\"|\')(?=.*\1)
       push: quoted_string
-    - match: '{{interpoluation_start}}'
-      push: interpoluation
+    - match: '{{interpolation_start}}'
+      push: interpolation
     - include: flag
     - include: hex_color
     - include: css_function_has_quote
@@ -194,8 +194,8 @@ contexts:
   value_list:
     - match: (\"|\')(?=.*\1)
       push: quoted_string
-    - match: '{{interpoluation_start}}'
-      push: interpoluation
+    - match: '{{interpolation_start}}'
+      push: interpolation
     - include: flag
     - include: hex_color
     - include: css_function_has_quote
@@ -213,29 +213,29 @@ contexts:
 
   block_comment:
     - meta_scope: comment.block.css.sass
-    - match: '{{interpoluation_start}}'
-      push: interpoluation
+    - match: '{{interpolation_start}}'
+      push: interpolation
     - match: \*/
       pop: true
 
   line_comment:
     - meta_scope: comment.line.sass
-    - match: '{{interpoluation_start}}'
-      push: interpoluation
+    - match: '{{interpolation_start}}'
+      push: interpolation
     - match: (?=^\S)
       pop: true
 
   id_selector:
     - meta_scope: entity.other.attribute-name.id.css.sass
-    - match: '{{interpoluation_start}}'
-      push: interpoluation
+    - match: '{{interpolation_start}}'
+      push: interpolation
     - match: $|(?=\s|,|:|;|\.|\(|\)|\[|{|>|\+|~)
       pop: true
 
   class_selector:
     - meta_scope: entity.other.attribute-name.class.css.sass
-    - match: '{{interpoluation_start}}'
-      push: interpoluation
+    - match: '{{interpolation_start}}'
+      push: interpolation
     - match: $|(?=\s|,|:|;|#|\(|\)|\[|{|>|\+|~)
       pop: true
 
@@ -243,13 +243,13 @@ contexts:
     - meta_scope: string.quoted.double.css.sass
     - match: \\.
       scope: constant.character.escape
-    - match: '{{interpoluation_start}}'
-      push: interpoluation
+    - match: '{{interpolation_start}}'
+      push: interpolation
     - match: \1
       pop: true
 
-  interpoluation:
-    - meta_scope: support.function.interpolation.sass
+  interpolation:
+    - meta_scope: keyword.control.interpolation.sass
     - include: function
     - include: css_variable
     - include: variable
@@ -259,5 +259,5 @@ contexts:
     - include: property_value
     - match: (\"|\')(?=.*\1)
       push: quoted_string
-    - match: '{{interpoluation_end}}'
+    - match: '{{interpolation_end}}'
       pop: true
