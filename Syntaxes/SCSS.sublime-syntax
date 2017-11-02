@@ -115,7 +115,7 @@ contexts:
   parent_selector:
     - match: '(&)([\w-]*)'
       captures:
-        1: keyword.control.parent-ref.css.sass
+        1: keyword.other.parent-selector.sass
         2: entity.other.attribute-name.class.css.sass
 
   pseudo_class_element:
