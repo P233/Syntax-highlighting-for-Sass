@@ -120,7 +120,7 @@ contexts:
 
   pseudo_class_element:
     - match: :{1,2}[\w-]+
-      scope: entity.other.attribute-name.pseudo-class.css.sass
+      scope: entity.other.pseudo-class.css.sass
 
   property_value:
     - match: '[\w-]*\w+\b(?!\s*:|-)'
