@@ -15,7 +15,7 @@ Attribute Selector | meta.attribute-selector.css.sass
 Attribute Selector Regex | keyword.other.regex.sass
 Pseudo Class, Pseudo Element | entity.other.attribute-name.pseudo-class.css.sass
 Property Name | N/A
-Property Value | meta.property-value.css.sass, support.constant.property-value.css.sass
+Property Value | support.constant.property-value.css.sass
 Quoted String | string.quoted.css.sass
 Numeric | constant.numeric.css.sass
 Unit | keyword.other.unit.css.sass

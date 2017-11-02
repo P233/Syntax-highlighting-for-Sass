@@ -109,7 +109,7 @@ contexts:
   pseudo_function:
     - match: \b(url|format|attr)\((.+?)\)
       captures:
-        1: meta.property-value.css.sass, support.constant.property-value.css.sass
+        1: support.constant.property-value.css.sass
         2: string.quoted.css.sass
 
   parent_selector:
@@ -124,7 +124,7 @@ contexts:
 
   property_value:
     - match: '[\w-]*\w+\b(?!\s*:|-)'
-      scope: meta.property-value.css.sass, support.constant.property-value.css.sass
+      scope: support.constant.property-value.css.sass
 
   numeric:
     # prevent highlighting key-123 but highlight 2n-1
