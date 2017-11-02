@@ -93,11 +93,11 @@ contexts:
 
   css_variable:
     - match: --[\w-]*
-      scope: variable
+      scope: variable.css.sass
 
   variable:
     - match: \$[\w-]*|\.{3}
-      scope: variable
+      scope: variable.sass
 
   function:
     - match: '[\w-]+(?=\()'
