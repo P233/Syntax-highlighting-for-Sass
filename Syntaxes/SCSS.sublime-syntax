@@ -212,7 +212,7 @@ contexts:
       pop: true
 
   line_comment:
-    - meta_scope: comment.line.css.sass
+    - meta_scope: comment.line.sass
     - match: '{{interpoluation_start}}'
       push: interpoluation
     - match: $
