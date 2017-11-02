@@ -94,6 +94,7 @@ a[href^=""] {}
 a[href$=""] {}
 a[data-*=""] {}
 a[data~=""] {}
+a[data|=""] {}
 
 
 %placeholder {}
