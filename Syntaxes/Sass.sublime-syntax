@@ -240,7 +240,7 @@ contexts:
       pop: true
 
   quoted_string:
-    - meta_scope: string.quoted.css.sass.double.css.sass
+    - meta_scope: string.quoted.double.css.sass
     - match: \\.
       scope: constant.character.escape
     - match: '{{interpoluation_start}}'
