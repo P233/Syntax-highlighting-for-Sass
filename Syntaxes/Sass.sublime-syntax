@@ -131,7 +131,7 @@ contexts:
 
   numeric:
     # prevent highlighting key-123 but highlight 2n-1
-    - match: (?<!\w|[^n]-)-?\d*\.?\d+|\s-(?=#{)
+    - match: (?<!\w|[^n]-)-?\d*\.?\d+|-(?=#{|\$)
       scope: constant.numeric.css.sass
 
   unit:
