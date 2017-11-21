@@ -1,6 +1,16 @@
 # Syntax Highlighting for Sass
 
-## Scope names List
+## New Features
+
+* Add support for CSS4 variables
+* Enhance Sass map highlighting
+* Enhance CSS functions and Sass functions highlighting
+* Enhance Sass mixin/function name highlighting and their "Goto Defination" support
+* Remove completions
+
+## Scope names list
+
+Learn more about "color schemes" please see https://www.sublimetext.com/docs/3/color_schemes.html
 
 Element      | Scope Selector
 :----------- | :--------------
@@ -15,7 +25,7 @@ Class Selector, Sass Placeholder Selector | `entity.other.attribute-name.class.c
 Attribute Selector | `entity.other.attribute-name.css.sass`
 Attribute Selector RegEx | `keyword.operator.attribute-selector.css.sass`
 Pseudo Class, Pseudo Element | `entity.other.pseudo-class.css.sass`
-Property Name | N/A
+Property Name | `source.sass` / `source.scss`
 Property Value | `support.constant.property-value.css.sass`
 Quoted String | `string.quoted.css.sass`
 Numeric | `constant.numeric.css.sass`
@@ -30,3 +40,7 @@ Sass Flag | `keyword.other.important.css.sass`
 Sass Reserved Word | `keyword.other.reserved.sass`
 Sass Indented Syntax Semicolon | `invalid`
 Sass Indented Syntax Curly Brackets | `invalid`
+
+## License
+
+MIT License
