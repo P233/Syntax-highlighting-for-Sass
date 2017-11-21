@@ -210,7 +210,8 @@ a {
 
 // TODO
 
-body:before {
-  body: float;
-  body-body:none;
+body {
+  background-image: url(if($bootstrap-sass-asset-helper, twbs-image-path("#{$file-1x}"), "#{$file-1x}"));
 }
+
+@media only screen and (min--moz-device-pixel-ratio: 2) {}
