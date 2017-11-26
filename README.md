@@ -1,18 +1,20 @@
 # Syntax Highlighting for Sass
 
+This is a Sublime Text 3 package which purely forced on highlighting both Sass and SCSS syntax as accuracy as possible. Please make sure your Sublime Text 3 version is above Build 3103.
+
 ## New Features
 
-* Add support for CSS4 variables
-* Enhance Sass map highlighting
-* Enhance CSS functions and Sass functions highlighting
-* Enhance Sass mixin/function name highlighting and their "Goto Defination" support
-* Remove completions
+* Added support for CSS4 variables
+* Enhanced Sass map highlighting
+* Enhanced CSS functions and Sass functions highlighting
+* Enhanced Sass mixin/function name highlighting and their "Goto Defination" support
+* Removed built-in completions
 
-## Scope names list
+## Scopes list
 
-Learn more about "color schemes" please see https://www.sublimetext.com/docs/3/color_schemes.html
+Here is a list of which syntax part is capable to highlight and its scope name. All scope names are following the suggestions of https://www.sublimetext.com/docs/3/scope_naming.html. If any part from the list down below is not highlighted as expected with your current color scheme, please try to contact the color scheme author to add support for the corresponding scope or modify the color scheme by yourself. Learn more about "color schemes" please take a look at https://www.sublimetext.com/docs/3/color_schemes.html.
 
-Element      | Scope Selector
+Element      | Scope
 :----------- | :--------------
 Block Comment | `comment.block.css.sass`
 Sass Line Comment | `comment.line.sass`
