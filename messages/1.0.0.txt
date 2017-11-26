@@ -1,0 +1,18 @@
+Thank you very much for keeping using this package.
+
+I am so sorry for lacking care in this package for such a long period (almost three years). There were lots of issues I haven't had a chance to fix in the last version, most of them are about the auto-completion feature. It was my experiment to reduce noises if you have massive snippets and completions installed, and it's based on tweaking syntax scopes on both syntax definition files and built-in completions. But it may have a bad influence on some other snippets and completions. So I decided to completely remove this feature and re-write this package with the new Sublime Text 3 syntax definition format from scratch in order to purely forced on highlighting the syntax as accuracy as possible. Therefore, this package will be only working on Sublime Text 3 (>= build 3103).
+
+Here are the new features:
+
+1. Added support for CSS4 variables
+2. Enhanced Sass map highlighting
+3. Enhanced CSS functions and Sass functions highlighting
+4. Enhanced Sass mixin/function name highlighting and their "Goto Definition" support
+5. Removed the built-in completions
+
+Besides, the scopes have been changed a lot. Please take a look at https://github.com/P233/Syntax-highlighting-for-Sass#scopes-list
+
+If you have any issue or suggestion please open a new issue on GitHub.
+
+All the best,
+Peiwen
