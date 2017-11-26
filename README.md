@@ -7,7 +7,7 @@ This is a Sublime Text 3 package which purely forced on highlighting both Sass a
 * Added support for CSS4 variables
 * Enhanced Sass map highlighting
 * Enhanced CSS functions and Sass functions highlighting
-* Enhanced Sass mixin/function name highlighting and their "Goto Defination" support
+* Enhanced Sass mixin/function name highlighting and their "Goto Definition" support
 * Removed built-in completions
 
 ## Scopes list
