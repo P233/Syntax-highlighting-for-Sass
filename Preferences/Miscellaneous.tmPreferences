@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Miscellaneous</string>
+	<key>scope</key>
+	<string>source.sass</string>
+	<key>settings</key>
+	<dict>
+		<key>increaseIndentPattern</key>
+		<string>^((.*:(hover|active|first-child|checked|last-child|nht-child|before|after).*|[^:]+))$</string>
+		<key>disableIndentNextLinePattern</key>
+		<string></string>
+	</dict>
+	<key>uuid</key>
+	<string>E5DD686C-3FA2-4CE1-9CE9-691208183741</string>
+</dict>
+</plist>
