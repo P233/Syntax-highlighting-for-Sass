@@ -1,0 +1,256 @@
+%YAML 1.2
+---
+name: SCSS
+file_extensions: [scss]
+scope: source.scss
+
+
+variables:
+  interpolation_start: \#{(?=.*})
+  interpolation_end: \}
+
+
+contexts:
+  main:
+    # match the first ( of a variable and push the rest contents onto the map stack
+    - match: (\$[\w-]+)(?=:\s*\()|(?<=(\s|,)\($)
+      captures:
+        1: variable.sass
+      push: map
+
+    # push onto the block comment stack
+    - match: /\*
+      push: block_comment
+
+    # push onto the line comment stack
+    - match: //
+      push: line_comment
+
+    # hightlight attribution selector
+    - match: \[([\w-]+)(\^|\$|\*|~|\|)*(=)?([\w"'-]+)?\]
+      captures:
+        1: entity.other.attribute-name.css.sass
+        2: keyword.operator.attribute-selector.css.sass
+        # 3: # match =
+        4: string.quoted.css.sass
+
+    # highlight included mixin name as function
+    - match: (@include)\s+([\w-]+)
+      captures:
+        1: keyword.control.at-rule.css.sass
+        2: support.function.sass
+
+    # mixin and function
+    - match: (@mixin|@function)\s+([\w-]+)
+      captures:
+        1: keyword.control.at-rule.css.sass
+        2: entity.name.function.sass
+
+    # highlight placeholder selector as class selector
+    # match the % for placeholder selector before matching units
+    - match: (?<!\d)%
+      push: class_selector
+
+
+    # include pattens
+    - include: pseudo_class_element
+    - include: function
+    - include: css_variable
+    - include: variable
+    - include: operator
+    - include: numeric
+    - include: unit
+    - include: reserved_word
+    - include: type_selector
+    - include: parent_selector
+    - include: at_rule
+    - include: property_value
+
+
+    # push onto the id selector stack
+    - match: \#(?!{)
+      push: id_selector
+
+    # push onto the property value list stack
+    - match: ':'
+      push: value_list
+
+    # push onto the class selector stack
+    - match: \.
+      push: class_selector
+
+    # push onto the quoted string stack
+    - match: (\"|\')(?=.*\1)
+      push: quoted_string
+
+    # push on to the interpolation stack
+    - match: '{{interpolation_start}}'
+      push: interpolation
+
+
+  # pattens
+
+  css_variable:
+    - match: --[\w-]*
+      scope: variable.css.sass
+
+  variable:
+    - match: \$[\w-]*|\.{3}
+      scope: variable.sass
+
+  css_function_has_quote:
+    - match: \b(url|format|attr)\((.+?)\)
+      captures:
+        1: support.constant.property-value.css.sass
+        2: string.quoted.css.sass
+
+  css_function:
+    - match: \b(annotation|blur|brightness|calc|character-variant|circle|contrast|cross-fade|cubic-bezier|drop-shadow|element|ellipse|fit-content|frames|grayscale|hue-rotate|image|image-set|inset|invert|leader|linear-gradient|local|matrix|matrix3d|minmax|opacity|ornaments|perspective|polygon|radial-gradient|rect|repeat|repeating-linear-gradient|repeating-radial-gradient|rotate|rotate3d|rotateX|rotateY|rotateZ|saturate|scale|scale3d|scaleX|scaleY|scaleZ|sepia|skew|skewX|skewY|steps|styleset|stylistic|swash|symbols|target-counter|target-counters|target-text|translate|translate3d|translateX|translateY|translateZ|var)+(?=\()
+      scope: support.constant.property-value.css.sass
+
+  function:
+    - match: '[\w-]+(?=\()'
+      scope: support.function.sass
+
+  parent_selector:
+    - match: '(&)([\w-]*)'
+      captures:
+        1: keyword.other.parent-selector.sass
+        2: entity.other.attribute-name.class.css.sass
+
+  pseudo_class_element:
+    - match: :{1,2}[\w-]+
+      scope: entity.other.pseudo-class.css.sass
+
+  property_value:
+    - match: '[\w-]*\w+\b(?!\s*:|-)'
+      scope: support.constant.property-value.css.sass
+
+  numeric:
+    # prevent highlighting key-123 but highlight 2n-1
+    - match: (?<!\w|[^n]-)-?\d*\.?\d+|-(?=#{|\$)
+      scope: constant.numeric.css.sass
+
+  unit:
+    - match: (?<=\d|})(em|ex|ch|rem|vh|vw|vmin|vmax|px|mm|cm|in|pt|pc|deg|grad|rad|turn|Hz|kHz|dpi|dpcm|dppx|s|ms|n(\+|-)?|%)
+      scope: keyword.other.unit.css.sass
+
+  operator:
+    - match: \+|\s-\s|\s-(?=$)|(?<=\()-(?=$)|\s-(?=\()|\*|/|%|=|!|<|>|~
+      scope: keyword.operator.css.sass
+
+  hex_color:
+    - match: '#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})\b'
+      scope: constant.other.color.rgb-value.css.sass
+
+  flag:
+    - match: '!(important|default|optional|global)'
+      scope: keyword.other.important.css.sass
+
+  reserved_word:
+    - match: \b(true|false|null|from|through|to|in|or|and|not|all|print|screen|speech|only)\b(?!\s*(-|:))
+      scope: keyword.other.reserved.sass
+
+  type_selector:
+    - match: \b(html|body|address|article|aside|h[1-6]|header|hgroup|nav|section|blockquote|dd|div|dl|dt|figcaption|figure|hr|li|main|ol|p|pre|ul|a|abbr|b|bdi|bdo|br|cite|code|data|dfn|em|i|kbd|mark|q|rp|rt|rtc|ruby|s|samp|small|span|strong|sub|sup|time|u|var|wbr|area|audio|img|map|track|video|embed|object|param|source|canvas|noscript|script|del|ins|caption|col|colgroup|table|tbody|td|tfoot|th|thead|tr|button|datalist|fieldset|form|input|label|legend|meter|optgroup|option|output|progress|select|textarea|details|dialog|menu|menuitem|summary|content|element|shadow|slot|template|svg|circle|ellipse|line|path|polygon|polyline|rect|text|title)\b(?!\s*-|:\s)
+      scope: entity.name.tag.css.sass
+
+  at_rule:
+    - match: '@[\w-]*(\s*if)?'
+      scope: keyword.control.at-rule.css.sass
+
+
+  # stacks
+
+  map:
+    - match: //
+      push: line_comment
+    - match: (\"|\')(?=.*\1)
+      push: quoted_string
+    - match: '{{interpolation_start}}'
+      push: interpolation
+    - include: flag
+    - include: hex_color
+    - include: css_function_has_quote
+    - include: css_function
+    - include: function
+    - include: css_variable
+    - include: variable
+    - include: numeric
+    - include: unit
+    - include: operator
+    - include: reserved_word
+    - include: property_value
+    - match: ;|\)\s*$|\n
+      pop: true
+
+  value_list:
+    - match: (\"|\')(?=.*\1)
+      push: quoted_string
+    - match: '{{interpolation_start}}'
+      push: interpolation
+    - include: flag
+    - include: hex_color
+    - include: css_function_has_quote
+    - include: css_function
+    - include: function
+    - include: css_variable
+    - include: variable
+    - include: numeric
+    - include: unit
+    - include: operator
+    - include: reserved_word
+    - include: property_value
+    - match: $|(?=;)
+      pop: true
+
+  block_comment:
+    - meta_scope: comment.block.css.sass
+    - match: '{{interpolation_start}}'
+      push: interpolation
+    - match: \*/
+      pop: true
+
+  line_comment:
+    - meta_scope: comment.line.sass
+    - match: '{{interpolation_start}}'
+      push: interpolation
+    - match: $
+      pop: true
+
+  id_selector:
+    - meta_scope: entity.other.attribute-name.id.css.sass
+    - match: '{{interpolation_start}}'
+      push: interpolation
+    - match: $|(?=\s|,|:|;|\.|\(|\)|\[|{|>|\+|~)
+      pop: true
+
+  class_selector:
+    - meta_scope: entity.other.attribute-name.class.css.sass
+    - match: '{{interpolation_start}}'
+      push: interpolation
+    - match: $|(?=\s|,|:|;|#|\(|\)|\[|{|>|\+|~)
+      pop: true
+
+  quoted_string:
+    - meta_scope: string.quoted.double.css.sass
+    - match: \\.
+      scope: constant.character.escape
+    - match: '{{interpolation_start}}'
+      push: interpolation
+    - match: \1
+      pop: true
+
+  interpolation:
+    - meta_scope: keyword.control.interpolation.sass
+    - include: function
+    - include: css_variable
+    - include: variable
+    - include: operator
+    - include: numeric
+    - include: unit
+    - include: property_value
+    - match: (\"|\')(?=.*\1)
+      push: quoted_string
+    - match: '{{interpolation_end}}'
+      pop: true
