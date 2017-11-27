@@ -91,7 +91,7 @@ contexts:
       push: interpolation
 
 
-  # pattens
+  # patterns
 
   css_variable:
     - match: --[\w-]*
