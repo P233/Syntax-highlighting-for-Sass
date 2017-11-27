@@ -27,7 +27,7 @@ Class Selector, Sass Placeholder Selector | `entity.other.attribute-name.class.c
 Attribute Selector | `entity.other.attribute-name.css.sass`
 Attribute Selector RegEx | `keyword.operator.attribute-selector.css.sass`
 Pseudo Class, Pseudo Element | `entity.other.pseudo-class.css.sass`
-Property Name | `source.sass` / `source.scss`
+Property Name | `support.type.property-name.css.sass`
 Property Value | `support.constant.property-value.css.sass`
 Quoted String | `string.quoted.css.sass`
 Numeric | `constant.numeric.css.sass`

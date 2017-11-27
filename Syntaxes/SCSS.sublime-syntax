@@ -71,6 +71,10 @@ contexts:
     - match: \#(?!{)
       push: id_selector
 
+    # property name
+    - match: \s*(?=[\w-$#{}]+:)
+      push: property_name
+
     # push onto the property value list stack
     - match: ':'
       push: value_list
@@ -159,6 +163,13 @@ contexts:
     - match: '@[\w-]*(\s*if)?'
       scope: keyword.control.at-rule.css.sass
 
+  property_name:
+    - meta_scope: support.type.property-name.css.sass
+    - match: '{{interpolation_start}}'
+      push: interpolation
+    - match: (?=:)
+      pop: true
+
 
   # stacks
 
@@ -185,6 +196,8 @@ contexts:
       pop: true
 
   value_list:
+    - match: \s*(?=[\w-$#{}]+:)
+      push: property_name
     - match: (\"|\')(?=.*\1)
       push: quoted_string
     - match: '{{interpolation_start}}'
