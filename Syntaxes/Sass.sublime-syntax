@@ -235,7 +235,7 @@ contexts:
     - meta_scope: comment.line.sass
     - match: '{{interpolation_start}}'
       push: interpolation
-    - match: (?=^\S)
+    - match: $
       pop: true
 
   id_selector:
