@@ -9,7 +9,7 @@
     <key>settings</key>
     <dict>
       <key>increaseIndentPattern</key>
-      <string>\s*((html|body|address|article|aside|h[1-6]|header|hgroup|nav|section|blockquote|dd|div|dl|dt|figcaption|figure|hr|li|main|ol|p|pre|ul|a|abbr|b|bdi|bdo|br|cite|code|data|dfn|em|i|kbd|mark|q|rp|rt|rtc|ruby|s|samp|small|span|strong|sub|sup|time|u|var|wbr|area|audio|img|map|track|video|embed|object|param|source|canvas|noscript|script|del|ins|caption|col|colgroup|table|tbody|td|tfoot|th|thead|tr|button|datalist|fieldset|form|input|label|legend|meter|optgroup|option|output|progress|select|textarea|details|dialog|menu|menuitem|summary|content|element|shadow|slot|template|svg|circle|ellipse|line|path|polygon|polyline|rect|text|title)\b|#(?!\{)|\.|:|\+|>|~|\[|%|&)</string>
+      <string>\s*((html|body|address|article|aside|h[1-6]|header|hgroup|nav|section|blockquote|dd|div|dl|dt|figcaption|figure|hr|li|main|ol|p|pre|ul|a|abbr|b|bdi|bdo|br|cite|code|data|dfn|em|i|kbd|mark|q|rp|rt|rtc|ruby|s|samp|small|span|strong|sub|sup|time|u|var|wbr|area|audio|img|map|track|video|embed|object|param|source|canvas|noscript|script|del|ins|caption|col|colgroup|table|tbody|td|tfoot|th|thead|tr|button|datalist|fieldset|form|input|label|legend|meter|optgroup|option|output|progress|select|textarea|details|dialog|menu|menuitem|summary|content|element|shadow|slot|template|svg|circle|ellipse|line|path|polygon|polyline|rect|text|title)\b(?!-)|#(?!\{)|\.|:|\+|>|~|\[|%|&)</string>
       <key>disableIndentNextLinePattern</key>
       <string></string>
     </dict>
