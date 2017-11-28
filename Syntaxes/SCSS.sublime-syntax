@@ -8,6 +8,7 @@ scope: source.scss
 variables:
   interpolation_start: \#{(?=.*})
   interpolation_end: \}
+  property_name: \s*(?=[\w-#]+[\w-$#{}]+:)
 
 
 contexts:
@@ -72,7 +73,7 @@ contexts:
       push: id_selector
 
     # property name
-    - match: \s*(?=[\w-$#{}]+:)
+    - match: '{{property_name}}'
       push: property_name
 
     # push onto the property value list stack
@@ -196,7 +197,7 @@ contexts:
       pop: true
 
   value_list:
-    - match: \s*(?=[\w-$#{}]+:)
+    - match: '{{property_name}}'
       push: property_name
     - match: (\"|\')(?=.*\1)
       push: quoted_string
