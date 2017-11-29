@@ -28,14 +28,6 @@ contexts:
     - match: //
       push: line_comment
 
-    # hightlight attribution selector
-    - match: \[([\w-]+)(\^|\$|\*|~|\|)*(=)?([\w"'-]+)?\]
-      captures:
-        1: entity.other.attribute-name.css.sass
-        2: keyword.operator.attribute-selector.css.sass
-        # 3: # match =
-        4: string.quoted.css.sass
-
     # highlight included mixin name as function
     - match: (@include)\s+([\w-]+)
       captures:
@@ -52,10 +44,55 @@ contexts:
     - match: '@[\w-]*(\s*if)?'
       scope: keyword.control.at-rule.css.sass
 
+    # highlight type selector
+    - match: \b(html|body|address|article|aside|h[1-6]|header|hgroup|nav|section|blockquote|dd|div|dl|dt|figcaption|figure|hr|li|main|ol|p|pre|ul|a|abbr|b|bdi|bdo|br|cite|code|data|dfn|em|i|kbd|mark|q|rp|rt|rtc|ruby|s|samp|small|span|strong|sub|sup|time|u|var|wbr|area|audio|img|map|track|video|embed|object|param|source|canvas|noscript|script|del|ins|caption|col|colgroup|table|tbody|td|tfoot|th|thead|tr|button|datalist|fieldset|form|input|label|legend|meter|optgroup|option|output|progress|select|textarea|details|dialog|menu|menuitem|summary|content|element|shadow|slot|template|svg|circle|ellipse|line|path|polygon|polyline|rect|text|title)\b(?!\s*-|:\s)
+      scope: entity.name.tag.css.sass
+
+    # hightlight attribution selector
+    - match: \[([\w-]+)(\^|\$|\*|~|\|)*(=)?([\w"'-]+)?\]
+      captures:
+        1: entity.other.attribute-name.css.sass
+        2: keyword.operator.attribute-selector.css.sass
+        # 3: # match =
+        4: string.quoted.css.sass
+
+    # push onto the id selector stack
+    - match: \#(?!{)
+      push: id_selector
+
+    # push onto the class selector stack
+    - match: \.(?!\.)
+      push: class_selector
+
     # highlight placeholder selector as class selector
-    # match the % for placeholder selector before matching units
     - match: (?<!\d)%
       push: class_selector
+
+    # highlight parent selector
+    - match: '(&)([\w-]*)'
+      captures:
+        1: keyword.other.parent-selector.sass
+        2: entity.other.attribute-name.class.css.sass
+
+    # highlight pseudo elements and pseudo classes
+    - match: :{1,2}[a-z-]+(?=\s|:|,|\(|\)|>|~|\+|\.|#|\{|$)
+      scope: entity.other.pseudo-class.css.sass
+
+    # push onto the property name stack
+    - match: '{{property_name}}'
+      push: property_name
+
+    # push onto the property value list stack
+    - match: ':'
+      push: value_list
+
+    # push onto the quoted string stack
+    - match: '{{quoted_string}}'
+      push: quoted_string
+
+    # push onto the interpolation stack
+    - match: '{{interpolation_start}}'
+      push: interpolation
 
     # include patterns
     - include: function
@@ -65,37 +102,7 @@ contexts:
     - include: numeric
     - include: unit
     - include: reserved_word
-    - include: type_selector
-    - include: parent_selector
     - include: property_value
-
-    # push onto the id selector stack
-    - match: \#(?!{)
-      push: id_selector
-
-    # push onto the property name stack
-    - match: '{{property_name}}'
-      push: property_name
-
-    # highlight pseudo elements and pseudo classes
-    - match: :{1,2}[a-z-]+(?=\s|:|,|\(|\)|>|~|\+|\.|#|\{|$)
-      scope: entity.other.pseudo-class.css.sass
-
-    # push onto the property value list stack
-    - match: ':'
-      push: value_list
-
-    # push onto the class selector stack
-    - match: \.
-      push: class_selector
-
-    # push onto the quoted string stack
-    - match: '{{quoted_string}}'
-      push: quoted_string
-
-    # push onto the interpolation stack
-    - match: '{{interpolation_start}}'
-      push: interpolation
 
 
   # patterns
@@ -121,12 +128,6 @@ contexts:
   function:
     - match: '[\w-]+(?=\()'
       scope: support.function.sass
-
-  parent_selector:
-    - match: '(&)([\w-]*)'
-      captures:
-        1: keyword.other.parent-selector.sass
-        2: entity.other.attribute-name.class.css.sass
 
   property_value:
     - match: '[\w-]*\w+\b(?!\s*:|-)'
@@ -156,10 +157,6 @@ contexts:
   reserved_word:
     - match: \b(true|false|null|from|through|to|in|or|and|not|all|print|screen|speech|only)\b(?!\s*(-|:))
       scope: keyword.other.reserved.sass
-
-  type_selector:
-    - match: \b(html|body|address|article|aside|h[1-6]|header|hgroup|nav|section|blockquote|dd|div|dl|dt|figcaption|figure|hr|li|main|ol|p|pre|ul|a|abbr|b|bdi|bdo|br|cite|code|data|dfn|em|i|kbd|mark|q|rp|rt|rtc|ruby|s|samp|small|span|strong|sub|sup|time|u|var|wbr|area|audio|img|map|track|video|embed|object|param|source|canvas|noscript|script|del|ins|caption|col|colgroup|table|tbody|td|tfoot|th|thead|tr|button|datalist|fieldset|form|input|label|legend|meter|optgroup|option|output|progress|select|textarea|details|dialog|menu|menuitem|summary|content|element|shadow|slot|template|svg|circle|ellipse|line|path|polygon|polyline|rect|text|title)\b(?!\s*-|:\s)
-      scope: entity.name.tag.css.sass
 
   property_name:
     - meta_scope: support.type.property-name.css.sass
