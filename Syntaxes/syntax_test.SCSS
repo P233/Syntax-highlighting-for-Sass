@@ -217,4 +217,14 @@ body {
   background-image: url(if($bootstrap-sass-asset-helper, twbs-image-path("#{$file-1x}"), "#{$file-1x}"));
 }
 
-@media only screen and (min--moz-device-pixel-ratio: 2) {}
+body::before {
+  content '
+multiple line string
+';
+}
+
+#fff {
+  box-shadow: 0 0 0 #fff,
+    0 0 0 #fff,
+    0 0 0 #fff;
+}
