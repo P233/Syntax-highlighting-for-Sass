@@ -8,6 +8,7 @@ scope: source.scss
 variables:
   interpolation_start: \#{(?=.*})
   interpolation_end: \}
+  quoted_string: ("|')(?=.*\1)
   property_name: \s*(?=[\w-#]+[\w-$#{}]+:)
 
 
@@ -85,7 +86,7 @@ contexts:
       push: class_selector
 
     # push onto the quoted string stack
-    - match: (\"|\')(?=.*\1)
+    - match: '{{quoted_string}}'
       push: quoted_string
 
     # push on to the interpolation stack
@@ -177,7 +178,7 @@ contexts:
   map:
     - match: //
       push: line_comment
-    - match: (\"|\')(?=.*\1)
+    - match: '{{quoted_string}}'
       push: quoted_string
     - match: '{{interpolation_start}}'
       push: interpolation
@@ -199,7 +200,7 @@ contexts:
   value_list:
     - match: '{{property_name}}'
       push: property_name
-    - match: (\"|\')(?=.*\1)
+    - match: '{{quoted_string}}'
       push: quoted_string
     - match: '{{interpolation_start}}'
       push: interpolation
@@ -264,7 +265,7 @@ contexts:
     - include: numeric
     - include: unit
     - include: property_value
-    - match: (\"|\')(?=.*\1)
+    - match: '{{quoted_string}}'
       push: quoted_string
     - match: '{{interpolation_end}}'
       pop: true
