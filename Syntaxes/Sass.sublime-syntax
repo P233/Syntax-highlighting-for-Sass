@@ -51,6 +51,10 @@ contexts:
         1: keyword.control.at-rule.css.sass
         2: entity.name.function.sass
 
+    # highlight at-rules
+    - match: '@[\w-]*(\s*if)?'
+      scope: keyword.control.at-rule.css.sass
+
     # highlight placeholder selector as class selector
     # match the % for placeholder selector before matching units
     - match: (?<!\d)%
@@ -67,7 +71,6 @@ contexts:
     - include: reserved_word
     - include: type_selector
     - include: parent_selector
-    - include: at_rule
     - include: property_value
 
     # push onto the id selector stack
@@ -161,10 +164,6 @@ contexts:
   type_selector:
     - match: \b(html|body|address|article|aside|h[1-6]|header|hgroup|nav|section|blockquote|dd|div|dl|dt|figcaption|figure|hr|li|main|ol|p|pre|ul|a|abbr|b|bdi|bdo|br|cite|code|data|dfn|em|i|kbd|mark|q|rp|rt|rtc|ruby|s|samp|small|span|strong|sub|sup|time|u|var|wbr|area|audio|img|map|track|video|embed|object|param|source|canvas|noscript|script|del|ins|caption|col|colgroup|table|tbody|td|tfoot|th|thead|tr|button|datalist|fieldset|form|input|label|legend|meter|optgroup|option|output|progress|select|textarea|details|dialog|menu|menuitem|summary|content|element|shadow|slot|template|svg|circle|ellipse|line|path|polygon|polyline|rect|text|title)\b(?!\s*-|:\s)
       scope: entity.name.tag.css.sass
-
-  at_rule:
-    - match: '@[\w-]*(\s*if)?'
-      scope: keyword.control.at-rule.css.sass
 
   property_name:
     - meta_scope: support.type.property-name.css.sass
