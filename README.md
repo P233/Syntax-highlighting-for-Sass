@@ -35,7 +35,7 @@ Unit | `keyword.other.unit.css.sass`
 Rgb Color | `constant.other.color.rgb-valueb.css.sass`
 Sass Parent Selector | `keyword.other.parent-selector.sass`
 Sass Operator | `keyword.operator.css.sass`
-Sass Mixin and Function Defination | `entity.name.function.sass`
+Sass Mixin and Function Definition | `entity.name.function.sass`
 Sass Mixin and Function Calling Name | `support.function.sass`
 Sass Interpolation | `keyword.control.interpolation.sass`
 Sass Flag | `keyword.other.important.css.sass`
