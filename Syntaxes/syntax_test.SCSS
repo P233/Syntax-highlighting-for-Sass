@@ -179,6 +179,9 @@ body {
   width: -321.123px;
   width: -.123px;
   width: -#{$number}px;
+  width: -$variable;
+  width: -($variable * 2);
+  width: 20px+20px;
   width: auto;
 
   background: url(../../assets/image.pn
