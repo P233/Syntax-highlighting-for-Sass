@@ -14,7 +14,7 @@ variables:
 
 contexts:
   main:
-    # match the first ( of a variable and push the rest contents onto the map stack
+    # push onto the map stack if the first character of a variable's value is '('
     - match: (\$[\w-]+)(?=:\s*\()|(?<=(\s|,)\($)
       captures:
         1: variable.sass
@@ -42,7 +42,7 @@ contexts:
         1: keyword.control.at-rule.css.sass
         2: support.function.sass
 
-    # mixin and function
+    # highlight mixin and function definition
     - match: (@mixin|@function)\s+([\w-]+)
       captures:
         1: keyword.control.at-rule.css.sass
@@ -53,8 +53,7 @@ contexts:
     - match: (?<!\d)%
       push: class_selector
 
-
-    # include pattens
+    # include patterns
     - include: pseudo_class_element
     - include: function
     - include: css_variable
@@ -68,12 +67,11 @@ contexts:
     - include: at_rule
     - include: property_value
 
-
     # push onto the id selector stack
     - match: \#(?!{)
       push: id_selector
 
-    # property name
+    # push onto the property name stack
     - match: '{{property_name}}'
       push: property_name
 
@@ -89,7 +87,7 @@ contexts:
     - match: '{{quoted_string}}'
       push: quoted_string
 
-    # push on to the interpolation stack
+    # push onto the interpolation stack
     - match: '{{interpolation_start}}'
       push: interpolation
 
