@@ -81,7 +81,7 @@ contexts:
       push: property_name
 
     # highlight pseudo elements and pseudo classes
-    - match: :{1,2}[a-z-]+(?=\s|,|\)|>|~|\+|\.|#|$)
+    - match: :{1,2}[a-z-]+(?=\s|:|,|\(|\)|>|~|\+|\.|#|$)
       scope: entity.other.pseudo-class.css.sass
 
     # push onto the property value list stack
