@@ -9,7 +9,7 @@ variables:
   interpolation_start: \#{(?=.*})
   interpolation_end: \}
   quoted_string: ("|')(?=.*\1)
-  property_name: \s*(?=-?[\w#]+[\w-$#{}]+:)
+  property_name: (^|;|\()\s*(?=-?[\w#]+[\w-$#{}]+:)
 
 
 contexts:
@@ -161,9 +161,10 @@ contexts:
       scope: keyword.other.reserved.sass
 
   property_name:
-    - meta_scope: support.type.property-name.css.sass
     - match: '{{interpolation_start}}'
       push: interpolation
+    - match: '[\w-]'
+      scope: support.type.property-name.css.sass
     - match: (?=:)
       pop: true
 
