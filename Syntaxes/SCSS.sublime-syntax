@@ -100,8 +100,8 @@ contexts:
     - include: variable
     - include: numeric
     - include: unit
-    - include: operator
     - include: function
+    - include: operator
     - include: reserved_word
     - include: property_value
 
@@ -182,10 +182,10 @@ contexts:
     - include: variable
     - include: numeric
     - include: unit
-    - include: operator
     - include: css_function_has_quote
     - include: css_function
     - include: function
+    - include: operator
     - include: reserved_word
     - include: property_value
     - match: ;|$
@@ -206,10 +206,10 @@ contexts:
     - include: variable
     - include: numeric
     - include: unit
-    - include: operator
     - include: css_function_has_quote
     - include: css_function
     - include: function
+    - include: operator
     - include: reserved_word
     - include: property_value
     - match: ;|$
@@ -260,8 +260,8 @@ contexts:
     - include: variable
     - include: numeric
     - include: unit
-    - include: operator
     - include: function
+    - include: operator
     - include: property_value
     - match: '{{interpolation_end}}'
       pop: true
