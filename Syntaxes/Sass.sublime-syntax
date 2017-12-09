@@ -194,7 +194,7 @@ contexts:
     - include: function
     - include: reserved_word
     - include: property_value
-    - match: ;|\)\s*$|\n
+    - match: $
       pop: true
 
   value_list:
@@ -218,7 +218,7 @@ contexts:
     - include: function
     - include: reserved_word
     - include: property_value
-    - match: $|(?=;)
+    - match: $
       pop: true
 
   block_comment:
