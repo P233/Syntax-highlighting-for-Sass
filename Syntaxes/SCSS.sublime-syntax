@@ -191,6 +191,8 @@ contexts:
       pop: true
 
   value_list:
+    - match: //
+      push: line_comment
     - match: '{{property_name}}'
       push: property_name
     - match: '{{quoted_string}}'
