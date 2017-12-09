@@ -95,6 +95,7 @@ contexts:
       push: interpolation
 
     # include patterns
+    - include: flag
     - include: css_variable
     - include: variable
     - include: numeric
