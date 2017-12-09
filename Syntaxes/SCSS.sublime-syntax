@@ -61,7 +61,7 @@ contexts:
       push: id_selector
 
     # push onto the class selector stack
-    - match: \.(?!\.)
+    - match: \.(?!\d|\.)
       push: class_selector
 
     # highlight placeholder selector as class selector
