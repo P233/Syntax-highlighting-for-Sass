@@ -9,7 +9,7 @@ variables:
   interpolation_start: \#{(?=.*})
   interpolation_end: \}
   quoted_string: ("|')(?=.*\1)
-  property_name: (^|;|\()\s*(?=-?[\w#]+[\w-$#{}]+:)
+  property_name: (^|;|\{|\()\s*(?=-?[\w#]+[\w-$#{}]+:)
 
 
 contexts:
