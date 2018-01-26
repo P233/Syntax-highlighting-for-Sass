@@ -1,5 +1,8 @@
-Thank you for installing Syntax Highlighting for Sass.
+Thank you for installing this Sass syntax highlighting package.
 
-This is a Sublime Text 3 only package which purely forced on highlighting both Sass and SCSS syntax as accuracy as possible. Please take a look at the README to know what this package is capable to highlight and what to do if some syntax part is not highlighted with your color scheme.
+For more information about this package please see:
 
 https://github.com/P233/Syntax-highlighting-for-Sass
+
+Cheers,
+Peiwen Lu

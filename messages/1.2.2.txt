@@ -1,0 +1,22 @@
+Here is an announcement about the "Syntax Highlighting for Sass"
+package taking over the name of the "Sass" package. "Syntax
+Highlighting for Sass" will be/have been removed from package
+control, and I will keep maintaining the new "Sass" package.
+
+For the original "Sass" package users, please note that the new
+package doesn't provide any CSS code snippets, you may need to
+install Emmet (https://packagecontrol.io/packages/Emmet) for CSS
+snippets. You could find more details about this package on:
+https://github.com/P233/Syntax-highlighting-for-Sass
+
+For the original "Syntax Highlighting for Sass" users, the moving
+over process will be executed automatically, but for future manual
+installation, please search the name "Sass".
+
+If you have any further questions or suggestions, please feel free
+to create an issue on GitHub.
+
+https://github.com/P233/Syntax-highlighting-for-Sass/issues
+
+Cheers,
+Peiwen Lu
