@@ -31,8 +31,8 @@ Element      | Scope
 :----------- | :--------------
 Block Comment | `comment.block.css.sass`
 Sass Line Comment | `comment.line.sass`
-CSS4 Variable | `variable.css.sass`
-Sass Variable | `variable.sass`
+CSS4 Variable | `variable.parameter.sass`
+Sass Variable | `variable.parameter.sass`
 At-rule, Sass Directive, Directive Shorthand | `keyword.control.at-rule.css.sass`
 Type Selector, Universal Selector | `entity.name.tag.css.sass`
 Id Selector | `entity.other.attribute-name.id.css.sass`

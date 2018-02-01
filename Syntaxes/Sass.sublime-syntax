@@ -20,7 +20,7 @@ contexts:
     # push onto the map stack if the first character of a variable's value is '('
     - match: (\$[\w-]+)(?=:\s*\()|(?<=(\s|,)\($)
       captures:
-        1: variable.sass
+        1: variable.parameter.sass
       push: map
 
     # push onto the block comment stack
@@ -112,11 +112,11 @@ contexts:
 
   css_variable:
     - match: --[\w-]*
-      scope: variable.css.sass
+      scope: variable.parameter.sass
 
   variable:
     - match: \$[\w-]*|\.{3}
-      scope: variable.sass
+      scope: variable.parameter.sass
 
   css_function_has_quote:
     - match: \b(url|format|attr)\((.+?)\)
