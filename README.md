@@ -6,7 +6,7 @@ This package has taken over the package name "Sass", please search keyword "sass
 
 Known issues:
 
-1. If you updated this package from the [original Sass pcakge](https://github.com/nathos/sass-textmate-bundle) you might notice SCSS files are highlighted with the Sass syntax, to solve this issue, please open any `.scss` file and reset its highlighting syntax with the "Open all with current extension as..." option.
+1. If you updated this package from the [original Sass package](https://github.com/nathos/sass-textmate-bundle) you might notice SCSS files are highlighted with the Sass syntax, to solve this issue, please open any `.scss` file and reset its highlighting syntax with the "Open all with current extension as..." option.
 
 2. If you need the Emmet CSS abbreviation popup window to work well with the Sass syntax, you probably need to add the following code to your Emmet settings file.
   ``` json
