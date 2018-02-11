@@ -62,8 +62,8 @@ body {
 .selector {
   span {}
   div > span {}
-  div > span::before {}
-  > div::after {}
+  div ~ span::before {}
+  + div::after {}
 
   // TODO
   div::after {}
@@ -179,8 +179,10 @@ multiple line string
 @include mixin() {}
 @include mixin-123_1eaf2u {}
 
-@else if $condition {}
-@if not $condition {}
+@if $condition {
+} @else {}
+
+@if not $condition {} @else if $condition {}
 @if $condition-a or $condition-b {}
 
 @media only screen and (max-width: 100px) and (min-width: 50px) {}

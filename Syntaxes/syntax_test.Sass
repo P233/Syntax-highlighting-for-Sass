@@ -60,10 +60,10 @@ body
 .selector
   span
   div > span
-  div > span::before
-  > div::after
+  div ~ span::before
 
   // TODO
+  + div::after
   div::after
 
 
@@ -149,8 +149,8 @@ body
 @include mixin()
 @include mixin-123_1eaf2u
 
-@else if $condition
 @if not $condition
+@else if $condition
 @if $condition-a or $condition-b
 
 @media only screen and (max-width: 100px) and (min-width: 50px)
