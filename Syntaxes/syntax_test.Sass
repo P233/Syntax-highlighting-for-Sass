@@ -7,7 +7,7 @@
 // line comment contains #{ function($variable) + "escap\e" + -.5em }
 
 body
-  margin: 0; // line comment
+  margin: 0 // line comment
 
 
 *,
@@ -20,6 +20,7 @@ body
 #id-#{$variable}-#{$variable},
 #id-#{$variable}-#{$variable}::before
 
+// TODO
 #id-selector,#id-#{$variable}-selector,#id-#{$variable}-#{$variable},#id-#{$variable}-#{$variable}::before
 #id-selector, #id-#{$variable}-selector, #id-#{$variable}-#{$variable}, #id-#{$variable}-#{$variable}::before
 
@@ -31,6 +32,7 @@ body
 .class-#{$variable}-#{$variable},
 .class-#{$variable}-#{$variable}::before
 
+// TODO
 .class-selector,.class-#{$variable}-selector,.class-#{$variable}-#{$variable},.class-#{$variable}-#{$variable}::before
 .class-selector, .class-#{$variable}-selector, .class-#{$variable}-#{$variable}, .class-#{$variable}-#{$variable}::before
 
@@ -99,7 +101,7 @@ $_va1ri_2ab3le_321a: inline !important
 $variable: function($variable)
 
 // TODO
-$map: ($key: (width-1: 200px * $variable #{$variable} 'stirng'))
+$map: (width-1: ($key: 200px * $variable #{$variable} 'stirng'))
 
 
 body

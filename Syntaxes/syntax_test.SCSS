@@ -21,6 +21,7 @@ body {
 #id-#{$variable}-#{$variable},
 #id-#{$variable}-#{$variable}::before {}
 
+// TODO
 #id-selector,#id-#{$variable}-selector,#id-#{$variable}-#{$variable},#id-#{$variable}-#{$variable}::before{}
 #id-selector, #id-#{$variable}-selector, #id-#{$variable}-#{$variable}, #id-#{$variable}-#{$variable}::before {}
 
@@ -32,6 +33,7 @@ body {
 .class-#{$variable}-#{$variable},
 .class-#{$variable}-#{$variable}::before {}
 
+// TODO
 .class-selector,.class-#{$variable}-selector,.class-#{$variable}-#{$variable},.class-#{$variable}-#{$variable}::before{}
 .class-selector, .class-#{$variable}-selector, .class-#{$variable}-#{$variable}, .class-#{$variable}-#{$variable}::before {}
 
@@ -108,7 +110,7 @@ $map: (
     height: (
       "key": 200px * $variable #{$variable} 'stirng' function(),
       key: (
-        'key': 200px * $variable #{$variable} 'stirng' function()
+        $key: 200px * $variable #{$variable} 'stirng' function()
       )
     )
   )
@@ -165,6 +167,9 @@ multiple line string
     0 0 0 #fff;
 }
 
+.selector-a{width:0;height:0;}.selector-b-{padding:0;margin:0;}
+.selector-a { width: 0; height: 0; } .selector-b { padding: 0; margin: 0; }
+
 
 @mixin mixin() {}
 @mixin mixin-123_1eaf2u ($a) {}
@@ -180,5 +185,7 @@ multiple line string
 
 @media only screen and (max-width: 100px) and (min-width: 50px) {}
 @media only screen and (#{$max-width}: #{$value}) and (#{$min-width}: 50px) {}
+
+@media only screen and (max-width: 100px) and (min-width: 50px) {} @media only screen and (max-width: 100px) and (min-width: 50px) {}
 
 @media print {}
