@@ -89,6 +89,10 @@ contexts:
           pop: true
 
   at-rules:
+    - match: (@)(for|each)\b
+      scope: keyword.control.flow.scss
+      captures:
+        1: punctuation.definition.keyword.scss
     - match: (@)(if|else if|else)\b
       scope: keyword.control.flow.conditional.scss
       captures:
@@ -226,7 +230,7 @@ contexts:
         - include: terminator
 
   scss-operators:
-    - match: /|$|%|\*|\-\-|\-|\+\+|\+|~|===|==|=|!=|!==|<=|>=|<<=|>>=|>>>=|<>|<|>|!|&&|\|\||\?\:|%=|\+=|\-=|&=|\bnot\b|\bor\b|\band\b|\bwhen\b|\bfrom\b|\bto\b
+    - match: /|$|%|\*|\-\-|\-|\+\+|\+|~|===|==|=|!=|!==|<=|>=|<<=|>>=|>>>=|<>|<|>|!|&&|\|\||\?\:|%=|\+=|\-=|&=|\bnot\b|\bor\b|\band\b|\bwhen\b|\bfrom\b|\bto\b|\bthrough\b|\bin\b
       scope: keyword.operator.scss
     - match: '&'
       scope: keyword.operator.ampersand.scss
