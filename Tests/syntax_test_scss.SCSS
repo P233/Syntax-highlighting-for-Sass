@@ -1,21 +1,12 @@
 // SYNTAX TEST "Packages/Syntax-Highlighting-for-Sass/Syntaxes/SCSS.sublime-syntax"
 
 /*
-  block comment
-*/
-
-/*
   block comment contains #{ $variable }
-*/
-
-/*
   block comment contains #{ function($variable) + "escap\e" + -.5em }
 */
 
 // line comment
-
 // line comment contains #{ $variable }
-
 // line comment contains #{ function($variable) + "escap\e" + -.5em }
 
 
