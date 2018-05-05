@@ -431,7 +431,7 @@ contexts:
       captures:
         1: punctuation.definition.entity.css
       push:
-        - meta_scope: meta.selector.css entity.other.placeholder.css
+        - meta_scope: meta.selector.css entity.other.attribute-name.placeholder.css
         - include: scss-interpolation
         - match: '(?=[^a-zA-Z0-9_-])'
           pop: true
