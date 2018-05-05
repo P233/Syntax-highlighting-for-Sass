@@ -267,7 +267,7 @@ contexts:
         - include: scss-functions
         - include: numeric-values
         - include: literal-string
-        - include: scss-param-variables
+        - include: scss-variables
         - include: css-variables
         - include: scss-operators
         - include: commas
@@ -285,7 +285,7 @@ contexts:
       captures:
         1: punctuation.definition.variable.scss
         2: punctuation.definition.group.begin.scss
-        3: variable.parameter.scss
+        3: variable.other.scss
         4: punctuation.definition.variable.scss
         5: punctuation.definition.group.end.scss
 
@@ -308,13 +308,6 @@ contexts:
   scss-variables:
     - match: '(\$)([a-zA-Z0-9_-][\w-]*)'
       scope: variable.other.scss
-      captures:
-        1: punctuation.definition.variable.scss
-    - include: scss-interpolation
-
-  scss-param-variables:
-    - match: '(\$)([a-zA-Z0-9_-][\w-]*)'
-      scope: variable.parameter.scss
       captures:
         1: punctuation.definition.variable.scss
     - include: scss-interpolation
