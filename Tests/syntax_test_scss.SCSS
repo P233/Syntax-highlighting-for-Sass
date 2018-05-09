@@ -1,4 +1,49 @@
-// SYNTAX TEST "Packages/Syntax-Highlighting-for-Sass/Syntaxes/SCSS.sublime-syntax"
+// SYNTAX TEST "Packages/SASS/Syntaxes/SCSS.sublime-syntax"
+
+
+/*
+  Nested selectors and &
+  http://sass-lang.com/documentation/file.SASS_REFERENCE.html#nested_rules
+*/
+
+#main p {
+  color: #00ff00;
+  width: 97%;
+
+  .redbox {
+    background-color: #ff0000;
+    color: #000000;
+  }
+  &:hover { text-decoration: underline; }
+  body.firefox & { font-weight: normal; }
+}
+
+
+/*
+  Nested properties
+  http://sass-lang.com/documentation/file.SASS_REFERENCE.html#nested_properties
+*/
+
+.funky {
+  font: {
+    family: fantasy;
+//                ^ meta.property-value.css support.constant.font-name.css
+//  ^ meta.property-name.css support.type.property-name.css
+    size: 30em;
+//  ^ meta.property-name.css support.type.property-name.css
+    weight: bold;
+//  ^ meta.property-name.css support.type.property-name.css
+  }
+  font: 20px/24px fantasy {
+//                ^ meta.property-value.css support.constant.font-name.css
+//  ^ meta.property-name.css support.type.property-name.css
+    weight: bold;
+//  ^ meta.property-name.css support.type.property-name.css
+  }
+}
+
+
+
 
 /*
   block comment contains #{ $variable }
