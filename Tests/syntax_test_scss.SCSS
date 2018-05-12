@@ -70,6 +70,28 @@
 // <- comment.line.double-slash.scss punctuation.definition.comment.css
 
 
+/*
+  Strings and interpolation
+  http://sass-lang.com/documentation/file.SASS_REFERENCE.html#sass-script-strings
+  http://sass-lang.com/documentation/file.SASS_REFERENCE.html#interpolation_
+*/
+@mixin firefox-message($selector) {
+// <- meta.at-rule.scss punctuation.definition.keyword.scss
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.at-rule.scss
+// ^ keyword.control.at-rule.scss
+//     ^^^^^^^^^^^^^^^ entity.name.function.scss
+//                    ^ meta.group.scss meta.function.parameters.scss punctuation.section.group.begin.scss
+//                              ^ meta.group.scss meta.function.parameters.scss punctuation.section.group.end.scss
+//                     ^^ meta.function.parameters.scss variable.other.scss
+//                     ^ punctuation.definition.variable.scss
+  body.firefox #{$selector}:before {
+    content: "Hi, Firefox users!";
+  }
+}
+
+@include firefox-message(".header");
+
+
 // id selectors
 #id {}
 
