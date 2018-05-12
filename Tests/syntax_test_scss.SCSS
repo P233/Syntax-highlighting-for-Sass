@@ -12,7 +12,19 @@
 
 #main p {
   color: #00ff00;
-  width: 97%;
+  height: 97%;
+  $width: 5em !global;
+//^^^^^^ variable.declaration.scss
+//^ punctuation.definition.variable.scss
+//            ^^^^^^^ keyword.other.scss
+  width: $width;
+//^^^^^ meta.property-name.css
+// ^ support.type.property-name.css
+//     ^ punctuation.separator.key-value.css
+//      ^^^^^^^ meta.property-value.css
+//       ^^^^^^ variable.other.scss
+//       ^ punctuation.definition.variable.scss
+//             ^ punctuation.terminator.statement.css
 
   .redbox {
     background-color: #ff0000;

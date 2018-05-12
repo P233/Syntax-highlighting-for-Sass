@@ -447,6 +447,8 @@ contexts:
   property-values:
     - match: \!\s*important
       scope: keyword.other.important.css
+    - match: \!\s*(default|global|optional)
+      scope: keyword.other.scss
     - include: vendor-prefixes
     - include: scss-variables
     - include: css-variables
