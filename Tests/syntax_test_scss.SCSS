@@ -8,6 +8,7 @@
 */
 
 #main p {
+//      ^ punctuation.section.property-list.begin.css
   color: #00ff00;
   height: 97%;
   $width: 5em !global;
@@ -30,7 +31,7 @@
   &:hover { text-decoration: underline; }
   body.firefox & { font-weight: normal; }
 }
-
+// <- punctuation.section.property-list.end.css
 
 /*
   Nested properties
