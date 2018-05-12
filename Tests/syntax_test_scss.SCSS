@@ -1,10 +1,14 @@
 // SYNTAX TEST "Packages/SASS/Syntaxes/SCSS.sublime-syntax"
 
-
 /*
   Nested selectors and &
   http://sass-lang.com/documentation/file.SASS_REFERENCE.html#nested_rules
 */
+// <- comment.block.css punctuation.definition.comment.css
+
+// #main p {
+// <- comment.line.double-slash.scss punctuation.definition.comment.css
+// color: #00ff00;
 
 #main p {
   color: #00ff00;

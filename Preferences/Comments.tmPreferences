@@ -5,7 +5,7 @@
     <key>name</key>
     <string>Comments</string>
     <key>scope</key>
-    <string>source.sass, source.scss</string>
+    <string>source.sass, source.css.scss</string>
     <key>settings</key>
     <dict>
       <key>shellVariables</key>
@@ -20,13 +20,13 @@
           <key>name</key>
           <string>TM_COMMENT_START_2</string>
           <key>value</key>
-          <string>/* </string>
+          <string>/*</string>
         </dict>
         <dict>
           <key>name</key>
           <string>TM_COMMENT_END_2</string>
           <key>value</key>
-          <string> */</string>
+          <string>*/</string>
         </dict>
       </array>
     </dict>
