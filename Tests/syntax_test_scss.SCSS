@@ -2,9 +2,9 @@
 
 /*
   Nested selectors and &
-  http://sass-lang.com/documentation/file.SASS_REFERENCE.html#nested_rules
+  https://sass-lang.com/documentation/file.SASS_REFERENCE.html#nested_rules
   Variables and !global etc
-  http://sass-lang.com/documentation/file.SASS_REFERENCE.html#variables_
+  https://sass-lang.com/documentation/file.SASS_REFERENCE.html#variables_
 */
 #main p {
 //      ^ punctuation.section.property-list.begin.css
@@ -38,7 +38,7 @@
 
 /*
   Nested properties
-  http://sass-lang.com/documentation/file.SASS_REFERENCE.html#nested_properties
+  https://sass-lang.com/documentation/file.SASS_REFERENCE.html#nested_properties
 */
 .funky {
   font: {
@@ -62,7 +62,7 @@
 
 /*
   Comments
-  http://sass-lang.com/documentation/file.SASS_REFERENCE.html#comments
+  https://sass-lang.com/documentation/file.SASS_REFERENCE.html#comments
   block comment contains #{ $variable }
   block comment contains #{ function($variable) + "escap\e" + -.5em }
 */
@@ -76,8 +76,8 @@
 
 /*
   Strings, (un)quoted, operations and interpolation
-  http://sass-lang.com/documentation/file.SASS_REFERENCE.html#sass-script-strings
-  http://sass-lang.com/documentation/file.SASS_REFERENCE.html#interpolation_
+  https://sass-lang.com/documentation/file.SASS_REFERENCE.html#sass-script-strings
+  https://sass-lang.com/documentation/file.SASS_REFERENCE.html#interpolation_
   https://sass-lang.com/documentation/file.SASS_REFERENCE.html#string_operations
 
 */
