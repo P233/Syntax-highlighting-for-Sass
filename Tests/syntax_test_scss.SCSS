@@ -112,12 +112,15 @@
 //                  ^^^^^ string.unquoted.css
   }
   p::before; {
+    background-image: some bullshit string;
     cursor: e + -resize;
     content: "Foo " + Bar;
 //               ^ string.quoted.double
 //                    ^ string.unquoted
+//                       ^ - string
 //                  ^ keyword.operator.scss
     font-family: sans- + "serif";
+//                              ^ - string
 //                     ^ keyword.operator.scss
     content: "I ate #{5 + 10} pies!";
 //           ^^^^^^^^^^^^^^^^^^^^^^^ string.quoted.double
@@ -133,13 +136,17 @@
 //                    ^ punctuation.definition.variable.scss
     @include breathe(somestring);
 //                   ^ string.unquoted.css
+//                             ^ - string
     @include breathe(border-bottom-color);
-//                   ^ support.type.property-name.css
+//                   ^^^^^^^^^^^^^^^^^^^ support.type.property-name.css
   }
 }
 
-@include firefox-message(".header");
+@include firefox-message(".header" + test);
 //                       ^^^^^^^^^ meta.group.scss meta.function.parameters.scss string.quoted.double.css
+//                                 ^ keyword.operator.scss
+//                                   ^ string.unquoted.css
+//                                       ^ - string
 
 
 /*

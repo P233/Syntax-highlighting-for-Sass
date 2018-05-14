@@ -507,7 +507,7 @@ contexts:
         - include: literal-string
         - include: unquoted-string
     - include: literal-string
-    - include: unquoted-string
+    - include: unquoted-concatenated-string
     - include: property-names
 
   rule-list:
@@ -620,6 +620,12 @@ contexts:
         - match: '\]'
           scope: punctuation.definition.entity.css
           pop: true
+
+  unquoted-concatenated-string:
+    - match: '[^\s\]\[''";\(\)]*\s*(\+)+\s*[^\s\]\[''";\(\)]*'
+      scope: string.unquoted.css
+      captures:
+        1: keyword.operator.scss
 
   unquoted-string:
     - match: '[^\s\]\[''"]'
