@@ -29,6 +29,9 @@
     color: #000000;
   }
   &:hover { text-decoration: underline; }
+//^^^^^^^ meta.selector.css
+//^ keyword.operator.ampersand.scss
+// ^ entity.other.pseudo-class.css punctuation.definition.entity.css
   body.firefox & { font-weight: normal; }
 }
 // <- punctuation.section.property-list.end.css
@@ -40,6 +43,7 @@
 
 .funky {
   font: {
+//  ^ meta.property-name.css support.type.property-name.css
     family: fantasy;
 //                ^ meta.property-value.css support.constant.font-name.css
 //  ^ meta.property-name.css support.type.property-name.css
