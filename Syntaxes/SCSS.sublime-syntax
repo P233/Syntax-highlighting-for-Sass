@@ -622,10 +622,11 @@ contexts:
           pop: true
 
   unquoted-concatenated-string:
-    - match: '[^\s\]\[''";\(\)]*\s*(\+)+\s*[^\s\]\[''";\(\)]*'
-      scope: string.unquoted.css
+    - match: '([^\s\]\[''";\(\)]*)\s*(\+)+\s*([^\s\]\[''";\(\)]*)'
       captures:
-        1: keyword.operator.scss
+        1: string.unquoted.css
+        2: keyword.operator.scss
+        3: string.unquoted.css
 
   unquoted-string:
     - match: '[^\s\]\[''"]'

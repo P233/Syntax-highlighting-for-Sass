@@ -114,12 +114,18 @@
   p::before; {
     background-image: some bullshit string;
     cursor: e + -resize;
+//          ^ string.unquoted
+//           ^ - string
+//            ^ keyword.operator.scss
+//             ^ - string
+//              ^^^^^ string.unquoted
     content: "Foo " + Bar;
 //               ^ string.quoted.double
 //                    ^ string.unquoted
 //                       ^ - string
 //                  ^ keyword.operator.scss
     font-family: sans- + "serif";
+//               ^^^^^ string.unquoted
 //                              ^ - string
 //                     ^ keyword.operator.scss
     content: "I ate #{5 + 10} pies!";
