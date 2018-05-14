@@ -116,6 +116,27 @@
 //                       ^^^^^^^^^ meta.group.scss meta.function.parameters.scss string.quoted.double.css
 
 
+/*
+  Lists, Maps
+  https://sass-lang.com/documentation/file.SASS_REFERENCE.html#maps
+*/
+$map: (
+  $key-1: #000,
+  key-2: (
+    key-3: 123px
+  )
+);
+.selector {
+  color: nth(map-merge($map, $map2), 3);
+//       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.property-value.css meta.function-call.scss
+//       ^^^ support.function.scss
+//          ^ punctuation.section.group.begin.scss
+//           ^^^^^^^^^^^^^^^^^^^^^^^^^ meta.function.parameters.scss
+//           ^^^^^^^^^ support.function.scss
+//                    ^ punctuation.section.group.begin.scss
+//                                ^ punctuation.section.group.end.scss
+}
+
 // id selectors
 #id {}
 

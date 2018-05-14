@@ -206,7 +206,7 @@ contexts:
           scope: string.unquoted.css
 
   scss-functions:
-    - match: \b(unit|tan|sqrt|spin|softlight|sin|screen|saturation|saturate|round|replace|red|pow|pi|percentage|overlay|negation|multiply|mod|mix|min|max|luma|lightness|lighten|length|isnumber|hue|hsvvalue|hsvsaturation|hsvhue|hsva|hsv|hsla|hsl|hardlight|greyscale|green|format|floor|fadeout|fadein|fade|extract|exclusion|escape|e|difference|desaturate|data-uri|darken|cos|convert|convert|contrast|color|ceil|calc|blue|average|atan|asin|argb|alpha|acos|abs)(\()
+    - match: \b(zip|unit|tan|sqrt|spin|softlight|sin|screen|set-nth|saturation|saturate|round|replace|red|pow|pi|percentage|overlay|nth|negation|multiply|mod|mix|min|max|map-values|map-remove|map-merge|map-keys|map-has-key|map-get|luma|list-separator|lightness|lighten|length|keywords|join|isnumber|is-bracketed|index|hue|hsvvalue|hsvsaturation|hsvhue|hsva|hsv|hsla|hsl|hardlight|greyscale|green|format|floor|fadeout|fadein|fade|extract|exclusion|escape|e|difference|desaturate|data-uri|darken|cos|convert|convert|contrast|color|ceil|calc|blue|average|atan|asin|argb|append|alpha|acos|abs)(\()
       captures:
         1: support.function.scss
         2: meta.group.scss punctuation.section.group.begin.scss
@@ -437,6 +437,23 @@ contexts:
           scope: variable.other.css
 
   property-values:
+    - match: '\('  # maps
+      captures:
+        0: punctuation.definition.group.begin.scss
+      push:
+        - meta_scope: meta.group.css meta.function.parameters.css
+        - match: '\)'
+          captures:
+            0: punctuation.definition.group.end.scss
+          pop: true
+        - match: '{{ident}}'
+          scope: variable.parameter.scss
+        - match: ':'
+          scope: punctuation.separator.key-value.css
+        - include: comment-line
+        - include: commas
+        - include: property-values
+
     - match: \!\s*important
       scope: keyword.other.important.css
     - match: \!\s*(default|global|optional)
