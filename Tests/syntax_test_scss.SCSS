@@ -134,8 +134,27 @@ $map: (
 //           ^^^^^^^^^^^^^^^^^^^^^^^^^ meta.function.parameters.scss
 //           ^^^^^^^^^ support.function.scss
 //                    ^ punctuation.section.group.begin.scss
+//                         ^ punctuation.separator.css
 //                                ^ punctuation.section.group.end.scss
 }
+
+
+/*
+  Color Operations
+  https://sass-lang.com/documentation/file.SASS_REFERENCE.html#color_operations
+*/
+
+$translucent-red: rgba(255, 0, 0, 0.5);
+//                ^^^^ support.function.misc.css
+p {
+  color: opacify($translucent-red, 0.3);
+//       ^^^^^^^ support.function.scss
+//              ^ punctuation.section.group.begin.scss
+  background-color: transparentize($translucent-red, 0.25);
+//                  ^^^^^^^ support.function.scss
+}
+
+
 
 // id selectors
 #id {}
