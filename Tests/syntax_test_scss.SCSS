@@ -6,7 +6,6 @@
   Variables and !global etc
   http://sass-lang.com/documentation/file.SASS_REFERENCE.html#variables_
 */
-
 #main p {
 //      ^ punctuation.section.property-list.begin.css
   color: #00ff00;
@@ -36,11 +35,11 @@
 }
 // <- punctuation.section.property-list.end.css
 
+
 /*
   Nested properties
   http://sass-lang.com/documentation/file.SASS_REFERENCE.html#nested_properties
 */
-
 .funky {
   font: {
 //  ^ meta.property-name.css support.type.property-name.css
@@ -76,9 +75,11 @@
 
 
 /*
-  Strings and interpolation
+  Strings, (un)quoted, operations and interpolation
   http://sass-lang.com/documentation/file.SASS_REFERENCE.html#sass-script-strings
   http://sass-lang.com/documentation/file.SASS_REFERENCE.html#interpolation_
+  https://sass-lang.com/documentation/file.SASS_REFERENCE.html#string_operations
+
 */
 @mixin firefox-message($selector) {
 // <- meta.at-rule.scss punctuation.definition.keyword.scss
@@ -109,6 +110,31 @@
 //                              ^ punctuation.definition.string.end.css
     background: url(data:image/gif;base64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7);
 //                  ^^^^^ string.unquoted.css
+  }
+  p::before; {
+    cursor: e + -resize;
+    content: "Foo " + Bar;
+//               ^ string.quoted.double
+//                    ^ string.unquoted
+//                  ^ keyword.operator.scss
+    font-family: sans- + "serif";
+//                     ^ keyword.operator.scss
+    content: "I ate #{5 + 10} pies!";
+//           ^^^^^^^^^^^^^^^^^^^^^^^ string.quoted.double
+//                  ^^^^^^^^^ meta.group.interpolation.scss
+//                  ^ punctuation.definition.variable.scss
+//                   ^ punctuation.definition.group.begin.scss
+//                    ^ constant.numeric.css
+//                      ^ keyword.operator.scss
+//                        ^ constant.numeric.css
+//                          ^ punctuation.definition.group.end.scss
+    content: "I ate #{$value} pies!";
+//                    ^^^^^^ variable.other.scss
+//                    ^ punctuation.definition.variable.scss
+    @include breathe(somestring);
+//                   ^ string.unquoted.css
+    @include breathe(border-bottom-color);
+//                   ^ support.type.property-name.css
   }
 }
 
@@ -143,7 +169,6 @@ $map: (
   Color Operations
   https://sass-lang.com/documentation/file.SASS_REFERENCE.html#color_operations
 */
-
 $translucent-red: rgba(255, 0, 0, 0.5);
 //                ^^^^ support.function.misc.css
 p {
@@ -153,7 +178,6 @@ p {
   background-color: transparentize($translucent-red, 0.25);
 //                  ^^^^^^^ support.function.scss
 }
-
 
 
 // id selectors

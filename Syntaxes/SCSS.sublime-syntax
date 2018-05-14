@@ -124,8 +124,7 @@ contexts:
               scope: punctuation.definition.group.end.css
               pop: true
             - include: literal-string
-            - match: '[\/\.a-zA-Z0-9_\-:;,?=]*'
-              scope: string.unquoted.css
+            - include: unquoted-string
         - include: comment-block
         - include: literal-string
         - include: scss-parameters
@@ -200,10 +199,9 @@ contexts:
         - match: '\)'
           scope: punctuation.definition.group.end.css
           pop: true
-        - include: literal-string
         - include: scss-interpolation
-        - match: '[\/\.a-zA-Z0-9_\-:;,]*'
-          scope: string.unquoted.css
+        - include: literal-string
+        - include: unquoted-string
 
   scss-functions:
     - match: \b(zip|variable-exists|unquote|unitless|unit|unique-id|type-of|transparentize|to-upper-case|to-lower-case|tan|str-slice|str-length|str-insert|str-index|sqrt|spin|softlight|sin|simple-selectors|set-nth|selector-unify|selector-replace|selector-parse|selector-nest|selector-extend|selector-append|screen|scale-color|saturation|saturate|round|rgba|rgb|replace|red|random|quote|pow|pi|percentage|overlay|opacify|nth|negation|multiply|mod|mixin-exists|mix|min|max|map-values|map-remove|map-merge|map-keys|map-has-key|map-get|luma|list-separator|lightness|lighten|length|keywords|join|isnumber|is-superselector|is-bracketed|invert|inspect|index|if|ie-hex-str|hue|hsvvalue|hsvsaturation|hsvhue|hsva|hsv|hsla|hsl|hardlight|greyscale|green|grayscale|global-variable-exists|get-function|function-exists|format|floor|feature-exists|fadeout|fadein|fade|extract|exclusion|escape|e|difference|desaturate|data-uri|darken|cos|convert|contrast|content-exists|complement|comparable|color|change-color|ceil|call|calc|blue|average|atan|asin|argb|append|alpha|adjust-hue|adjust-color|acos|abs)(\()
@@ -223,11 +221,13 @@ contexts:
         - include: terminator
         - include: color-values
         - include: numeric-values
-        - include: literal-string
         - include: css-variables
         - include: scss-functions
         - include: scss-variables
+        - include: scss-interpolation
         - include: scss-operators
+        - include: literal-string
+        - include: unquoted-string
 
   scss-operators:
     - match: /|$|%|\*|\-\-|\-|\+\+|\+|~|===|==|=|!=|!==|<=|>=|<<=|>>=|>>>=|<>|<|>|!|&&|\|\||\?\:|%=|\+=|\-=|&=|\bnot\b|\bor\b|\band\b|\bwhen\b|\bfrom\b|\bto\b|\bthrough\b|\bin\b
@@ -259,11 +259,13 @@ contexts:
         - include: property-list
         - include: color-values
         - include: numeric-values
-        - include: literal-string
         - include: css-variables
+        - include: property-names
         - include: scss-functions
         - include: scss-variables
         - include: scss-operators
+        - include: literal-string
+        - include: unquoted-string
 
   scss-declarations:
     - match: '(\$)([a-zA-Z0-9_-][\w-]*)'
@@ -272,14 +274,18 @@ contexts:
         1: punctuation.definition.variable.scss
 
   scss-interpolation:
-    - match: '(#)({)((\$)[a-zA-Z0-9_-][\w-]*)(})'
-      scope: meta.group.interpolation.scss
+    - match: '(#)({)'
       captures:
         1: punctuation.definition.variable.scss
         2: punctuation.definition.group.begin.scss
-        3: variable.other.scss
-        4: punctuation.definition.variable.scss
-        5: punctuation.definition.group.end.scss
+      push:
+        - meta_scope: meta.group.interpolation.scss
+        - match: '(})'
+          scope: punctuation.definition.group.end.scss
+          pop: true
+        - include: numeric-values
+        - include: scss-variables
+        - include: scss-operators
 
   css-variables:
     - match: '\b(var)(?=\()'
@@ -459,7 +465,6 @@ contexts:
     - match: \!\s*(default|global|optional)
       scope: keyword.other.scss
     - include: comment-block
-    - include: literal-string
     - include: vendor-prefixes
     - include: color-values
     - include: numeric-values
@@ -493,12 +498,16 @@ contexts:
         - match: '\)'
           scope: meta.group.css punctuation.section.group.end.css
           pop: true
-        - include: literal-string
         - include: color-values
         - include: numeric-values
         - include: css-variables
         - include: scss-variables
         - include: scss-functions
+        - include: scss-operators
+        - include: literal-string
+        - include: unquoted-string
+    - include: literal-string
+    - include: unquoted-string
     - include: property-names
 
   rule-list:
@@ -601,9 +610,8 @@ contexts:
           captures:
             1: keyword.operator.attribute-selector.css
           push:
-            - match: '[^\s\]\[''"]'
-              scope: string.unquoted.css
             - include: literal-string
+            - include: unquoted-string
             - match: '(?=(\s|\]))'
               pop: true
         - match: '(?:\s+([iI]))?'  # case insensitive flag
@@ -612,6 +620,10 @@ contexts:
         - match: '\]'
           scope: punctuation.definition.entity.css
           pop: true
+
+  unquoted-string:
+    - match: '[^\s\]\[''"]'
+      scope: string.unquoted.css
 
   literal-string:
     - match: "'"
