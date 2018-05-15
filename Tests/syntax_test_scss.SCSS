@@ -141,6 +141,9 @@
     content: "I ate #{$value} pies!";
 //                    ^^^^^^ variable.other.scss
 //                    ^ punctuation.definition.variable.scss
+    width: $base-width + 2 * 5rem;
+//                      ^^^^^^^^^ - string
+//                       ^ constant.numeric
     @include breathe(somestring);
 //                   ^ string.unquoted.css
 //                             ^ - string
