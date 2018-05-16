@@ -12,6 +12,13 @@
 //            ^ punctuation.section.property-list.begin.css
   color: #00ff00;
   height: 97%;
+  animation: progress-fade-in-animation .15s ease-in;
+//            ^ - meta.selector
+//                    ^ - keyword.operator
+  object-fit: scale-down;
+// ^ support.type.property-name.css
+// ^ - meta.selector
+//      ^ - keyword.operator
   $width: 5em !global;
 //^^^^^^ variable.declaration.scss
 //^ punctuation.definition.variable.scss
