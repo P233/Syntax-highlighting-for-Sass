@@ -6,8 +6,10 @@
   Variables and !global etc
   https://sass-lang.com/documentation/file.SASS_REFERENCE.html#variables_
 */
-#main p {
-//      ^ punctuation.section.property-list.begin.css
+#main h1+.sub {
+//    ^^ meta.selector.css entity.name.tag.css
+//     ^ - constant.numeric
+//            ^ punctuation.section.property-list.begin.css
   color: #00ff00;
   height: 97%;
   $width: 5em !global;
@@ -195,6 +197,10 @@ p {
   background-color: transparentize($translucent-red, 0.25);
 //                  ^^^^^^^ support.function.scss
 }
+
+
+
+// old tests
 
 
 // id selectors

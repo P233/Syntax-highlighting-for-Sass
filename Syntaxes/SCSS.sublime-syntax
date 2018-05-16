@@ -13,6 +13,25 @@ variables:
   nmchar: '(?:[[-\w]{{nonascii}}]|{{escape}})'
   ident: '(?:--{{nmchar}}+|-?{{nmstart}}{{nmchar}}*)'
 
+  custom_element_chars: |-
+    (?x:
+        [-_a-z0-9\x{00B7}]
+      | \\\.
+      | [\x{00C0}-\x{00D6}]
+      | [\x{00D8}-\x{00F6}]
+      | [\x{00F8}-\x{02FF}]
+      | [\x{0300}-\x{037D}]
+      | [\x{037F}-\x{1FFF}]
+      | [\x{200C}-\x{200D}]
+      | [\x{203F}-\x{2040}]
+      | [\x{2070}-\x{218F}]
+      | [\x{2C00}-\x{2FEF}]
+      | [\x{3001}-\x{D7FF}]
+      | [\x{F900}-\x{FDCF}]
+      | [\x{FDF0}-\x{FFFD}]
+      | [\x{10000}-\x{EFFFF}]
+    )
+
 contexts:
   main:
     - include: comment-block
@@ -531,7 +550,9 @@ contexts:
         - include: selector
         - match: '(-+|_+)[a-zA-Z_][a-zA-Z0-9_-]*'
           scope: entity.other.attribute-name.css
-    - match: '\b(vkern|view|video|var|use|ul|u|tt|tspan|tref|tr|title|time|thead|th|tfoot|textPath|textarea|text|td|tbody|table(?!-)|symbol|switch|svg|sup|summary|sub|style|strong|strike|stop|span|small|set|select|section|script|samp|s|ruby|rect|radialGradient|q|pre|polyline|polygon|pattern|path|param|p|output|option|optgroup|ol|object|noscript|noframes|nav|mpath|missing-glyph|metadata|meta|menu|mask|marker|mark|map|main|link|linearGradient|line|li|legend|label|kbd|ins|input|img|image|iframe|i|html|hr|hkern|hgroup|header|head|glyphRef|glyph|g|frameset|frame|form|foreignObject|footer|font-face-uri|font-face-src|font-face-name|font-face-format|font-face|font|filter|figure|figcaption|fieldset|feTurbulence|feTile|feSpotLight|feSpecularLighting|fePointLight|feOffset|feMorphology|feMergeNode|feMerge|feImage|feGaussianBlur|feFuncR|feFuncG|feFuncB|feFuncA|feFlood|feDistantLight|feDisplacementMap|feDiffuseLighting|feConvolveMatrix|feComposite|feComponentTransfer|feColorMatrix|feBlend|embed|em|ellipse|dt|dl|div|dfn|details|desc|del|defs|dd|color-profile|colgroup|col|code|clipPath|cite|circle|center|caption|canvas|button|br|body|blockquote|big|base|b|audio|aside|article|area|applet|animateTransform|animateMotion|animateColor|animate|altGlyphItem|altGlyphDef|altGlyph|address|acronym|abbr|a|(h[1-6]))\b(?=([a-z.,{#\s\[\)]|:+[a-z]))'
+    # - match: '\b([a-z](?:{{custom_element_chars}})*-(?:{{custom_element_chars}})*)\b'
+    #   scope: meta.selector.css entity.name.tag.custom.css
+    - match: '\b(a|abbr|acronym|address|applet|area|article|aside|audio|b|base|basefont|bdi|bdo|big|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|content|data|datalist|dd|del|details|dfn|dir|dialog|div|dl|dt|element|em|embed|eventsource|fieldset|figure|figcaption|footer|form|frame|frameset|h[1-6]|head|header|hgroup|hr|html|i|iframe|img|input|ins|isindex|kbd|keygen|label|legend|li|link|main|map|mark|menu|meta|meter|nav|noframes|noscript|object|ol|optgroup|option|output|p|param|picture|pre|progress|q|rp|rt|rtc|s|samp|script|section|select|shadow|small|source|span|strike|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|tt|u|ul|var|video|wbr|xmp|circle|clipPath|defs|ellipse|filter|foreignObject|g|glyph|glyphRef|image|line|linearGradient|marker|mask|path|pattern|polygon|polyline|radialGradient|rect|stop|switch|symbol|text|textPath|tref|tspan|use)\b'
       scope: meta.selector.css entity.name.tag.css
     - match: '(\.)(?=-?([a-zA-Z_]|#{)[a-zA-Z0-9_-]*)'
       captures:
