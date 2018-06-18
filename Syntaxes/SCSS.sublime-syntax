@@ -12,6 +12,7 @@ variables:
   nmstart: '(?:[[_a-zA-Z]{{nonascii}}]|{{escape}})'
   nmchar: '(?:[[-\w]{{nonascii}}]|{{escape}})'
   ident: '(?:--{{nmchar}}+|-?{{nmstart}}{{nmchar}}*)'
+  combinators: '(?:>{1,3}|[~+])'
 
 contexts:
   main:
@@ -237,8 +238,10 @@ contexts:
         1: keyword.operator.scss
 
   property-list:
-    - match: '(!#)*\{'
+    - match: '(\s*)\{'
       scope: punctuation.section.property-list.begin.css
+      captures:
+        1: meta.selector.css
       push:
         - match: '\}'
           scope: punctuation.section.property-list.end.css
@@ -475,7 +478,6 @@ contexts:
     - include: scss-variables
     - include: scss-data-uri
     - include: scss-functions
-    - include: selector
     - match: \b(wrap-reverse|wrap|whitespace|wait|w-resize|visible|vertical-text|vertical-ideographic|uppercase|upper-roman|upper-alpha|unicase|underline|ultra-expanded|ultra-condensed|transparent|transform|top|titling-caps|thin|thick|text-top|text-bottom|text|tb-rl|table-row-group|table-row|table-header-group|table-footer-group|table-column-group|table-column|table-cell|table|sw-resize|super|subpixel-antialiased|strict|stretch|step-start|step-end|static|start|sRGB|square|square|space-between|space-around|space|solid|soft-light|small-caps|separate|semi-expanded|semi-condensed|se-resize|scroll|screen|scale-down|saturation|s-resize|running|rtl|row-reverse|row-resize|row|round|round|right|ridge|reverse|repeat-y|repeat-x|repeat|relative|progressive|progress|pre-wrap|pre-line|pre|pointer|petite-caps|paused|pan-y|pan-x|pan-up|pan-right|pan-left|pan-down|padding-box|overline|overlay|outside|outset|optimizeSpeed|optimizeSpeed|optimizeQuality|optimizeLegibility|open-quote|opacity|oblique|nw-resize|nowrap|not-allowed|normal|nonzero|none|no-repeat|no-open-quote|no-drop|no-close-quote|newspaper|ne-resize|n-resize|multiply|move|miter|middle|middle|medium|max-height|manipulation|main-size|luminosity|ltr|lr-tb|lowercase|lower-roman|lower-alpha|loose|local|list-item|linearRGB|linear(?!-)|line-through|line-edge|line|lighter|lighten|left|keep-all|justify|italic|inter-word|inter-ideograph|inside|inset|inline-block|inline|inherit|infinite|inactive|ideograph-space|ideograph-parenthesis|ideograph-numeric|ideograph-alpha|hue|horizontal|hidden|help|hard-light|hand|groove|geometricPrecision |geometricPrecision|forwards|flex-start|flex-end|flex|fixed|extra-expanded|extra-condensed|expanded|exclusion|evenodd |end |ellipsis|ease-out|ease-in-out|ease-in|ease|e-resize|double|dotted|distribute-space|distribute-letter|distribute-all-lines|distribute|disc|disabled|difference|default|decimal|dashed|darken|currentColor|crosshair|crispEdges|cover|content-box|contain|condensed|column-reverse|column|color-dodge|color-burn|color|collapse|col-resize|close-quote|circle|char|center|capitalize|butt|break-word|break-all|bottom|both|border-box|bolder|bold|block|bidi-override|bevel|below|baseline|balance|backwards|auto|antialiased|always|alternate-reverse|alternate|all-small-caps|all-scroll|all-petite-caps|all|absolute)(?![-])\b
       scope: support.constant.property-value.css
     - match: (\b(?i:webdings|verdana|utopia|trebuchet|times|tahoma|system|symbol|serif|sans-serif|monospace|lucida|impact|helvetica|georgia|garamond|futura|fantasy|cursive|courier|comic|century|arial)\b)
@@ -526,16 +528,28 @@ contexts:
 
   selector:
     - include: scss-interpolation
-    - match: '&'
-      scope: meta.selector.css keyword.operator.ampersand.scss
+      # Combinators
+      # https://drafts.csswg.org/selectors-4/#combinators
+      # https://drafts.csswg.org/css-scoping/#deep-combinator
+    - match: '\s*({{combinators}})(?![>~+])\s*'
+      scope: meta.selector.css
+      captures:
+        1: punctuation.separator.combinator.css
+    - match: '\s*(&)'
+      captures:
+        1: keyword.operator.ampersand.scss
       push:
+        - meta_scope: meta.selector.css
         - match: '\s'
           pop: true
         - include: selector
+        # &-selector for BEM-ish classnames
         - match: '(-+|_+)[a-zA-Z_][a-zA-Z0-9_-]*'
           scope: entity.other.attribute-name.css
-    - match: '\b(a|abbr|acronym|address|applet|area|article|aside|audio|b|base|basefont|bdi|bdo|big|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|content|data|datalist|dd|del|details|dfn|dir|dialog|div|dl|dt|element|em|embed|eventsource|fieldset|figure|figcaption|footer|form|frame|frameset|h[1-6]|head|header|hgroup|hr|html|i|iframe|img|input|ins|isindex|kbd|keygen|label|legend|li|link|main|map|mark|menu|meta|meter|nav|noframes|noscript|object|ol|optgroup|option|output|p|param|picture|pre|progress|q|rp|rt|rtc|s|samp|script|section|select|shadow|small|source|span|strike|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|tt|u|ul|var|video|wbr|xmp|circle|clipPath|defs|ellipse|filter|foreignObject|g|glyph|glyphRef|image|line|linearGradient|marker|mask|path|pattern|polygon|polyline|radialGradient|rect|stop|switch|symbol|text|textPath|tref|tspan|use)\b(?=([a-z.,+{#\s\[\)]|:+[a-z]))'
-      scope: meta.selector.css entity.name.tag.css
+    - match: '\b(a|abbr|acronym|address|applet|area|article|aside|audio|b|base|basefont|bdi|bdo|big|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|content|data|datalist|dd|del|details|dfn|dir|dialog|div|dl|dt|element|em|embed|eventsource|fieldset|figure|figcaption|footer|form|frame|frameset|h[1-6]|head|header|hgroup|hr|html|i|iframe|img|input|ins|isindex|kbd|keygen|label|legend|li|link|main|map|mark|menu|meta|meter|nav|noframes|noscript|object|ol|optgroup|option|output|p|param|picture|pre|progress|q|rp|rt|rtc|s|samp|script|section|select|shadow|small|source|span|strike|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|tt|u|ul|var|video|wbr|xmp|circle|clipPath|defs|ellipse|filter|foreignObject|g|glyph|glyphRef|image|line|linearGradient|marker|mask|path|pattern|polygon|polyline|radialGradient|rect|stop|switch|symbol|text|textPath|tref|tspan|use)\b\s*(?=([a-z.,+{#\s\[\)]|:+[a-z]))'
+      scope: meta.selector.css
+      captures:
+        1: entity.name.tag.css
     - match: '(\.)(?=-?([a-zA-Z_]|#{)[a-zA-Z0-9_-]*)'
       captures:
         1: punctuation.definition.entity.css
