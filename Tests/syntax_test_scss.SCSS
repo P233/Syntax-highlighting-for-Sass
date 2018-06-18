@@ -182,12 +182,13 @@ $map: (
   color: nth(map-merge($map, $map2), 3);
 //       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.property-value.css meta.function-call.scss
 //       ^^^ support.function.scss
-//          ^ punctuation.section.group.begin.scss
+//          ^ punctuation.definition.group.begin.scss
 //           ^^^^^^^^^^^^^^^^^^^^^^^^^ meta.function.parameters.scss
 //           ^^^^^^^^^ support.function.scss
-//                    ^ punctuation.section.group.begin.scss
+//                    ^ punctuation.definition.group.begin.scss
 //                         ^ punctuation.separator.css
-//                                ^ punctuation.section.group.end.scss
+//                                ^ punctuation.definition.group.end.scss
+}
 }
 
 
@@ -200,7 +201,8 @@ $translucent-red: rgba(255, 0, 0, 0.5);
 p {
   color: opacify($translucent-red, 0.3);
 //       ^^^^^^^ support.function.scss
-//              ^ punctuation.section.group.begin.scss
+//              ^ punctuation.definition.group.begin.scss
+//                                    ^ punctuation.definition.group.end.scss
   background-color: transparentize($translucent-red, 0.25);
 //                  ^^^^^^^ support.function.scss
 }
