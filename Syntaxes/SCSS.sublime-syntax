@@ -13,25 +13,6 @@ variables:
   nmchar: '(?:[[-\w]{{nonascii}}]|{{escape}})'
   ident: '(?:--{{nmchar}}+|-?{{nmstart}}{{nmchar}}*)'
 
-  custom_element_chars: |-
-    (?x:
-        [-_a-z0-9\x{00B7}]
-      | \\\.
-      | [\x{00C0}-\x{00D6}]
-      | [\x{00D8}-\x{00F6}]
-      | [\x{00F8}-\x{02FF}]
-      | [\x{0300}-\x{037D}]
-      | [\x{037F}-\x{1FFF}]
-      | [\x{200C}-\x{200D}]
-      | [\x{203F}-\x{2040}]
-      | [\x{2070}-\x{218F}]
-      | [\x{2C00}-\x{2FEF}]
-      | [\x{3001}-\x{D7FF}]
-      | [\x{F900}-\x{FDCF}]
-      | [\x{FDF0}-\x{FFFD}]
-      | [\x{10000}-\x{EFFFF}]
-    )
-
 contexts:
   main:
     - include: comment-block
@@ -553,8 +534,6 @@ contexts:
         - include: selector
         - match: '(-+|_+)[a-zA-Z_][a-zA-Z0-9_-]*'
           scope: entity.other.attribute-name.css
-    # - match: '\b([a-z](?:{{custom_element_chars}})*-(?:{{custom_element_chars}})*)\b'
-    #   scope: meta.selector.css entity.name.tag.custom.css
     - match: '\b(a|abbr|acronym|address|applet|area|article|aside|audio|b|base|basefont|bdi|bdo|big|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|content|data|datalist|dd|del|details|dfn|dir|dialog|div|dl|dt|element|em|embed|eventsource|fieldset|figure|figcaption|footer|form|frame|frameset|h[1-6]|head|header|hgroup|hr|html|i|iframe|img|input|ins|isindex|kbd|keygen|label|legend|li|link|main|map|mark|menu|meta|meter|nav|noframes|noscript|object|ol|optgroup|option|output|p|param|picture|pre|progress|q|rp|rt|rtc|s|samp|script|section|select|shadow|small|source|span|strike|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|tt|u|ul|var|video|wbr|xmp|circle|clipPath|defs|ellipse|filter|foreignObject|g|glyph|glyphRef|image|line|linearGradient|marker|mask|path|pattern|polygon|polyline|radialGradient|rect|stop|switch|symbol|text|textPath|tref|tspan|use)\b(?=([a-z.,+{#\s\[\)]|:+[a-z]))'
       scope: meta.selector.css entity.name.tag.css
     - match: '(\.)(?=-?([a-zA-Z_]|#{)[a-zA-Z0-9_-]*)'
