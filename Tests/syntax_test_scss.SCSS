@@ -5,16 +5,24 @@
   https://sass-lang.com/documentation/file.SASS_REFERENCE.html#nested_rules
   Variables and !global etc
   https://sass-lang.com/documentation/file.SASS_REFERENCE.html#variables_
+
+  The position immediately after a selector need to be scoped meta.selector too.
+  This prevents triggering the :; snippet for CSS.
 */
-#main h1+.sub {
-//    ^^ meta.selector.css entity.name.tag.css
+#main h1+.sub:not(.class) {
+//    ^^^^^^^^^^^^^^^^^^^^ meta.selector.css
+//    ^^ entity.name.tag.css
 //     ^ - constant.numeric
-//            ^ punctuation.section.property-list.begin.css
+//      ^ punctuation.separator.combinator.css
+//           ^ punctuation.definition.entity.css
+//               ^ punctuation.definition.group.begin
+//                        ^ punctuation.section.property-list.begin
   color: #00ff00;
   height: 97%;
   animation: progress-fade-in-animation .15s ease-in;
 //            ^ - meta.selector
-//                    ^ - keyword.operator
+//                   ^ - keyword.operator
+//                         ^ - keyword.operator
   object-fit: scale-down;
 // ^ support.type.property-name.css
 // ^ - meta.selector
@@ -32,15 +40,24 @@
 //       ^ punctuation.definition.variable.scss
 //             ^ punctuation.terminator.statement.css
 
-  .redbox {
+  .redbox:hover {
     background-color: #ff0000;
     color: #000000;
   }
+  & {}
+//^^ meta.selector.css
   &:hover { text-decoration: underline; }
-//^^^^^^^ meta.selector.css
+//^^^^^^^^ meta.selector.css
 //^ keyword.operator.ampersand.scss
 // ^ entity.other.pseudo-class.css punctuation.definition.entity.css
-  body.firefox & { font-weight: normal; }
+  body.firefox ~ & { font-weight: normal; }
+//^^^^^^^^^^^^^^^^^ meta.selector
+//             ^ punctuation.separator.combinator.css
+//               ^ keyword.operator.ampersand.scss
+  &-bemish {  }
+//^ keyword.operator.ampersand.scss
+// ^^^^^^^ entity.other.attribute-name.css
+// ^^^^^^^^ meta.selector.css
 }
 // <- punctuation.section.property-list.end.css
 
@@ -95,8 +112,8 @@
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.at-rule.scss
 // ^ keyword.control.at-rule.scss
 //     ^^^^^^^^^^^^^^^ entity.name.function.scss
-//                    ^ meta.group.scss meta.function.parameters.scss punctuation.section.group.begin.scss
-//                              ^ meta.group.scss meta.function.parameters.scss punctuation.section.group.end.scss
+//                    ^ meta.group.scss meta.function.parameters.scss punctuation.definition.group.begin.scss
+//                              ^ meta.group.scss meta.function.parameters.scss punctuation.definition.group.end.scss
 //                     ^^ meta.function.parameters.scss variable.other.scss
 //                     ^ punctuation.definition.variable.scss
   body.firefox #{$selector}:before {
@@ -150,9 +167,6 @@
     content: "I ate #{$value} pies!";
 //                    ^^^^^^ variable.other.scss
 //                    ^ punctuation.definition.variable.scss
-    width: $base-width + 2 * 5rem;
-//                      ^^^^^^^^^ - string
-//                       ^ constant.numeric
     @include breathe(somestring);
 //                   ^ string.unquoted.css
 //                             ^ - string
@@ -178,6 +192,15 @@ $map: (
     key-3: 123px
   )
 );
+@each $animal, $color, $cursor in (puma, black, default),
+                                  (sea-slug, blue, pointer),
+                                  (egret, white, move) {
+  .#{$animal}-icon {
+    background-image: url('/images/#{$animal}.png');
+    border: 2px solid $color;
+    cursor: $cursor;
+  }
+}
 .selector {
   color: nth(map-merge($map, $map2), 3);
 //       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.property-value.css meta.function-call.scss
