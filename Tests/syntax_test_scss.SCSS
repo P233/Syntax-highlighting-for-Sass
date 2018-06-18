@@ -55,7 +55,7 @@
     family: fantasy;
 //                ^ meta.property-value.css support.constant.font-name.css
 //  ^ meta.property-name.css support.type.property-name.css
-    size: 30em;
+    size: 1rem*$ratio;
 //  ^ meta.property-name.css support.type.property-name.css
     weight: bold;
 //  ^ meta.property-name.css support.type.property-name.css
@@ -189,6 +189,23 @@ $map: (
 //                         ^ punctuation.separator.css
 //                                ^ punctuation.definition.group.end.scss
 }
+
+
+/*
+  Operators
+  https://sass-lang.com/documentation/file.SASS_REFERENCE.html#operations
+*/
+
+p {
+  width: $base-width + 2 * -5rem / -$var;
+//                    ^^^^^^^^^^^^^^^^^^ - string
+//                     ^ constant.numeric
+//                       ^ keyword.operator.scss
+//                         ^^^^ constant.numeric
+//                           ^^ keyword.other.unit.css
+//                               ^ keyword.operator.scss
+//                                 ^ keyword.operator.scss
+//                                  ^^^^ variable.other.scss
 }
 
 

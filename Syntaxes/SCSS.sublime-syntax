@@ -249,8 +249,11 @@ contexts:
         - include: unquoted-string
 
   scss-operators:
-    - match: /|$|%|\*|\-\-|\-|\+\+|\+|~|===|==|=|!=|!==|<=|>=|<<=|>>=|>>>=|<>|<|>|!|&&|\|\||\?\:|%=|\+=|\-=|&=|\bnot\b|\bor\b|\band\b|\bwhen\b|\bfrom\b|\bto\b|\bthrough\b|\bin\b
+    - match: /|==|=|!=|<=|>=|<>|<|>|\-|\+|\*
       scope: keyword.operator.scss
+    - match: (?:\s*)\b(not|or|and|when|from|to|through|in)(?=\s)
+      captures:
+        1: keyword.operator.scss
 
   property-list:
     - match: '(!#)*\{'
