@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+str-index(${1:string}, ${2:substring})
+]]></content>
+<tabTrigger>str-index</tabTrigger>
+<description>sass string</description>
+<scope>source.css.scss</scope>
+</snippet>

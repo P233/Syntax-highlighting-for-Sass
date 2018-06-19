@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+map-get(${1:map}, ${2:key})
+]]></content>
+<tabTrigger>map-get</tabTrigger>
+<description>sass map</description>
+<scope>source.css.scss</scope>
+</snippet>

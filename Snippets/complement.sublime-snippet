@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+complement(${1:color})
+]]></content>
+<tabTrigger>complement</tabTrigger>
+<description>sass color</description>
+<scope>source.css.scss</scope>
+</snippet>

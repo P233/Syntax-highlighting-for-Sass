@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+get-function(${1:name}, ${2:css})
+]]></content>
+<tabTrigger>get-function</tabTrigger>
+<description>sass function</description>
+<scope>source.css.scss</scope>
+</snippet>

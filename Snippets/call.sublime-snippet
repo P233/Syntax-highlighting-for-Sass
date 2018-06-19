@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+call(${1:function}, ${2:args}…)
+]]></content>
+<tabTrigger>call</tabTrigger>
+<description>sass function</description>
+<scope>source.css.scss</scope>
+</snippet>

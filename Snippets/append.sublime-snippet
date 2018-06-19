@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+append(${1:list}, ${2:val}, ${3:separator})
+]]></content>
+<tabTrigger>append</tabTrigger>
+<description>sass list</description>
+<scope>source.css.scss</scope>
+</snippet>

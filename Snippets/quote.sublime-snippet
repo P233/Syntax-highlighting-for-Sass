@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+quote(${1:string})
+]]></content>
+<tabTrigger>quote</tabTrigger>
+<description>sass string</description>
+<scope>source.css.scss</scope>
+</snippet>

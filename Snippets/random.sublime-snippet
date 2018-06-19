@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+random()
+]]></content>
+<tabTrigger>random</tabTrigger>
+<description>sass number</description>
+<scope>source.css.scss</scope>
+</snippet>

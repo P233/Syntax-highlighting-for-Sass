@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+min(${1:numbers…})
+]]></content>
+<tabTrigger>min</tabTrigger>
+<description>sass number</description>
+<scope>source.css.scss</scope>
+</snippet>

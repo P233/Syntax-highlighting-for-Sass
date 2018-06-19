@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+list-separator(${1:list})
+]]></content>
+<tabTrigger>list-separator</tabTrigger>
+<description>sass list</description>
+<scope>source.css.scss</scope>
+</snippet>

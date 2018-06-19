@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+is-bracketed(${1:list})
+]]></content>
+<tabTrigger>is-bracketed</tabTrigger>
+<description>sass list</description>
+<scope>source.css.scss</scope>
+</snippet>

@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+selector-unify(${1:selector}1, ${2:selector}2)
+]]></content>
+<tabTrigger>selector-unify</tabTrigger>
+<description>sass selector</description>
+<scope>source.css.scss</scope>
+</snippet>

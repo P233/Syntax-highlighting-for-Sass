@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+join(${1:list}, ${2:list}, ${3:separator}, ${4:bracketed})
+]]></content>
+<tabTrigger>join</tabTrigger>
+<description>sass list</description>
+<scope>source.css.scss</scope>
+</snippet>

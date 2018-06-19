@@ -23,39 +23,42 @@ Known issues:
 * Enhanced Sass mixin/function name highlighting and their "Goto Definition" support
 * Removed built-in completions
 
-## Scopes list
+## Generating snippets
 
-Here is a list of which syntax part is capable to highlight and its scope name. All scope names are following the suggestions of https://www.sublimetext.com/docs/3/scope_naming.html. If any part from the list down below is not highlighted as expected with your current color scheme, please try to contact the color scheme author to add support for the corresponding scope or modify the color scheme by yourself. Learn more about "color schemes" please take a look at https://www.sublimetext.com/docs/3/color_schemes.html.
+Functions are documented on [sass-lang.com](https://sass-lang.com/documentation/Sass/Script/Functions.html). Copy them to a file and whip them into a json:
 
-Element      | Scope
-:----------- | :--------------
-Block Comment | `comment.block.css.sass`
-Sass Line Comment | `comment.line.sass`
-CSS4 Variable | `variable.parameter.sass`
-Sass Variable | `variable.parameter.sass`
-At-rule, Sass Directive, Directive Shorthand | `keyword.control.at-rule.css.sass`
-Type Selector, Universal Selector | `entity.name.tag.css.sass`
-Id Selector | `entity.other.attribute-name.id.css.sass`
-Class Selector, Sass Placeholder Selector | `entity.other.attribute-name.class.css.sass`
-Attribute Selector | `entity.other.attribute-name.css.sass`
-Attribute Selector RegEx | `keyword.operator.attribute-selector.css.sass`
-Pseudo Class, Pseudo Element | `entity.other.pseudo-class.css.sass`
-Property Name | `support.type.property-name.css.sass`
-Property Value | `support.constant.property-value.css.sass`
-Quoted String | `string.quoted.css.sass`
-Numeric | `constant.numeric.css.sass`
-Unit | `keyword.other.unit.css.sass`
-Rgb Color | `constant.other.color.rgb-valueb.css.sass`
-Sass Parent Selector | `keyword.other.parent-selector.sass`
-Sass Operator | `keyword.operator.css.sass`
-Sass Mixin and Function Definition | `entity.name.function.sass`
-Sass Mixin and Function Calling Name | `support.function.sass`
-Sass Interpolation | `keyword.control.interpolation.sass`
-Sass Flag | `keyword.other.important.css.sass`
-Sass Reserved Word | `keyword.other.reserved.sass`
-Sass Indented Syntax Semicolon | `invalid`
-Sass Indented Syntax Curly Brackets | `invalid`
+```json
+[{
+    "trigger": "blue",
+    "category": "sass color",
+    "contents": "blue(${1:color})"
+}]
+```
 
-## License
+A little python script generates the snippet files:
 
-MIT License
+```py
+import json
+import sys
+
+template = """<snippet>
+<content><![CDATA[
+{snippet}
+]]></content>
+<tabTrigger>{trigger}</tabTrigger>
+<description>{category}</description>
+<scope>source.css.scss</scope>
+</snippet>
+"""
+
+data = json.load(open(sys.argv[1]))
+
+for entry in data:
+    snippet = open('Snippets/' + entry.get('trigger') + '.sublime-snippet', 'w')
+    snippet.write(template.format(
+        snippet=entry.get('contents'),
+        trigger=entry.get('trigger'),
+        category=entry.get('category')
+        ))
+    snippet.close()
+```

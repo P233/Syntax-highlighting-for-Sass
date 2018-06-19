@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+type-of(${1:value})
+]]></content>
+<tabTrigger>type-of</tabTrigger>
+<description>sass function</description>
+<scope>source.css.scss</scope>
+</snippet>

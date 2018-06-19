@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+ceil(${1:number})
+]]></content>
+<tabTrigger>ceil</tabTrigger>
+<description>sass number</description>
+<scope>source.css.scss</scope>
+</snippet>

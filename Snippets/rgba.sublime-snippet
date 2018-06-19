@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+rgba(${1:color}, ${2:alpha})
+]]></content>
+<tabTrigger>rgba</tabTrigger>
+<description>sass color</description>
+<scope>source.css.scss</scope>
+</snippet>

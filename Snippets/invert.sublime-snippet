@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+invert(${1:color}, ${2:weight})
+]]></content>
+<tabTrigger>invert</tabTrigger>
+<description>sass color</description>
+<scope>source.css.scss</scope>
+</snippet>

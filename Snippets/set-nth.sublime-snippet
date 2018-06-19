@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+set-nth(${1:list}, ${2:n}, ${3:value})
+]]></content>
+<tabTrigger>set-nth</tabTrigger>
+<description>sass list</description>
+<scope>source.css.scss</scope>
+</snippet>

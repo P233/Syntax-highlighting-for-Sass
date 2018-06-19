@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+selector-append(${1:selectors…})
+]]></content>
+<tabTrigger>selector-append</tabTrigger>
+<description>sass selector</description>
+<scope>source.css.scss</scope>
+</snippet>

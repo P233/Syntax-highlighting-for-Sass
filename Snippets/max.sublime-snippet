@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+max(${1:numbers…})
+]]></content>
+<tabTrigger>max</tabTrigger>
+<description>sass number</description>
+<scope>source.css.scss</scope>
+</snippet>

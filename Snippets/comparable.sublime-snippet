@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+comparable(${1:number}, ${2:number})
+]]></content>
+<tabTrigger>comparable</tabTrigger>
+<description>sass function</description>
+<scope>source.css.scss</scope>
+</snippet>

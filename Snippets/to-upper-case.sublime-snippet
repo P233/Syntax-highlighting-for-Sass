@@ -1,0 +1,8 @@
+<snippet>
+<content><![CDATA[
+to-upper-case(${1:string})
+]]></content>
+<tabTrigger>to-upper-case</tabTrigger>
+<description>sass string</description>
+<scope>source.css.scss</scope>
+</snippet>
