@@ -1,0 +1,101 @@
+{
+	"scope": "source.css.scss",
+
+	"completions":
+	[
+
+		{ "trigger": "adjust-color",           "contents": "adjust-color(${1:color}, ${2:component})" },  // Increases or decreases one or more components of a color.
+		{ "trigger": "adjust-hue",             "contents": "adjust-hue(${1:color}, ${2:degrees})" },  // Changes the hue of a color.
+		{ "trigger": "alpha",                  "contents": "alpha(${1:color}) / opacity(${2:color})" },  // Gets the alpha component (opacity) of a color.
+		{ "trigger": "blue",                   "contents": "blue(${1:color})" },  // Gets the blue component of a color.
+		{ "trigger": "change-color",           "contents": "change-color(${1:color}, ${2:component})" },  // Changes one or more properties of a color.
+		{ "trigger": "complement",             "contents": "complement(${1:color})" },  // Returns the complement of a color.
+		{ "trigger": "darken",                 "contents": "darken(${1:color}, ${2:amount})" },  // Makes a color darker.
+		{ "trigger": "desaturate",             "contents": "desaturate(${1:color}, ${2:amount})" },  // Makes a color less saturated.
+		{ "trigger": "grayscale",              "contents": "grayscale(${1:color})" },  // Converts a color to grayscale.
+		{ "trigger": "green",                  "contents": "green(${1:color})" },  // Gets the green component of a color.
+		{ "trigger": "hue",                    "contents": "hue(${1:color})" },  // Gets the hue component of a color.
+		{ "trigger": "ie-hex-str",             "contents": "ie-hex-str(${1:color})" },  // Converts a color into the format understood by IE filters.
+		{ "trigger": "invert",                 "contents": "invert(${1:color}, ${2:weight})" },  // Returns the inverse of a color.
+		{ "trigger": "lighten",                "contents": "lighten(${1:color}, ${2:amount})" },  // Makes a color lighter.
+		{ "trigger": "lightness",              "contents": "lightness(${1:color})" },  // Gets the lightness component of a color.
+		{ "trigger": "mix",                    "contents": "mix(${1:color}1, ${2:color}2, ${3:weight})" },  // Mixes two colors together.
+		{ "trigger": "opacify",                "contents": "opacify(${1:color}, ${1:amount})" },  // Makes a color more opaque.
+		{ "trigger": "fade-in",                "contents": "fade-in(${1:color}, ${1:amount})" },  // Makes a color more opaque.
+		{ "trigger": "red",                    "contents": "red(${1:color})" },  // Gets the red component of a color.
+		{ "trigger": "rgba",                   "contents": "rgba(${1:color}, ${2:alpha})" },  // Changes the alpha component for a color.
+		{ "trigger": "saturate",               "contents": "saturate(${1:color}, ${2:amount})" },  // Makes a color more saturated.
+		{ "trigger": "saturation",             "contents": "saturation(${1:color})" },  // Gets the saturation component of a color.
+		{ "trigger": "scale-color",            "contents": "scale-color(${1:color}, ${2:component})" },  // Fluidly scales one or more properties of a color.
+		{ "trigger": "transparentize",         "contents": "transparentize(${1:color}, ${1:amount})" },  // Makes a color more transparent.
+		{ "trigger": "fade-out",               "contents": "fade-out(${1:color}, ${1:amount})" },  // Makes a color more transparent.
+
+
+		{ "trigger": "quote",                  "contents": "quote(${1:string})" },  // Adds quotes to a string.
+		{ "trigger": "str-index",              "contents": "str-index(${1:string}, ${2:substring})" },  // Returns the index of the first occurrence of `${1:substring}` in `${1:string}`.
+		{ "trigger": "str-insert",             "contents": "str-insert(${1:string}, ${2:insert}, ${3:index})" },  // Inserts `${1:insert}` into `${1:string}` at `${1:index}`.
+		{ "trigger": "str-length",             "contents": "str-length(${1:string})" },  // Returns the number of characters in a string.
+		{ "trigger": "str-slice",              "contents": "str-slice(${1:string}, ${2:start-at}, ${3:end-at})" },  // Extracts a substring from `${1:string}`.
+		{ "trigger": "to-lower-case",          "contents": "to-lower-case(${1:string})" },  // Converts a string to lower case.
+		{ "trigger": "to-upper-case",          "contents": "to-upper-case(${1:string})" },  // Converts a string to upper case.
+		{ "trigger": "unquote",                "contents": "unquote(${1:string})" },  // Removes quotes from a string.
+
+
+		{ "trigger": "abs",                    "contents": "abs(${1:number})" },  // Returns the absolute value of a number.
+		{ "trigger": "ceil",                   "contents": "ceil(${1:number})" },  // Rounds a number up to the next whole number.
+		{ "trigger": "floor",                  "contents": "floor(${1:number})" },  // Rounds a number down to the previous whole number.
+		{ "trigger": "max",                    "contents": "max(${1:numbers…})" },  // Finds the maximum of several numbers.
+		{ "trigger": "min",                    "contents": "min(${1:numbers…})" },  // Finds the minimum of several numbers.
+		{ "trigger": "percentage",             "contents": "percentage(${1:number})" },  // Converts a unitless number to a percentage.
+		{ "trigger": "random",                 "contents": "random()" },  // Returns a random number.
+		{ "trigger": "round",                  "contents": "round(${1:number})" },  // Rounds a number to the nearest whole number.
+
+
+		{ "trigger": "append",                 "contents": "append(${1:list}, ${2:val}, ${3:separator})" },  // Appends a single value onto the end of a list.
+		{ "trigger": "index",                  "contents": "index(${1:list}, ${2:value})" },  // Returns the position of a value within a list.
+		{ "trigger": "is-bracketed",           "contents": "is-bracketed(${1:list})" },  // Returns whether a list has square brackets
+		{ "trigger": "join",                   "contents": "join(${1:list}, ${2:list}, ${3:separator}, ${4:bracketed})" },  // Joins together two lists into one.
+		{ "trigger": "length",                 "contents": "length(${1:list})" },  // Returns the length of a list.
+		{ "trigger": "list-separator",         "contents": "list-separator(${1:list})" },  // Returns the separator of a list.
+		{ "trigger": "nth",                    "contents": "nth(${1:list}, ${2:n})" },  // Returns a specific item in a list.
+		{ "trigger": "set-nth",                "contents": "set-nth(${1:list}, ${2:n}, ${3:value})" },  // Replaces the nth item in a list.
+		{ "trigger": "zip",                    "contents": "zip(${1:lists…})" },  // Combines several lists into a single multidimensional list.
+
+
+		{ "trigger": "keywords",               "contents": "keywords(${1:args})" },  // Returns the keywords passed to a function that takes variable arguments.
+		{ "trigger": "map-get",                "contents": "map-get(${1:map}, ${2:key})" },  // Returns the value in a map associated with a given key.
+		{ "trigger": "map-has-key",            "contents": "map-has-key(${1:map}, ${2:key})" },  // Returns whether a map has a value associated with a given key.
+		{ "trigger": "map-keys",               "contents": "map-keys(${1:map})" },  // Returns a list of all keys in a map.
+		{ "trigger": "map-merge",              "contents": "map-merge(${1:map}, ${2:map})" },  // Merges two maps together into a new map.
+		{ "trigger": "map-remove",             "contents": "map-remove(${1:map}, ${2:keys…})" },  // Returns a new map with keys removed.
+		{ "trigger": "map-values",             "contents": "map-values(${1:map})" },  // Returns a list of all values in a map.
+
+
+		{ "trigger": "is-superselector",       "contents": "is-superselector(${1:super}, ${2:sub})" },  // Returns whether `${1:super}` matches all the elements `${1:sub}` does, and
+		{ "trigger": "selector-append",        "contents": "selector-append(${1:selectors…})" },  // Appends selectors to one another without spaces in between.
+		{ "trigger": "selector-extend",        "contents": "selector-extend(${1:selector}, ${2:extendee}, ${3:extender})" },  // Extends `${1:extendee}` with `${1:extender}` within `${1:selector}`.
+		{ "trigger": "selector-nest",          "contents": "selector-nest(${1:selectors…})" },  // Nests selector beneath one another like they would be nested in the
+		{ "trigger": "selector-parse",         "contents": "selector-parse(${1:selector})" },  // Parses a selector into the format returned by `&`.
+		{ "trigger": "selector-replace",       "contents": "selector-replace(${1:selector}, ${2:original}, ${3:replacement})" },  // Replaces `${1:original}` with `${1:replacement}` within `${1:selector}`.
+		{ "trigger": "selector-unify",         "contents": "selector-unify(${1:selector}1, ${2:selector}2)" },  // Unifies two selectors to produce a selector that matches
+		{ "trigger": "simple-selectors",       "contents": "simple-selectors(${1:selector})" },  // Returns the simple selectors that comprise a compound selector.
+
+
+		{ "trigger": "call",                   "contents": "call(${1:function}, ${2:args}…)" },  // Dynamically calls a Sass function reference returned by `get-function`.
+		{ "trigger": "comparable",             "contents": "comparable(${1:number}, ${2:number})" },  // Returns whether two numbers can be added, subtracted, or compared.
+		{ "trigger": "content-exists",         "contents": "content-exists()" },  // Returns whether the current mixin was passed a content block.
+		{ "trigger": "feature-exists",         "contents": "feature-exists(${1:feature})" },  // Returns whether a feature exists in the current Sass runtime.
+		{ "trigger": "function-exists",        "contents": "function-exists(${1:name})" },  // Returns whether a function with the given name exists.
+		{ "trigger": "get-function",           "contents": "get-function(${1:name}, ${2:css})" },  // Looks up a function with the given name in the current lexical scope
+		{ "trigger": "global-variable-exists", "contents": "global-variable-exists(${1:name})" },  // Returns whether a variable with the given name exists in the global scope.
+		{ "trigger": "inspect",                "contents": "inspect(${1:value})" },  // Returns the string representation of a value as it would be represented in Sass.
+		{ "trigger": "mixin-exists",           "contents": "mixin-exists(${1:name})" },  // Returns whether a mixin with the given name exists.
+		{ "trigger": "type-of",                "contents": "type-of(${1:value})" },  // Returns the type of a value.
+		{ "trigger": "unit",                   "contents": "unit(${1:number})" },  // Returns the unit(s) associated with a number.
+		{ "trigger": "unitless",               "contents": "unitless(${1:number})" },  // Returns whether a number has units.
+		{ "trigger": "variable-exists",        "contents": "variable-exists(${1:name})" },  // Returns whether a variable with the given name exists in the current scope.
+
+
+		{ "trigger": "if",                     "contents": "if(${1:condition}, ${2:if-true}, ${3:if-false})" },  // unique-id() : Returns a unique CSS identifier.
+	]
+}
