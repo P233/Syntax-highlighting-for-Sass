@@ -1,6 +1,6 @@
 <snippet>
 <content><![CDATA[
-transparentize(${1:color}, ${1:amount})
+transparentize(${1:color}, ${2:amount})
 ]]></content>
 <tabTrigger>transparentize</tabTrigger>
 <description>sass color</description>
