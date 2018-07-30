@@ -225,6 +225,7 @@ contexts:
         - include: css-variables
         - include: scss-functions
         - include: scss-variables
+        - include: scss-parameters
         - include: scss-interpolation
         - include: scss-operators
         - include: literal-string
@@ -268,6 +269,7 @@ contexts:
         - include: css-variables
         - include: property-names
         - include: scss-functions
+        - include: scss-parameters
         - include: scss-variables
         - include: scss-operators
         - include: literal-string

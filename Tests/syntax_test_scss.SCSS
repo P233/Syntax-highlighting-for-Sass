@@ -82,6 +82,8 @@
 //  ^ meta.property-name.css support.type.property-name.css
     weight: bold;
 //  ^ meta.property-name.css support.type.property-name.css
+    width: calc((100px - 20px) / 2);
+//              ^ punctuation.definition.group - string
   }
 }
 
