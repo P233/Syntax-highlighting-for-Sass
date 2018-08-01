@@ -511,14 +511,6 @@ contexts:
             pop: true
           - meta_content_scope: meta.property-value.css
           - include: property-values
-    # - match: \s+
-    #   captures:
-    #     1: punctuation.separator.key-value.css
-    #   push:
-    #     - meta_scope: meta.property-value.css
-    #     - match: '^\n'
-    #       pop: true
-    #     - include: property-values
 
   selector:
     - include: scss-interpolation
