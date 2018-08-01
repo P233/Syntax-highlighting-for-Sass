@@ -1,273 +1,681 @@
 %YAML 1.2
 ---
+# http://www.sublimetext.com/docs/3/syntax.html
 name: Sass
 file_extensions: [sass]
-scope: source.sass
+scope: source.css.sass
 
 
 variables:
-  interpolation_start: \#{(?=.*})
-  interpolation_end: \}
-  quoted_string: ("|')(?=.*\1)
-  property_name: (^|;|,|\{|\()\s*(?=-?[\w#]+[\w-$#{}]+:)
-
+  unicode: '\\\h{1,6}[ \t\n\f]?'
+  escape: '(?:{{unicode}}|\\[^\n\f\h])'
+  nonascii: '[\p{L}\p{M}\p{S}\p{N}&&[^[:ascii:]]]'
+  nmstart: '(?:[[_a-zA-Z]{{nonascii}}]|{{escape}})'
+  nmchar: '(?:[[-\w]{{nonascii}}]|{{escape}})'
+  ident: '(?:--{{nmchar}}+|-?{{nmstart}}{{nmchar}}*)'
+  combinators: '(?:>{1,3}|[~+])'
 
 contexts:
   main:
-    # highlight invalid elements before anything
-    - include: invalid
+    - include: comment-block
+    - include: comment-line
+    - include: commas
+    - include: css-variables
+    - include: literal-string
+    - include: at-rules
+    - include: selector
+    - include: rule-list
+    # - include: numeric-values
+    - include: property-names
+    - include: scss-declarations
+    - include: scss-variables
+    # - include: scss-functions
+    # - include: scss-operators
+    # - include: scss-parameters
 
-    # push onto the map stack if the first character of a variable's value is '('
-    - match: (\$[\w-]+)(?=:\s*\()|(?<=(\s|,)\($)
+  qualified-name:
+    - match: '(?:({{ident}})|(\*))?([|])(?!=)'
       captures:
-        1: variable.parameter.sass
-      push: map
+        1: entity.other.namespace-prefix.css
+        2: entity.name.namespace.wildcard.css
+        3: punctuation.separator.namespace.css
 
-    # push onto the block comment stack
+  commas:
+    - match: '\s*(,)\s*'
+      captures:
+        1: punctuation.separator.css
+
+  color-values:
+    - match: \b(yellowgreen|yellow|whitesmoke|white|wheat|violet|turquoise|tomato|thistle|teal|tan|steelblue|springgreen|snow|slategrey|slategray|slateblue|skyblue|silver|sienna|seashell|seagreen|sandybrown|salmon|saddlebrown|royalblue|rosybrown|red|rebeccapurple|purple|powderblue|plum|pink|peru|peachpuff|papayawhip|palevioletred|paleturquoise|palegreen|palegoldenrod|orchid|orangered|orange|olivedrab|olive|oldlace|navy|navajowhite|moccasin|mistyrose|mintcream|midnightblue|mediumvioletred|mediumturquoise|mediumspringgreen|mediumslateblue|mediumseagreen|mediumpurple|mediumorchid|mediumblue|mediumaquamarine|maroon|linen|limegreen|lime|lightyellow|lightsteelblue|lightslategrey|lightslategray|lightskyblue|lightseagreen|lightsalmon|lightpink|lightgrey|lightgreen|lightgray|lightgoldenrodyellow|lightcyan|lightcoral|lightblue|lemonchiffon|lawngreen|lavenderblush|lavender|khaki|ivory|indigo|indianred|hotpink|honeydew|grey|greenyellow|green|gray|goldenrod|gold|ghostwhite|gainsboro|fuchsia|forestgreen|floralwhite|firebrick|dodgerblue|dimgrey|dimgray|deepskyblue|deeppink|darkviolet|darkturquoise|darkslategrey|darkslategray|darkslateblue|darkseagreen|darksalmon|darkred|darkorchid|darkorange|darkolivegreen|darkmagenta|darkkhaki|darkgrey|darkgreen|darkgray|darkgoldenrod|darkcyan|darkblue|crimson|cornsilk|cornflowerblue|coral|chocolate|chartreuse|cadetblue|burlywood|brown|blueviolet|blue|blanchedalmond|black|bisque|beige|azure|aquamarine|aqua|antiquewhite|aliceblue)\b
+      comment: http://www.w3.org/TR/CSS21/syndata.html#value-def-color
+      scope: support.constant.color.w3c-standard-color-name.css
+    - match: (hsla?|rgba?)\s*(\()
+      captures:
+        1: support.function.misc.css
+        2: punctuation.definition.group.begin.css
+      push:
+        - meta_scope: meta.group.css
+        - match: '\)'
+          scope: punctuation.definition.group.end.css
+          pop: true
+        - match: '(?x)\b(0*((1?[0-9]{1,2})|(2([0-4][0-9]|5[0-5])))\s*,\s*){2}(0*((1?[0-9]{1,2})|(2([0-4][0-9]|5[0-5])))\b)(\s*,\s*((0?\.[0-9]+)|[0-1]))?'
+          scope: constant.other.color.rgb-value.css
+        - match: '\b([0-9]{1,2}|100)\s*%,\s*([0-9]{1,2}|100)\s*%,\s*([0-9]{1,2}|100)\s*%'
+          scope: constant.other.color.rgb-percentage.css
+        - include: numeric-values
+
+  comment-block:
     - match: /\*
-      push: block_comment
+      scope: punctuation.definition.comment.css
+      push:
+        - meta_scope: comment.block.css
+        - match: \*/
+          scope: punctuation.definition.comment.css
+          pop: true
 
-    # push onto the line comment stack
+  comment-line:
     - match: //
-      push: line_comment
+      scope: punctuation.definition.comment.css
+      push:
+        - meta_scope: comment.line.double-slash.scss
+        - match: (?=^\s*\n)
+          pop: true
+        - match: (?=^\S)
+          pop: true
 
-    # highlight included mixin name as function
-    - match: (@include|\+)\s+([\w-]+)
+  at-rules:
+    - match: (@)(for|each)\b
+      scope: keyword.control.flow.scss
       captures:
-        1: keyword.control.at-rule.css.sass
-        2: support.function.sass
-
-    # highlight mixin and function definition
-    - match: (@mixin|@function|=)\s+([\w-]+)
+        1: punctuation.definition.keyword.scss
+    - match: (@)(if|else if|else)\b
+      scope: keyword.control.flow.conditional.scss
       captures:
-        1: keyword.control.at-rule.css.sass
-        2: entity.name.function.sass
-
-    # highlight at-rules
-    - match: '@[\w-]*(\s*if)?'
-      scope: keyword.control.at-rule.css.sass
-
-    # highlight type selector
-    - match: \b(a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|content|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|frame|frameset|h[1-6]|head|header|hgroup|hr|html|i|iframe|img|input|ins|isindex|kbd|keygen|label|legend|li|link|main|map|mark|menu|menuitem|meta|meter|nav|noscript|object|ol|optgroup|option|output|p|param|picture|pre|progress|q|rp|rt|rtc|ruby|s|samp|script|section|select|slot|small|source|span|strong|style|sub|summary|sup|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var|video|wbr|svg|circle|ellipse|line|path|polygon|polyline|rect|text|title)\b(?!-)
-      scope: entity.name.tag.css.sass
-
-    # hightlight attribution selector
-    - match: \[([\w-]+)(\^|\$|\*|~|\|)*(=)?([\w"'-]+)?\]
+        1: punctuation.definition.keyword.scss
+    - match: (@)(mixin|function|include)\s+([\w-]+)
       captures:
-        1: entity.other.attribute-name.css.sass
-        2: keyword.operator.attribute-selector.css.sass
-        # 3: # match =
-        4: string.quoted.css.sass
-
-    # push onto the id selector stack
-    - match: \#(?!{)
-      push: id_selector
-
-    # push onto the class selector stack
-    - match: \.(?!\d|\.)
-      push: class_selector
-
-    # highlight placeholder selector as class selector
-    - match: (?<!\d)%
-      push: class_selector
-
-    # highlight parent selector
-    - match: '(&)([\w-]*)'
+        1: punctuation.definition.keyword.scss
+        2: keyword.control.at-rule.scss
+        3: entity.name.function.scss
+      push:
+        - meta_scope: meta.at-rule.scss
+        - match: '(?=$)'
+          pop: true
+        - include: scss-parameters
+    - match: ((@)(?:-(?:webkit|moz|o)-)?(charset|import|namespace|page|font-face|supports|document)\b)
       captures:
-        1: keyword.other.parent-selector.sass
-        2: entity.other.attribute-name.class.css.sass
+        1: keyword.control.at-rule.css
+        2: punctuation.definition.keyword.css
+      push:
+        - meta_scope: meta.at-rule.css
+        - match: '(?=$)'
+          pop: true
+        - match: (url)(\()
+          captures:
+            1: meta.function-call.css support.function.url.css
+            2: punctuation.definition.group.begin.css
+          push:
+            - meta_scope: meta.group.css
+            - match: '\)'
+              scope: punctuation.definition.group.end.css
+              pop: true
+            - include: literal-string
+            - include: unquoted-string
+        - include: comment-block
+        - include: literal-string
+        - include: scss-parameters
+    - match: \s*((@)keyframes)(?=.*?)
+      captures:
+        1: keyword.control.at-rule.css
+        2: punctuation.definition.keyword.css
+      push:
+        - meta_scope: meta.at-rule.keyframes.css
+        - match: '(?=$)'
+          pop: true
+        - include: comment-block
+        - match: '[a-zA-Z0-9_-]+'
+          scope: variable.other.css
+    - match: \s*((@)media)(?=\s+.*?)
+      captures:
+        1: keyword.control.at-rule.media.css
+        2: punctuation.definition.keyword.css
+        3: support.constant.media.css
+      push:
+        - meta_scope: meta.at-rule.media.css
+        - match: '(?=$)'
+          pop: true
+        - include: comment-block
+        - include: scss-operators
+        - match: (?i)\s*(only|not)?\s*(all|aural|braille|embossed|handheld|print|projection|screen|speech|tty|tv)?
+          captures:
+            1: keyword.operator.logic.media.css
+            2: support.constant.media.css
+        - match: '\('
+          scope: punctuation.definition.group.begin.css
+          push:
+            - meta_scope: meta.group.css
+            - match: '\)'
+              scope: punctuation.definition.group.end.css
+              pop: true
+            - include: vendor-prefixes
+            - match: |-
+                (?x)
+                (
+                    ((min|max)-)?
+                    (
+                        ((device-)?(height|width|aspect-ratio|pixel-ratio))|
+                        (color(-index)?)|monochrome|resolution
+                    )
+                )|grid|scan|orientation
+                \s*(?=[:)])
+              captures:
+                0: support.type.property-name.media.css
+            - match: \b(portrait|landscape|progressive|interlace)
+              scope: support.constant.property-value.css
+            - match: ':'
+              scope: punctuation.separator.key-value.css
+            - include: comment-block
+            - include: comment-line
+            - include: numeric-values
+            - include: property-names
+            - include: property-values
+            - include: css-variables
+            - include: scss-functions
+            - include: scss-variables
+            - include: scss-operators
 
-    # highlight pseudo elements and pseudo classes
-    - match: :{1,2}[a-z-]+(?=\s|:|,|\(|\)|>|~|\+|\.|#|$)
-      scope: entity.other.pseudo-class.css.sass
+  scss-data-uri:
+    - match: (url)(\()(?=(data:|"data:|'data:))
+      captures:
+        1: support.function.misc.css
+        2: punctuation.definition.group.begin.css
+      push:
+        - meta_scope: meta.group.css
+        - match: '\)'
+          scope: punctuation.definition.group.end.css
+          pop: true
+        - include: scss-interpolation
+        - include: literal-string
+        - include: unquoted-string
 
-    # push onto the property name stack
-    - match: '{{property_name}}'
-      push: property_name
+  scss-functions:
+    - match: \b(zip|variable-exists|unquote|unitless|unit|unique-id|type-of|transparentize|to-upper-case|to-lower-case|tan|str-slice|str-length|str-insert|str-index|sqrt|spin|softlight|sin|simple-selectors|set-nth|selector-unify|selector-replace|selector-parse|selector-nest|selector-extend|selector-append|screen|scale-color|saturation|saturate|round|rgba|rgb|replace|red|random|quote|pow|pi|percentage|overlay|opacify|nth|negation|multiply|mod|mixin-exists|mix|min|max|map-values|map-remove|map-merge|map-keys|map-has-key|map-get|luma|list-separator|lightness|lighten|length|keywords|join|isnumber|is-superselector|is-bracketed|invert|inspect|index|if|ie-hex-str|hue|hsvvalue|hsvsaturation|hsvhue|hsva|hsv|hsla|hsl|hardlight|greyscale|green|grayscale|global-variable-exists|get-function|function-exists|format|floor|feature-exists|fadeout|fadein|fade|extract|exclusion|escape|e|difference|desaturate|data-uri|darken|cos|convert|contrast|content-exists|complement|comparable|color|change-color|ceil|call|calc|blue|average|atan|asin|argb|append|alpha|adjust-hue|adjust-color|acos|abs)(\()
+      captures:
+        1: support.function.scss
+        2: meta.group.scss punctuation.definition.group.begin.scss
+      push:
+        - meta_scope: meta.function-call.scss
+        - meta_content_scope: meta.group.scss meta.function.parameters.scss
+        - match: '\)'
+          scope: meta.group.scss punctuation.definition.group.end.scss
+          pop: true
+        - match: ':'
+          scope: punctuation.separator.key-value.css
+        - include: comment-block
+        - include: commas
+        - include: color-values
+        - include: numeric-values
+        - include: css-variables
+        - include: scss-functions
+        - include: scss-variables
+        - include: scss-parameters
+        - include: scss-interpolation
+        - include: scss-operators
+        - include: literal-string
+        - include: unquoted-string
 
-    # push onto the property value list stack
+  scss-operators:
+    - match: /|==|=|!=|<=|>=|<>|<|>|\-|\+|\*
+      scope: keyword.operator.scss
+    - match: (?:\s*)\b(not|or|and|when|from|to|through|in)(?=\s)
+      captures:
+        1: keyword.operator.scss
+
+  scss-parameters:
+    - match: '\('
+      scope: punctuation.definition.group.begin.scss
+      push:
+        - meta_scope: meta.group.scss meta.function.parameters.scss
+        - match: '\)'
+          scope: punctuation.definition.group.end.scss
+          pop: true
+        - match: ':'
+          scope: punctuation.separator.key-value.css
+        - include: comment-line
+        - include: comment-block
+        - include: commas
+        - include: color-values
+        - include: numeric-values
+        - include: css-variables
+        - include: property-names
+        - include: scss-functions
+        - include: scss-parameters
+        - include: scss-variables
+        - include: scss-operators
+        - include: literal-string
+        - include: unquoted-string
+
+  scss-declarations:
+    - match: '(\$)([a-zA-Z0-9_-][\w-]*)'
+      scope: variable.declaration.scss
+      captures:
+        1: punctuation.definition.variable.scss
+
+  scss-interpolation:
+    - match: '(#)({)'
+      captures:
+        1: punctuation.definition.variable.scss
+        2: punctuation.definition.group.begin.scss
+      push:
+        - meta_scope: meta.group.interpolation.scss
+        - match: '(})'
+          scope: punctuation.definition.group.end.scss
+          pop: true
+        - include: numeric-values
+        - include: scss-variables
+        - include: scss-operators
+
+  css-variables:
+    - match: '\b(var)(?=\()'
+      scope: support.function.var.css
+      push:
+        - meta_scope: meta.function-call.css
+        - meta_content_scope: meta.group.css
+        - match: '\)'
+          scope: meta.group.css punctuation.definition.group.end.css
+          pop: true
+        - match: '(\()((--)({{nmchar}}+))'
+          captures:
+           1: punctuation.definition.group.begin.css
+           2: support.type.custom-property.css
+           3: punctuation.definition.custom-property.css
+           4: support.type.custom-property.name.css
+
+  scss-variables:
+    - match: '(\$)([a-zA-Z0-9_-][\w-]*)'
+      scope: variable.other.scss
+      captures:
+        1: punctuation.definition.variable.scss
+    - include: scss-interpolation
+
+  numeric-values:
+    - match: '(#)([0-9a-fA-F]{3}|[0-9a-fA-F]{6})\b'
+      scope: constant.other.color.rgb-value.css
+      captures:
+        1: punctuation.definition.constant.css
+    - match: '(?x)(?:-|\+)?(?:(?:[0-9]+(?:\.[0-9]+)?)|(?:\.[0-9]+))((?:vw|vmin|vmax|vh|turn|s|rem|rad|px|pt|pc|ms|mm|in|grad|fr|ex|em|dppx|dpi|dpcm|deg|cm|ch)\b|%)?'
+      scope: constant.numeric.css
+      captures:
+        1: keyword.other.unit.css
+
+  vendor-prefixes:
+    - match: '(-webkit-|-o-|-ms-|-moz-|-khtml-)(?=[A-Za-z])'
+      scope: support.type.vendor-prefix.css
+
+  property-names:
+    - include: comment-block
+    - include: vendor-prefixes
+    - match: '(--)({{nmchar}}+)'
+      scope: support.type.custom-property.css
+      captures:
+        1: punctuation.definition.custom-property.css
+        2: support.type.custom-property.name.css
+    # Property names in reverse alphabetical order,
+    # includes partial "name spaces" e.g. "font-weight" and "font", "weight"
+    # http://sass-lang.com/documentation/file.SASS_REFERENCE.html#nested_properties
+    - match: |-
+        \b(?x)(
+            zoom|z-index|z|y|x|writing-mode
+          | writing|wrap|word-wrap|word-spacing|word-break|word
+          | will-change|will|width|widows|white-space|white
+          | weight|visibility|vertical-align|vertical|variant-position|variant-numeric
+          | variant-ligatures|variant-east-asian|variant-caps|variant-alternates|variant|user-select
+          | user-drag|user|unicode-range|unicode-bidi|unicode|underline-position
+          | type|translate|transition-timing-function|transition-property|transition-duration|transition-delay
+          | transition|transform-style|transform-origin-y|transform-origin-x|transform-origin|transform
+          | touch-action|touch|top-width|top-style|top-right-radius|top-left-radius
+          | top-color|top|timing-function|text-underline-position|text-transform|text-shadow
+          | text-rendering|text-overflow|text-orientation|text-justify|text-indent|text-height
+          | text-fill-color|text-emphasis-style|text-emphasis-position|text-emphasis-color|text-emphasis|text-decoration-style
+          | text-decoration-line|text-decoration-color|text-decoration|text-anchor|text-align-last|text-align
+          | text|template-rows|template-columns|template-areas|template|tap-highlight-color
+          | tap|table-layout|table|tab-size|tab|system
+          | synthesis|symbols|suffix|style-type|style-position|style-image
+          | style|stroke-width|stroke-opacity|stroke-miterlimit|stroke-linejoin|stroke-linecap
+          | stroke-dashoffset|stroke-dasharray|stroke|stretch|stop-color|stop
+          | start|src|speak-as|speak|span|spacing
+          | space|smoothing|sizing|size-adjust|size|side
+          | shrink|shift|shape-rendering|shape-outside|shape-margin|shape-image-threshold
+          | shape|shadow|self|select|scrolling|scroll-behavior
+          | scroll|scale|rule-width|rule-style|rule-color|rule
+          | row-start|row-gap|row-end|row|rotate|right-width
+          | right-style|right-color|right|resolution|resize|reset
+          | repeat-y|repeat-x|repeat|rendering|range|radius
+          | quotes|property|profile|prefix|preferred-size|positive
+          | position-y|position-x|position|pointer-events|pointer|play-state
+          | pitch-range|pitch|perspective-origin-y|perspective-origin-x|perspective-origin|perspective
+          | pause-before|pause-after|pause|path|paint-order|paint
+          | page-break-inside|page-break-before|page-break-after|page|padding-top|padding-right
+          | padding-left|padding-bottom|padding|pad|pack|overflow-y
+          | overflow-x|overflow-wrap|overflow-scrolling|overflow|outside|outline-width
+          | outline-style|outline-offset|outline-color|outline|orphans|origin-y
+          | origin-x|origin|orientation|orient|ordinal-group|order
+          | opacity|offset|object-position|object-fit|object|negative
+          | nbsp-mode|nbsp|name|mode|mix-blend-mode|mix
+          | miterlimit|min-width|min-height|min|mid|max-width
+          | max-height|max|mask-type|mask-size|mask-repeat|mask-position
+          | mask-origin|mask-image|mask-composite|mask-clip|mask|marker-start
+          | marker-mid|marker-end|marker|margin-top|margin-right|margin-left
+          | margin-bottom|margin|list-style-type|list-style-position|list-style-image|list-style
+          | list|linejoin|linecap|line-pack|line-height|line-clamp
+          | line-break|line-box-contain|line|lighting-color|lighting|letter-spacing
+          | letter|left-width|left-style|left-color|left|layout
+          | language-override|kerning|justify-content|justify|iteration-count|items
+          | item-align|isolation|interpolation-filters|interpolation|inside|index
+          | indent|increment|image-width|image-threshold|image-source|image-slice
+          | image-resolution|image-repeat|image-rendering|image-outset|image-orientation|image
+          | hyphens|highlight-color|height|grow|grid-template-rows|grid-template-columns
+          | grid-template-areas|grid-template|grid-row-start|grid-row-gap|grid-row-end|grid-row
+          | grid-gap|grid-column-start|grid-column-gap|grid-column-end|grid-column|grid-auto-rows
+          | grid-auto-flow|grid-auto-columns|grid-area|grid|gap|font-weight
+          | font-variant-position|font-variant-numeric|font-variant-ligatures|font-variant-east-asian|font-variant-caps|font-variant-alternates
+          | font-variant|font-synthesis|font-style|font-stretch|font-smoothing|font-size-adjust
+          | font-size|font-language-override|font-kerning|font-feature-settings|font-family|font-display
+          | font|flow|flood-opacity|flood-color|flood|float
+          | flex-wrap|flex-shrink|flex-preferred-size|flex-positive|flex-pack|flex-order
+          | flex-negative|flex-line-pack|flex-item-align|flex-grow|flex-flow|flex-direction
+          | flex-basis|flex-align|flex|fit|filter|fill-rule
+          | fill-opacity|fill-mode|fill-color|fill|feature-settings|family
+          | fallback|events|end|empty-cells|empty|emphasis-style
+          | emphasis-position|emphasis-color|emphasis|duration|drag|dominant-baseline
+          | dominant|display|direction|delay|decoration-style|decoration-line
+          | decoration-color|decoration-break|decoration|dashoffset|dasharray|cursor
+          | counter-reset|counter-increment|counter|count|content|composite
+          | columns|column-width|column-start|column-span|column-rule-width|column-rule-style
+          | column-rule-color|column-rule|column-gap|column-fill|column-end|column-count
+          | column-break-before|column|color-rendering|color-profile|color-interpolation-filters|color-interpolation
+          | color|collapse|clip-rule|clip-path|clip|clear
+          | clamp|change|cells|caption-side|caption|break-inside
+          | break-before|break-after|break|box-sizing|box-shadow|box-pack
+          | box-orient|box-ordinal-group|box-flex|box-direction|box-decoration-break|box-contain
+          | box-align|box|bottom-width|bottom-style|bottom-right-radius|bottom-left-radius
+          | bottom-color|bottom|border-width|border-top-width|border-top-style|border-top-right-radius
+          | border-top-left-radius|border-top-color|border-top|border-style|border-spacing|border-right-width
+          | border-right-style|border-right-color|border-right|border-radius|border-left-width|border-left-style
+          | border-left-color|border-left|border-image-width|border-image-source|border-image-slice|border-image-repeat
+          | border-image-outset|border-image|border-color|border-collapse|border-bottom-width|border-bottom-style
+          | border-bottom-right-radius|border-bottom-left-radius|border-bottom-color|border-bottom|border|blend-mode
+          | blend|bidi|behavior|before|basis|baseline-shift
+          | baseline|background-size|background-repeat-y|background-repeat-x|background-repeat|background-position-y
+          | background-position-x|background-position|background-origin|background-image|background-color|background-clip
+          | background-blend-mode|background-attachment|background|backface-visibility|backface|azimuth
+          | auto-rows|auto-flow|auto-columns|attachment|as|area
+          | appearance|animation-timing-function|animation-play-state|animation-name|animation-iteration-count|animation-fill-mode
+          | animation-duration|animation-direction|animation-delay|animation|anchor|all
+          | alignment-baseline|alignment|align-self|align-last|align-items|align-content
+          | align|after|additive-symbols|additive|action
+        )\b
+      scope: meta.property-name.css support.type.property-name.css
+    - match: '\b(animation-name|animation)\b'
+      scope: meta.property-name.css support.type.property-name.css
+      push:
+        - meta_content_scope: meta.property-value.css
+        - match: '\s*(?=;|(?=[{}]))'
+          pop: true
+        - match: ':'
+          scope: punctuation.separator.key-value.css
+        - include: comment-block
+        - include: comment-line
+        - include: property-values
+        - match: '[a-zA-Z0-9_-]+'
+          scope: variable.other.css
+
+  property-values:
+    - match: '\('  # maps
+      captures:
+        0: punctuation.definition.group.begin.scss
+      push:
+        - meta_scope: meta.group.css meta.function.parameters.css
+        - match: '\)'
+          captures:
+            0: punctuation.definition.group.end.scss
+          pop: true
+        - match: '{{ident}}'
+          scope: variable.parameter.scss
+        - match: ':'
+          scope: punctuation.separator.key-value.css
+        - include: comment-line
+        - include: commas
+        - include: property-values
+
+    - match: \!\s*important
+      scope: keyword.other.important.css
+    - match: \!\s*(default|global|optional)
+      scope: keyword.other.scss
+    - include: comment-block
+    - include: vendor-prefixes
+    - include: color-values
+    - include: numeric-values
+    - include: css-variables
+    - include: scss-variables
+    - include: scss-data-uri
+    - include: scss-functions
+    - match: \b(wrap-reverse|wrap|whitespace|wait|w-resize|visible|vertical-text|vertical-ideographic|uppercase|upper-roman|upper-alpha|unicase|underline|ultra-expanded|ultra-condensed|transparent|transform|top|titling-caps|thin|thick|text-top|text-bottom|text|tb-rl|table-row-group|table-row|table-header-group|table-footer-group|table-column-group|table-column|table-cell|table|sw-resize|super|subpixel-antialiased|strict|stretch|step-start|step-end|static|start|sRGB|square|square|space-between|space-around|space|solid|soft-light|small-caps|separate|semi-expanded|semi-condensed|se-resize|scroll|screen|scale-down|saturation|s-resize|running|rtl|row-reverse|row-resize|row|round|round|right|ridge|reverse|repeat-y|repeat-x|repeat|relative|progressive|progress|pre-wrap|pre-line|pre|pointer|petite-caps|paused|pan-y|pan-x|pan-up|pan-right|pan-left|pan-down|padding-box|overline|overlay|outside|outset|optimizeSpeed|optimizeSpeed|optimizeQuality|optimizeLegibility|open-quote|opacity|oblique|nw-resize|nowrap|not-allowed|normal|nonzero|none|no-repeat|no-open-quote|no-drop|no-close-quote|newspaper|ne-resize|n-resize|multiply|move|miter|middle|middle|medium|max-height|manipulation|main-size|luminosity|ltr|lr-tb|lowercase|lower-roman|lower-alpha|loose|local|list-item|linearRGB|linear(?!-)|line-through|line-edge|line|lighter|lighten|left|keep-all|justify|italic|inter-word|inter-ideograph|inside|inset|inline-block|inline|inherit|infinite|inactive|ideograph-space|ideograph-parenthesis|ideograph-numeric|ideograph-alpha|hue|horizontal|hidden|help|hard-light|hand|groove|geometricPrecision |geometricPrecision|forwards|flex-start|flex-end|flex|fixed|extra-expanded|extra-condensed|expanded|exclusion|evenodd |end |ellipsis|ease-out|ease-in-out|ease-in|ease|e-resize|double|dotted|distribute-space|distribute-letter|distribute-all-lines|distribute|disc|disabled|difference|default|decimal|dashed|darken|currentColor|crosshair|crispEdges|cover|content-box|contain|condensed|column-reverse|column|color-dodge|color-burn|color|collapse|col-resize|close-quote|circle|char|center|capitalize|butt|break-word|break-all|bottom|both|border-box|bolder|bold|block|bidi-override|bevel|below|baseline|balance|backwards|auto|antialiased|always|alternate-reverse|alternate|all-small-caps|all-scroll|all-petite-caps|all|absolute)(?![-])\b
+      scope: support.constant.property-value.css
+    - match: (\b(?i:webdings|verdana|utopia|trebuchet|times|tahoma|system|symbol|serif|sans-serif|monospace|lucida|impact|helvetica|georgia|garamond|futura|fantasy|cursive|courier|comic|century|arial)\b)
+      scope: support.constant.font-name.css
+    - match: (rect)\s*(\()
+      captures:
+        1: support.function.misc.css
+        2: punctuation.definition.group.begin.css
+      push:
+        - meta_scope: meta.group.css
+        - match: '\)'
+          scope: punctuation.definition.group.end.css
+          pop: true
+        - include: numeric-values
+    - match: '(whiteness|url-prefix|url|translate[XYZ]|translate3d|translate|tint|skew[XY]|skew|shade|sepia|scale[XYZ]|scale|saturation|saturate|rotate[XYZ]|rotate3d|rotate|rgba|rgb|repeating-radial-gradient|repeating-linear-gradient|regexp|rect|radial-gradient|opacity|minmax|matrix3d|matrix|local|linear-gradient|lightness|invert|image-set|image|hsla|hsl|grayscale|gray|format|drop-shadow|domain|device-cmyk|cubic-bezier|cross-fade|counters|counter|contrast|color|brightness|blur|blenda|blend|blackness|attr)\s*(\()'
+      captures:
+        1: support.function.css
+        2: meta.group.css punctuation.definition.group.begin.css
+      push:
+        - meta_scope: meta.function-call.css
+        - meta_content_scope: meta.group.css meta.function.parameters.css
+        - match: '\)'
+          scope: meta.group.css punctuation.definition.group.end.css
+          pop: true
+        - include: color-values
+        - include: numeric-values
+        - include: css-variables
+        - include: scss-variables
+        - include: scss-functions
+        - include: scss-operators
+        - include: literal-string
+        - include: unquoted-string
+    - include: literal-string
+    - include: unquoted-concatenated-string
+    - include: scss-operators
+    - include: property-names
+
+  rule-list:
     - match: ':'
-      push: value_list
-
-    # push onto the quoted string stack
-    - match: '{{quoted_string}}'
-      push: quoted_string
-
-    # push onto the interpolation stack
-    - match: '{{interpolation_start}}'
-      push: interpolation
-
-    # include patterns
-    - include: css_variable
-    - include: variable
-    - include: numeric
-    - include: unit
-    - include: function
-    - include: operator
-    - include: reserved_word
-    - include: property_value
-
-
-  # patterns
-
-  css_variable:
-    - match: --[\w-]*
-      scope: variable.parameter.sass
-
-  variable:
-    - match: \$[\w-]*|\.{3}
-      scope: variable.parameter.sass
-
-  css_function_has_quote:
-    - match: \b(url|format|attr)\((.+?)\)
       captures:
-        1: support.constant.property-value.css.sass
-        2: string.quoted.css.sass
+        0: punctuation.separator.key-value.css
+      push:
+        - match: '(?:$)'
+          pop: true
+        - include: property-names
+        - match: '\s+'
+          push:
+          - match: '(?:$)'
+            pop: true
+          - meta_content_scope: meta.property-value.css
+          - include: property-values
+    # - match: \s+
+    #   captures:
+    #     1: punctuation.separator.key-value.css
+    #   push:
+    #     - meta_scope: meta.property-value.css
+    #     - match: '^\n'
+    #       pop: true
+    #     - include: property-values
 
-  css_function:
-    - match: \b(annotation|blur|brightness|calc|character-variant|circle|contrast|cross-fade|cubic-bezier|drop-shadow|element|ellipse|fit-content|frames|grayscale|hue-rotate|image|image-set|inset|invert|leader|linear-gradient|local|matrix|matrix3d|minmax|opacity|ornaments|perspective|polygon|radial-gradient|rect|repeat|repeating-linear-gradient|repeating-radial-gradient|rotate|rotate3d|rotateX|rotateY|rotateZ|saturate|scale|scale3d|scaleX|scaleY|scaleZ|sepia|skew|skewX|skewY|steps|styleset|stylistic|swash|symbols|target-counter|target-counters|target-text|translate|translate3d|translateX|translateY|translateZ|var)+(?=\()
-      scope: support.constant.property-value.css.sass
+  selector:
+    - include: scss-interpolation
+      # Combinators
+      # https://drafts.csswg.org/selectors-4/#combinators
+      # https://drafts.csswg.org/css-scoping/#deep-combinator
+    - match: '\s*({{combinators}})(?![>~+])\s*'
+      scope: meta.selector.css
+      captures:
+        1: punctuation.separator.combinator.css
+    - match: '\s*(&)'
+      captures:
+        1: keyword.operator.ampersand.scss
+      push:
+        - meta_scope: meta.selector.css
+        - match: '\s'
+          pop: true
+        - include: selector
+        # &-selector for BEM-ish classnames
+        - match: '(-+|_+)[a-zA-Z_][a-zA-Z0-9_-]*'
+          scope: entity.other.attribute-name.css
+    - match: '\b(a|abbr|acronym|address|applet|area|article|aside|audio|b|base|basefont|bdi|bdo|big|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|content|data|datalist|dd|del|details|dfn|dir|dialog|div|dl|dt|element|em|embed|eventsource|fieldset|figure|figcaption|footer|form|frame|frameset|h[1-6]|head|header|hgroup|hr|html|i|iframe|img|input|ins|isindex|kbd|keygen|label|legend|li|link|main|map|mark|menu|meta|meter|nav|noframes|noscript|object|ol|optgroup|option|output|p|param|picture|pre|progress|q|rp|rt|rtc|s|samp|script|section|select|shadow|small|source|span|strike|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|tt|u|ul|var|video|wbr|xmp|circle|clipPath|defs|ellipse|filter|foreignObject|g|glyph|glyphRef|image|line|linearGradient|marker|mask|path|pattern|polygon|polyline|radialGradient|rect|stop|switch|symbol|text|textPath|tref|tspan|use)\b\s*(?=([a-z.,+{#\s\[\)]|:+[a-z]|$))'
+      scope: meta.selector.css
+      captures:
+        1: entity.name.tag.css
+    - match: '(\.)(?=-?([a-zA-Z_]|#{)[a-zA-Z0-9_-]*)'
+      captures:
+        1: punctuation.definition.entity.css
+      push:
+        - meta_scope: meta.selector.css entity.other.attribute-name.class.css
+        - include: scss-interpolation
+        - match: '(?=[^a-zA-Z0-9_-])'
+          pop: true
+    - match: "(#)(?=-?([a-zA-Z_]|#{)[a-zA-Z0-9_-]*)"
+      captures:
+        1: punctuation.definition.entity.css
+      push:
+        - meta_scope: meta.selector.css entity.other.attribute-name.id.css
+        - include: scss-interpolation
+        - match: '(?=[^a-zA-Z0-9_-])'
+          pop: true
+    - match: "(%)(?=-?([a-zA-Z_]|#{)[a-zA-Z0-9_-]*)"
+      captures:
+        1: punctuation.definition.entity.css
+      push:
+        - meta_scope: meta.selector.css entity.other.attribute-name.placeholder.css
+        - include: scss-interpolation
+        - match: '(?=[^a-zA-Z0-9_-])'
+          pop: true
+    - match: '\*'
+      scope: entity.name.tag.wildcard.css
+    - match: (:)(visited|valid|target|scope|root|right|required|read-write|read-only|out-of-range|optional|only-of-type|only-child|link|left|last-of-type|last-child|invalid|indeterminate|in-range|hover|fullscreen|focus|first-of-type|first-child|first|enabled|empty|disabled|default|checked|any|active)\b
+      scope: meta.selector.css entity.other.pseudo-class.css
+      captures:
+        1: punctuation.definition.entity.css
+    - match: (:)(extend)\b
+      scope: meta.selector.css entity.other.pseudo-class.scss
+      captures:
+        1: punctuation.definition.entity.css
+    - match: ((:)not|lang|dir)(\()
+      captures:
+        1: entity.other.pseudo-class.css
+        2: punctuation.definition.entity.css
+        3: punctuation.definition.group.begin.css
+      push:
+        - meta_scope: meta.selector.css meta.group.css
+        - match: '\)'
+          scope: punctuation.definition.group.end.css
+          pop: true
+        - include: selector
+    - match: ((:)nth-(?:(?:last-)?child|(?:last-)?of-type))(?=\()
+      captures:
+        1: entity.other.pseudo-class.css
+        2: punctuation.definition.entity.css
+      push:
+        - meta_scope: meta.selector.css
+        - match: '\)'
+          scope: meta.group.css punctuation.definition.group.end.css
+          pop: true
+        - match: '\('
+          scope: meta.group.css punctuation.definition.group.begin.css
+        - match: '[+-]'
+          scope: keyword.operator.css
+        - match: '[0-9]+(n*)'
+          scope: meta.group.css constant.numeric.css
+          captures:
+            1: keyword.other.unit.css
+    - match: (:|::)(selection|first-line|first-letter|before|backdrop|after)\b
+      scope: meta.selector.css entity.other.pseudo-element.css
+      captures:
+        1: punctuation.definition.entity.css
+    - match: '\['
+      scope: punctuation.definition.entity.css
+      push:
+        - meta_scope: meta.attribute-selector.css
+        - include: qualified-name
+        - match: '({{ident}})'
+          scope: entity.other.attribute-name.css
+        - match: '\s*([~*|^$]?=)\s*'
+          captures:
+            1: keyword.operator.attribute-selector.css
+          push:
+            - include: literal-string
+            - include: unquoted-string
+            - match: '(?=(\s|\]))'
+              pop: true
+        - match: '(?:\s+([iI]))?'  # case insensitive flag
+          captures:
+            1: keyword.other.css
+        - match: '\]'
+          scope: punctuation.definition.entity.css
+          pop: true
 
-  function:
-    - match: '[\w-]+(?=\()'
-      scope: support.function.sass
+  unquoted-concatenated-string:
+    # cases:
+    # unquoted string +
+    # + unquoted string
+    # unquoted string + unquoted string
+    - match: '([a-zA-Z_-]+)\s+(\+)\s+([a-zA-Z_-]+)|(\+)\s+([a-zA-Z_-]+)|([a-zA-Z_-]+)\s+(\+)'
+      captures:
+        1: string.unquoted.css
+        2: keyword.operator.scss
+        3: string.unquoted.css
+        4: keyword.operator.scss
+        5: string.unquoted.css
+        6: string.unquoted.css
+        7: keyword.operator.scss
 
-  property_value:
-    - match: '[\w-]*\w+\b(?!\s*:|-)'
-      scope: support.constant.property-value.css.sass
+  unquoted-string:
+    - match: '[^\s\]\[''"]'
+      scope: string.unquoted.css
 
-  numeric:
-    - match: -?\d*\.?\d+|-(?=#{|\$|\()
-      scope: constant.numeric.css.sass
+  literal-string:
+    - match: "'"
+      scope: punctuation.definition.string.begin.css
+      push:
+        - meta_scope: string.quoted.single.css
+        - match: (')|(\n)
+          captures:
+            1: punctuation.definition.string.end.css
+            2: invalid.illegal.newline.css
+          pop: true
+        - include: string-content
+    - match: '"'
+      scope: punctuation.definition.string.begin.css
+      push:
+        - meta_scope: string.quoted.double.css
+        - match: (")|(\n)
+          captures:
+            1: punctuation.definition.string.end.css
+            2: invalid.illegal.newline.css
+          pop: true
+        - include: string-content
 
-  unit:
-    - match: (?<=\d|})(em|ex|ch|rem|vh|vw|vmin|vmax|px|mm|cm|in|pt|pc|deg|grad|rad|turn|Hz|kHz|dpi|dpcm|dppx|s|ms|n(\+|-)?|%)
-      scope: keyword.other.unit.css.sass
-
-  operator:
-    - match: \+|-|\*|/|%|=|!|<|>|~
-      scope: keyword.operator.css.sass
-
-  hex_color:
-    - match: '#([0-9a-fA-F]{3}|[0-9a-fA-F]{6})\b'
-      scope: constant.other.color.rgb-value.css.sass
-
-  flag:
-    - match: '!(important|default|optional|global)'
-      scope: keyword.other.important.css.sass
-
-  reserved_word:
-    - match: \b(true|false|null|from|through|to|in|or|and|not|all|print|screen|speech|only)\b(?!-)
-      scope: keyword.other.reserved.sass
-
-  property_name:
-    - match: '{{interpolation_start}}'
-      push: interpolation
-    - match: '[\w-]'
-      scope: support.type.property-name.css.sass
-    - match: (?=:)
-      pop: true
-
-  invalid:
-    - match: \{|\}|;
-      scope: invalid
-
-
-  # stacks
-
-  map:
-    - match: //
-      push: line_comment
-    - match: '{{quoted_string}}'
-      push: quoted_string
-    - match: '{{interpolation_start}}'
-      push: interpolation
-    - include: flag
-    - include: hex_color
-    - include: css_variable
-    - include: variable
-    - include: numeric
-    - include: unit
-    - include: css_function_has_quote
-    - include: css_function
-    - include: function
-    - include: operator
-    - include: reserved_word
-    - include: property_value
-    - match: $
-      pop: true
-
-  value_list:
-    - match: //
-      push: line_comment
-    - match: '{{property_name}}'
-      push: property_name
-    - match: '{{quoted_string}}'
-      push: quoted_string
-    - match: '{{interpolation_start}}'
-      push: interpolation
-    - include: flag
-    - include: hex_color
-    - include: css_variable
-    - include: variable
-    - include: numeric
-    - include: unit
-    - include: css_function_has_quote
-    - include: css_function
-    - include: function
-    - include: operator
-    - include: reserved_word
-    - include: property_value
-    - match: $
-      pop: true
-
-  block_comment:
-    - meta_scope: comment.block.css.sass
-    - match: '{{interpolation_start}}'
-      push: interpolation
-    - match: \*/
-      pop: true
-
-  line_comment:
-    - meta_scope: comment.line.sass
-    - match: '{{interpolation_start}}'
-      push: interpolation
-    - match: $
-      pop: true
-
-  id_selector:
-    - meta_scope: entity.other.attribute-name.id.css.sass
-    - match: '{{interpolation_start}}'
-      push: interpolation
-    - match: $|(?=\s|,|:|;|\.|\(|\)|\[|{|>|\+|~)
-      pop: true
-
-  class_selector:
-    - meta_scope: entity.other.attribute-name.class.css.sass
-    - match: '{{interpolation_start}}'
-      push: interpolation
-    - match: $|(?=\s|,|:|;|#|\(|\)|\[|{|>|\+|~)
-      pop: true
-
-  quoted_string:
-    - meta_scope: string.quoted.double.css.sass
-    - match: \\.
-      scope: constant.character.escape
-    - match: '{{interpolation_start}}'
-      push: interpolation
-    - match: \1
-      pop: true
-
-  interpolation:
-    - meta_scope: keyword.control.interpolation.sass
-    - match: '{{quoted_string}}'
-      push: quoted_string
-    - include: css_variable
-    - include: variable
-    - include: numeric
-    - include: unit
-    - include: function
-    - include: operator
-    - include: property_value
-    - match: '{{interpolation_end}}'
-      pop: true
+  string-content:
+    - match: \\\s*\n
+      scope: constant.character.escape.newline.css
+    - match: '\\(\h{1,6}|.)'
+      scope: constant.character.escape.css
+    - include: scss-interpolation

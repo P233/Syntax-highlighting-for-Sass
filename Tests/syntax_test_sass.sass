@@ -1,216 +1,282 @@
-// SYNTAX TEST "Packages/Syntax-Highlighting-for-Sass/Syntaxes/Sass.sublime-syntax"
+// SYNTAX TEST "Packages/SASS/Syntaxes/Sass.sublime-syntax"
+// https://sass-lang.com/documentation/file.INDENTED_SYNTAX.html
+
+// This comment will not appear in the CSS output.
+  This is nested beneath the comment as well,
+  so it also won't appear
 
 /*
-  block comment
+  Property syntax with the colon before the property name
 */
+#main
+  :color blue
+  :font-size 0.3em
+  // ^ support.type.property-name.css
+  // ^ - meta.selector
+  //   ^ - keyword.operator
 
 /*
-  block comment contains #{ $variable }
+  Nested selectors and &
+  https://sass-lang.com/documentation/file.SASS_REFERENCE.html#nested_rules
+  Variables and !global etc
+  https://sass-lang.com/documentation/file.SASS_REFERENCE.html#variables_
 */
+#main h1+.sub:not(.class)
+//    ^^^^^^^^^^^^^^^^^^^ meta.selector.css
+//    ^^ entity.name.tag.css
+//     ^ - constant.numeric
+//      ^ punctuation.separator.combinator.css
+//           ^ punctuation.definition.entity.css
+//               ^ punctuation.definition.group.begin
+
+  color: #00ff00
+  height: 97%
+  animation: progress-fade-in-animation .15s ease-in
+//            ^ - meta.selector
+//                   ^ - keyword.operator
+//                         ^ - keyword.operator
+
+  object-fit: scale-down
+// ^^^^^^^^^ support.type.property-name.css
+// ^ - meta.selector
+//      ^ - keyword.operator
+
+  $width: 5em !global
+//^^^^^^ variable.declaration.scss
+//^ punctuation.definition.variable.scss
+//            ^^^^^^^ keyword.other.scss
+
+  width: $width
+//^^^^^ meta.property-name.css
+// ^ support.type.property-name.css
+//     ^ punctuation.separator.key-value.css
+//       ^^^^^^ meta.property-value.css
+//       ^^^^^^ variable.other.scss
+//       ^ punctuation.definition.variable.scss
+
+  .redbox:hover
+    background-color: #ff0000
+    color: #000000
+
+  &
+//^^ meta.selector.css
+
+  &:hover text-decoration: underline
+//^^^^^^^^ meta.selector.css
+//^ keyword.operator.ampersand.scss
+// ^ entity.other.pseudo-class.css punctuation.definition.entity.css
+
+  body.firefox ~ & font-weight: normal
+//^^^^^^^^^^^^^^^^^ meta.selector
+//             ^ punctuation.separator.combinator.css
+//               ^ keyword.operator.ampersand.scss
+
+  &-bemish
+//^ keyword.operator.ampersand.scss
+// ^^^^^^^ entity.other.attribute-name.css
+// ^^^^^^^^ meta.selector.css
+
 
 /*
-  block comment contains #{ function($variable) + "escap\e" + -.5em }
+  Nested properties
+  https://sass-lang.com/documentation/file.SASS_REFERENCE.html#nested_properties
+*/
+.funky
+  font:
+//  ^ meta.property-name.css support.type.property-name.css
+
+    family: fantasy
+//                ^ meta.property-value.css support.constant.font-name.css
+//  ^ meta.property-name.css support.type.property-name.css
+
+    size: 1rem*$ratio
+//  ^ meta.property-name.css support.type.property-name.css
+
+    weight: bold
+//  ^ meta.property-name.css support.type.property-name.css
+
+  font: 20px/24px fantasy
+//                ^ meta.property-value.css support.constant.font-name.css
+//  ^ meta.property-name.css support.type.property-name.css
+
+    weight: bold
+//  ^ meta.property-name.css support.type.property-name.css
+
+    width: calc((100px - 20px) / 2)
+//              ^ punctuation.definition.group - string
+
+
+
+
+/*
+  Comments
+  https://sass-lang.com/documentation/file.SASS_REFERENCE.html#comments
+  block comment contains #{ $variable
+  block comment contains #{ function($variable) + "escap\e" + -.5em
+*/
+// <- comment.block.css punctuation.definition.comment.css
+
+// line comment
+// line comment contains #{ $variable
+// line comment contains #{ function($variable) + "escap\e" + -.5em
+// <- comment.line.double-slash.scss punctuation.definition.comment.css
+
+
+/*
+  Strings, (un)quoted, operations and interpolation
+  https://sass-lang.com/documentation/file.SASS_REFERENCE.html#sass-script-strings
+  https://sass-lang.com/documentation/file.SASS_REFERENCE.html#interpolation_
+  https://sass-lang.com/documentation/file.SASS_REFERENCE.html#string_operations
+
 */
 
+@mixin firefox-message($selector)
+// <- meta.at-rule.scss punctuation.definition.keyword.scss
+// ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.at-rule.scss
+// ^ keyword.control.at-rule.scss
+//     ^^^^^^^^^^^^^^^ entity.name.function.scss
+//                    ^ meta.group.scss meta.function.parameters.scss punctuation.definition.group.begin.scss
+//                              ^ meta.group.scss meta.function.parameters.scss punctuation.definition.group.end.scss
+//                     ^^ meta.function.parameters.scss variable.other.scss
+//                     ^ punctuation.definition.variable.scss
 
-#id
+  body.firefox #{$selector}:before
+//             ^^^^^^^^^^^^ meta.group.interpolation.scss
+//             ^ punctuation.definition.variable.scss
+//              ^ punctuation.definition.group.begin.scss
+//               ^^^^^^^^^ variable.other.scss
+//               ^ punctuation.definition.variable.scss
+//                        ^ punctuation.definition.group.end.scss
+//                         ^ punctuation.definition.entity.css
+//                          ^ entity.other.pseudo-element.css
 
-// line comment contains #{ $variable }
+    content: "Hi, Firefox users!"
+//           ^^^^^^^^^^^^^^^^^^^^ meta.property-value.css string.quoted.double.css
+//           ^ punctuation.definition.string.begin.css
+//                              ^ punctuation.definition.string.end.css
 
-// line comment contains #{ function($variable) + "escap\e" + -.5em }
+    content: 'Hi, Firefox users!'
+//           ^^^^^^^^^^^^^^^^^^^^ meta.property-value.css string.quoted.single.css
+//           ^ punctuation.definition.string.begin.css
+//                              ^ punctuation.definition.string.end.css
 
+    background: url(data:image/gifbase64,R0lGODlhEAAQAMQAAORHHOVSKudfOulrSOp3WOyDZu6QdvCchPGolfO0o/XBs/fNwfjZ0frl3/zy7////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAkAABAALAAAAAAQABAAAAVVICSOZGlCQAosJ6mu7fiyZeKqNKToQGDsM8hBADgUXoGAiqhSvp5QAnQKGIgUhwFUYLCVDFCrKUE1lBavAViFIDlTImbKC5Gm2hB0SlBCBMQiB0UjIQA7)
+//                  ^^^^^ string.unquoted.css
 
-// id selectors
-#id
+  p::before
+    background-image: some bullshit string
+//                    ^^^^^^^^^^^^^^^^^^^^ - string
 
-#id-#{$variable}-selector
+    cursor: e + -resize
+//          ^ string.unquoted
+//           ^ - string
+//            ^ keyword.operator.scss
+//             ^ - string
+//              ^^^^^ string.unquoted
 
-#id-#{$variable}-#{$variable}
+    content: "Foo " + Bar
+//               ^ string.quoted.double
+//                    ^ string.unquoted
+//                       ^ - string
+//                  ^ keyword.operator.scss
 
-#id-#{$variable}-selector, #another-id-selector
+    font-family: sans- + "serif"
+//               ^^^^^ string.unquoted
+//                              ^ - string
+//                     ^ keyword.operator.scss
 
-#id-#{$variable}-selector, #another-id-selector
+    content: "I ate #{5 + 10} pies!"
+//           ^^^^^^^^^^^^^^^^^^^^^^^ string.quoted.double
+//                  ^^^^^^^^^ meta.group.interpolation.scss
+//                  ^ punctuation.definition.variable.scss
+//                   ^ punctuation.definition.group.begin.scss
+//                    ^ constant.numeric.css
+//                      ^ keyword.operator.scss
+//                        ^ constant.numeric.css
+//                          ^ punctuation.definition.group.end.scss
 
-#id:hover::before
+    content: "I ate #{$value} pies!"
+//                    ^^^^^^ variable.other.scss
+//                    ^ punctuation.definition.variable.scss
 
-#id:not(body)::before // body should be highlighted as type selector not value
+    @include breathe(somestring)
+//                   ^ string.unquoted.css
+//                             ^ - string
 
-#id:not(body):not(#id):not(.class):not(:first-child) {}
-
-#id:not(#{$variable})::before {}
-
-
-.class
-
-.class-#{$variable}-selector
-
-.class-#{$variable}-#{$variable}
-
-.class-#{$variable}-selector, .another-class-selector
-
-.class-#{$variable}-selector, .another-class-selector
-
-.class:haver::before
-
-.class:not(body)::before
-
-.class:not(body):not(#id):not(.class):not(:first-child)
-
-.class:not(#{$variable})::before
-
-
-#id.class:nth-of-type(2n)
-
-.class#id:nth-child(2n-1)
-.class#id:nth-child(2n+1)
-.class#id:nth-child(2n - 1)
-
-
-#id .class, #id > .class, #id ~ .class, #id + .class
-
-
-*, *::before, *::after {}
-
-
-#{$variable}::before {}
-
-##{$variable}-selector::before {}
-
-.#{$variable}-selector::before {}
-
-
-[attr]
-a[title]  // title should be highlighted as attribution, not type selector
-a[href=""]
-a[href=ab-_a123c]
-a[href*=""]
-a[href^=""]
-a[href$=""]
-a[data-*=""]
-a[data~=""]
-a[data|=""]
+    @include breathe(border-bottom-color)
+//                   ^^^^^^^^^^^^^^^^^^^ support.type.property-name.css
 
 
-%placeholder
 
-@extend %placeholder-a1o_321;
-
-%#{$variable}-placeholder // Interpoluation in placeholder selector
-
-
-::-webkit-selection
-::selection
+@include firefox-message(".header" + test)
+//                       ^^^^^^^^^ meta.group.scss meta.function.parameters.scss string.quoted.double.css
+//                                 ^ keyword.operator.scss
+//                                   ^ string.unquoted.css
+//                                       ^ - string
 
 
-.block
-  &.class
-  &::before
-
-  &__element
-  &--modifier
-  &__element--#{$modifier}
-
-  &#{$variable}
-
-  &:not(&-#{$variable})
-
-
-:root
-  --css-variable_123: 20px
-
-body
-  padding: var(--css-variable_123)
-  proprety-name: value
-  proprety-#{$variable}: value
-  #{$var}-proprety: value
-  proprety-#{$var}-proprety: value
-
-
-$variable: 123px
-$variable123: #fff
-$va1ri2ab3le-321a: #ABCDEF !default
-$_va1ri_2ab3le_321a: inline !important
-$variable: function($variable)
-
+/*
+  Lists, Maps
+  https://sass-lang.com/documentation/file.SASS_REFERENCE.html#maps
+*/
 $map: (
-  body: (
-    width-1: 200px * $variable #{$variable} 'stirng',
-    height: (
-      "key": 200px * $variable #{$variable} 'stirng' function(),
-      key: (
-        "key": 200px * $variable #{$variable} 'stirng' function()
-      )
-    )
-  )
-);
-
-
-$map: (
-  key-1: #000,
+  $key-1: #000,
   key-2: (
     key-3: 123px
   )
-);
-
-body
-  content: "double quoted string"
-  content: 'single quoted string'
-  content: "broken double quoted string will not be highlighted
-  content: 'broken single quoted string will not be highlighted
-  content: "double quoted string contains \escape"
-  content: 'single quoted string contains \escape'
-  content: "double quoted string contains #{ $variable }"
-  content: 'single quoted string contains #{ $variable }'
-  content: "double quoted string contains #{ function($variable) + -.5em }"
-  content: 'single quoted string contains #{ function($variable) + -.5em }'
-
-body
-  width: 123px
-  width: .123px
-  width: -321.123px
-  width: -.123px
-  width: -#{$number}px
-  width: -$variable
-  width: -($variable * 2)
-  width: 20px+20px
-  width: auto
-
-  background: url(../../assets/image.pn
-  background: url(../../assets/image.png)
-
-  content: attr(data-att
-  content: attr(data-attr)
+)
+@each $animal, $color, $cursor in (puma, black, default),
+                                  (sea-slug, blue, pointer),
+                                  (egret, white, move)
+  .#{$animal-icon}
+    background-image: url('/images/#{$animal}.png')
+    border: 2px solid $color
+    cursor: $cursor
 
 
-a
-  text-align: center
-  display: block
-  line-height: 1.5
-  background: red
+.selector
+  color: nth(map-merge($map, $map2), 3)
+//       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ meta.property-value.css meta.function-call.scss
+//       ^^^ support.function.scss
+//          ^ punctuation.definition.group.begin.scss
+//           ^^^^^^^^^^^^^^^^^^^^^^^^^ meta.function.parameters.scss
+//           ^^^^^^^^^ support.function.scss
+//                    ^ punctuation.definition.group.begin.scss
+//                         ^ punctuation.separator.css
+//                                ^ punctuation.definition.group.end.scss
 
 
-@mixin mixin()
-= mixin-123_1eaf2u ()
 
-@function function($a, $b, $c...)
+/*
+  Operators
+  https://sass-lang.com/documentation/file.SASS_REFERENCE.html#operations
+*/
 
-@include mixin()
-+ mixin-123_1eaf2u
+p
+  width: $base-width + 2 * -5rem / -$var
+//                    ^^^^^^^^^^^^^^^^^^ - string
+//                     ^ constant.numeric
+//                       ^ keyword.operator.scss
+//                         ^^^^ constant.numeric
+//                           ^^ keyword.other.unit.css
+//                               ^ keyword.operator.scss
+//                                 ^ keyword.operator.scss
+//                                  ^^^^ variable.other.scss
 
-@else if
-@if not
-@if $a or $b
-
-@media only screen and (max-width: 100px) and (min-width: 50px)
-
-@media print
 
 
-// TODO
+/*
+  Color Operations
+  https://sass-lang.com/documentation/file.SASS_REFERENCE.html#color_operations
+*/
+$translucent-red: rgba(255, 0, 0, 0.5)
+//                ^^^^ support.function.misc.css
+p
+  color: opacify($translucent-red, 0.3)
+//       ^^^^^^^ support.function.scss
+//              ^ punctuation.definition.group.begin.scss
+//                                    ^ punctuation.definition.group.end.scss
 
-body
-  background-image: url(if($bootstrap-sass-asset-helper, twbs-image-path("#{$file-1x}"), "#{$file-1x}"))
+  background-color: transparentize($translucent-red, 0.25)
+//                  ^^^^^^^ support.function.scss
 
-// line comment
-   line comment
-   line comment
